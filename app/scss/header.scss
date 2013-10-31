@@ -1,0 +1,39 @@
+/* style header */
+header {
+	margin: auto;
+	width: 940px;
+	height: 135px;
+	.polo360-header {
+		margin-right: 48px;
+	}	
+	.logo-polo360 {	
+		display: block;
+		background-image: url('../images/polo360-logo.png');
+		width: 287px;
+		height: 76px;	
+		margin:29px 0;	
+		text-indent: -9999px;
+		background-repeat: no-repeat;
+	}
+	.nav-header {
+		margin: 45px 0;		
+	}
+	.links-content {
+		display: block;
+		text-transform: none;
+		color: #cacaca;
+		font-size: 11px;
+		font-family: 'Tahoma-Regular', sans-serif;
+	}
+}
+.nav-header li {
+	border-left: dashed 1px #ccc;
+	font-size: 14px;
+	font-weight: bold;	
+	font-family: 'Georgia', sans-serif;
+}
+.nav-header li a {
+	color: #666;
+	padding: 0 8px;
+	text-transform: uppercase;
+}

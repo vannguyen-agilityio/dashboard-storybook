@@ -1,0 +1,13 @@
+@mixin  arrow-down($mgtop, $mgright, $mgleft, $btop, $bright, $bleft) {	
+	margin-top: $mgtop;
+	margin-right: $mgright;
+	margin-left: $mgleft;
+	border-top: $btop;	
+	border-right-width: $bright;
+	border-left-width: $bleft;	
+}
+@mixin  arrow-up($bbottom, $bright, $bleft) {		
+	border-bottom: $bbottom;	
+	border-right-width: $bright;
+	border-left-width: $bleft;
+}
