@@ -40,7 +40,9 @@
  	background: -prefix-linear-gradient(to left, $list-color);
     /* The new syntax needed by standard-compliant browsers (Opera 12.1, IE 10, Fx 16 onwards), without prefix */
     background: linear-gradient(to left, $list-color);
-    -pie-background: linear-gradient(to left, $list-color);  
+    background: -ms-linear-gradient(to left, $list-color);
+    background: -o-linear-gradient(to left, $list-color);
+    -pie-background: linear-gradient(to left, $list-color);      
 }
 @mixin bg-gradient-to-right($list-color...){
  	background: -prefix-linear-gradient(to right, $list-color);
