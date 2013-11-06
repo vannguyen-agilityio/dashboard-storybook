@@ -303,7 +303,7 @@ strong {
 @-moz-document url-prefix() {
   .public-content .message {
     height: 135px;
-    padding: 10px 0; } }
+    padding: 10px 0 10px 10px; } }
 
 footer {
   background: #333;
