@@ -36,13 +36,20 @@
     background: linear-gradient($color-top, $color-bottom);
     -pie-background: linear-gradient($color-top, $color-bottom);    
 }
-@mixin bg-gradient-to-left($list-color...){
- 	background: -prefix-linear-gradient(to left, $list-color);
-    /* The new syntax needed by standard-compliant browsers (Opera 12.1, IE 10, Fx 16 onwards), without prefix */
+@mixin bg-gradient-to-left( $color-first, $list-color...){
+ 	/*background: -prefix-linear-gradient(to left, $list-color);
+   
     background: linear-gradient(to left, $list-color);
     background: -ms-linear-gradient(to left, $list-color);
     background: -o-linear-gradient(to left, $list-color);
-    -pie-background: linear-gradient(to left, $list-color);      
+    -pie-background: linear-gradient(to left, $list-color);   */   
+    background: $color-first; /*fallback for non-CSS3 browsers*/
+    background: -webkit-gradient(linear, 0 0, 0 100%, from($color-first) to($list-color)); /*old webkit*/
+    background: -webkit-linear-gradient(left, $color-first, $list-color); /*newer webkit*/
+    background: -moz-linear-gradient(left, $color-first, $list-color); /*old gecko*/
+    background: -o-linear-gradient(left, $color-first, $list-color); /*opera 11.10+*/
+    background: linear-gradient(to right, $color-first, $list-color); /*firefox 16+, chrome 26+, IE10+, opera 12.10+, future browsers*/
+    -pie-background: linear-gradient(to right, $color-first, $list-color); /*ie 6-9 via PIE*/
 }
 @mixin bg-gradient-to-right($list-color...){
  	background: -prefix-linear-gradient(to right, $list-color);
@@ -50,3 +57,4 @@
     background: linear-gradient(to right, $list-color);
     -pie-background: linear-gradient(to right, $list-color);  
 }
+ 

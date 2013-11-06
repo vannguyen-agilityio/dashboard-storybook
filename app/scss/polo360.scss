@@ -51,12 +51,14 @@ strong {
 .shadow-under:after,
 .shadow-under:before,
 hr {
-    behavior: url("../build-PIE/PIE.htc");
+    behavior: url(../build-PIE/PIE.htc);
 }
 .btn-gray {       
     margin: 0px 0 6px 0px;
     display: inline-block;   
-    color: #227ca5;     
+    color: #227ca5; 
+    /*@include bg-gradient-to-left(#e8e8e8,#fff,#f5f5f5,#f1f1f1,#e8e8e8); */ 
+    @include bg-gradient-top-bt(#e8e8e8,#f5f5f5)  
 }
 #slides {
     margin-bottom: 35px;
@@ -102,6 +104,7 @@ strong {
 }
 .main-content img {
     border: 5px solid #f3f3f3;
+    display: inline-block;
 }
 .main-content .show-img {   
     display: inline-block;
@@ -118,7 +121,7 @@ strong {
     width: 52px;
     height: 52px;
     display: inline-block;
-    background-image: url("../images/group-icon.png");
+    background-image: url(../images/group-icon.png);
     background-repeat: no-repeat;
 }
 .rss {
@@ -147,7 +150,8 @@ strong {
     }  
     .btn-blue {         
         margin-bottom: 20px;              
-        @include bg-gradient-top-bt(#4f85bc,#2f6192);
+        @include bg-gradient-top-bt(#487fb6,#2f6192);
+       /* @include bg-gradient-to-left(#487fb6,#3d7ab8,#3973ae,#3d6b99,#2f6192);*/
     }
     .group-links {
         margin: 10px 0 28px 0;
@@ -200,6 +204,14 @@ strong {
     padding-bottom: 100px\0;
     line-height: 18px;
 }
+@-moz-document url-prefix() {
+.public-content .message {
+        height: 135px;
+        padding: 10px 0;
+    }
+}
+
+
 footer {
     background: #333;
     color: #fff;
@@ -256,12 +268,12 @@ footer {
 .icon-next {
     top: 12px;
     right: 12px;
-    background: url("../images/next-icon.png") no-repeat;
+    background: url(../images/next-icon.png) no-repeat;
 }
 .next-blue {
     top: 13px;
     right: 6px;
-    background: url("../images/next-blue.png") no-repeat;
+    background: url(../images/next-blue.png) no-repeat;
 }
 .icon-next,
 .next-blue {
