@@ -36,13 +36,7 @@
     background: linear-gradient($color-top, $color-bottom);
     -pie-background: linear-gradient($color-top, $color-bottom);    
 }
-@mixin bg-gradient-to-left( $color-first, $list-color...){
- 	/*background: -prefix-linear-gradient(to left, $list-color);
-   
-    background: linear-gradient(to left, $list-color);
-    background: -ms-linear-gradient(to left, $list-color);
-    background: -o-linear-gradient(to left, $list-color);
-    -pie-background: linear-gradient(to left, $list-color);   */   
+@mixin bg-gradient-to-left( $color-first, $list-color...){ 	
     background: $color-first; /*fallback for non-CSS3 browsers*/
     background: -webkit-gradient(linear, 0 0, 0 100%, from($color-first) to($list-color)); /*old webkit*/
     background: -webkit-linear-gradient(left, $color-first, $list-color); /*newer webkit*/
@@ -57,4 +51,3 @@
     background: linear-gradient(to right, $list-color);
     -pie-background: linear-gradient(to right, $list-color);  
 }
- 

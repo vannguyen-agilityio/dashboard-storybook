@@ -57,6 +57,14 @@ module.exports = function(grunt) {
                 ]
             }
         },
+        csscss: {
+            options: {
+               ignoreSassMixins: true
+            },
+            dist: {
+              src: ['app/css/main.css']
+            }
+        },        
         connect: {
             options: {
                 port: 9000,
@@ -418,4 +426,6 @@ module.exports = function(grunt) {
         'test',
         'build'
     ]);
+    grunt.loadNpmTasks('grunt-csscss');
+    grunt.registerTask('abcd', ['css']);
 };

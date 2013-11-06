@@ -51,6 +51,14 @@ ul {
   -webkit-padding-start: 0px;
   overflow: hidden; }
 
+/*format style font-face*/
+@font-face {
+  font-family: 'MyWebFont';
+  /*font name*/
+  src: url("webfont.eot");
+  /* IE9 Compat Modes */
+  src: url("webfont.eot?#iefix") format("embedded-opentype"), url("webfont.woff") format("woff"), url("webfont.ttf") format("truetype"), url("webfont.svg#svgFontName") format("svg"), url("webfont.otf"); }
+
 /* style header */
 header {
   height: 135px; }
@@ -143,7 +151,6 @@ hr {
   margin: 0px 0 6px 0px;
   display: inline-block;
   color: #227ca5;
-  /*@include bg-gradient-to-left(#e8e8e8,#fff,#f5f5f5,#f1f1f1,#e8e8e8); */
   background: #e8e8e8;
   background: -webkit-gradient(linear, 0 0, 0 bottom, from(#e8e8e8), to(whitesmoke));
   background: -webkit-linear-gradient(#e8e8e8, whitesmoke);
@@ -152,6 +159,39 @@ hr {
   background: -o-linear-gradient(#e8e8e8, whitesmoke);
   background: linear-gradient(#e8e8e8, whitesmoke);
   -pie-background: linear-gradient(#e8e8e8, whitesmoke); }
+
+body:nth-of-type(1) .btn-blue {
+  background: #487fb6;
+  /*fallback for non-CSS3 browsers*/
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#487fb6) to(#3d7ab8, #3973ae, #3d6b99, #2f6192));
+  /*old webkit*/
+  background: -webkit-linear-gradient(left, #487fb6, #3d7ab8, #3973ae, #3d6b99, #2f6192);
+  /*newer webkit*/
+  background: -moz-linear-gradient(left, #487fb6, #3d7ab8, #3973ae, #3d6b99, #2f6192);
+  /*old gecko*/
+  background: -o-linear-gradient(left, #487fb6, #3d7ab8, #3973ae, #3d6b99, #2f6192);
+  /*opera 11.10+*/
+  background: linear-gradient(to right, #487fb6, #3d7ab8, #3973ae, #3d6b99, #2f6192);
+  /*firefox 16+, chrome 26+, IE10+, opera 12.10+, future browsers*/
+  -pie-background: linear-gradient(to right, #487fb6, #3d7ab8, #3973ae, #3d6b99, #2f6192);
+  /*ie 6-9 via PIE*/ }
+
+/* for chrome*/
+body:nth-of-type(1) .btn-gray {
+  background: #e8e8e8;
+  /*fallback for non-CSS3 browsers*/
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#e8e8e8) to(white, whitesmoke, #f1f1f1, #e8e8e8));
+  /*old webkit*/
+  background: -webkit-linear-gradient(left, #e8e8e8, white, whitesmoke, #f1f1f1, #e8e8e8);
+  /*newer webkit*/
+  background: -moz-linear-gradient(left, #e8e8e8, white, whitesmoke, #f1f1f1, #e8e8e8);
+  /*old gecko*/
+  background: -o-linear-gradient(left, #e8e8e8, white, whitesmoke, #f1f1f1, #e8e8e8);
+  /*opera 11.10+*/
+  background: linear-gradient(to right, #e8e8e8, white, whitesmoke, #f1f1f1, #e8e8e8);
+  /*firefox 16+, chrome 26+, IE10+, opera 12.10+, future browsers*/
+  -pie-background: linear-gradient(to right, #e8e8e8, white, whitesmoke, #f1f1f1, #e8e8e8);
+  /*ie 6-9 via PIE*/ }
 
 #slides {
   margin-bottom: 35px; }
@@ -251,8 +291,7 @@ strong {
     background: -ms-linear-gradient(#487fb6, #2f6192);
     background: -o-linear-gradient(#487fb6, #2f6192);
     background: linear-gradient(#487fb6, #2f6192);
-    -pie-background: linear-gradient(#487fb6, #2f6192);
-    /* @include bg-gradient-to-left(#487fb6,#3d7ab8,#3973ae,#3d6b99,#2f6192);*/ }
+    -pie-background: linear-gradient(#487fb6, #2f6192); }
   .public-content .group-links {
     margin: 10px 0 28px 0; }
   .public-content h5 {
@@ -298,6 +337,7 @@ strong {
 .public-content .message {
   padding-bottom: 86px;
   padding-bottom: 100px\0;
+  /*for IE8*/
   line-height: 18px; }
 
 @-moz-document url-prefix() {
@@ -305,6 +345,7 @@ strong {
     height: 135px;
     padding: 10px 0 10px 10px; } }
 
+/*for firefox*/
 footer {
   background: #333;
   color: #fff;
