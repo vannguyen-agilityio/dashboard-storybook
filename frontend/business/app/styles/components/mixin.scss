@@ -1,0 +1,68 @@
+@mixin  arrow-down($mgtop, $mgright, $mgleft, $btop, $bright, $bleft) {	
+	margin-top: $mgtop;
+	margin-right: $mgright;
+	margin-left: $mgleft;
+	border-top: $btop;	
+	border-right-width: $bright;
+	border-left-width: $bleft;	
+}
+@mixin  arrow-up($bbottom, $bright, $bleft) {		
+	border-bottom: $bbottom;	
+	border-right-width: $bright;
+	border-left-width: $bleft;
+}
+@mixin center-block() {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+@mixin box-shadow($style-shadow...) {
+	-moz-box-shadow: $style-shadow;
+    -webkit-box-shadow: $style-shadow;
+    box-shadow: $style-shadow; 
+}
+@mixin border-radius($style-radius) {	
+    -webkit-border-radius: $style-radius;
+    -moz-border-radius: $style-radius;
+    border-radius: $style-radius;
+}
+@mixin bg-gradient-top-bt($color-top, $color-bottom...) {
+    background: $color-top;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from($color-top), to($color-bottom));
+    background: -webkit-linear-gradient($color-top, $color-bottom);
+    background: -moz-linear-gradient($color-top, $color-bottom);
+    background: -ms-linear-gradient($color-top, $color-bottom);
+    background: -o-linear-gradient($color-top, $color-bottom);
+    background: linear-gradient($color-top, $color-bottom);
+    -pie-background: linear-gradient($color-top, $color-bottom);    
+}
+@mixin bg-gradient-to-left( $color-first, $list-color...){ 	
+    background: -prefix-linear-gradient(to left, $list-color);
+    /* The new syntax needed by standard-compliant browsers (Opera 12.1, IE 10, Fx 16 onwards), without prefix */
+    background: linear-gradient(to left, $list-color);
+    -pie-background: linear-gradient(to left, $list-color);  
+}
+@mixin bg-gradient-to-right($list-color...){
+ 	background: -prefix-linear-gradient(to right, $list-color);
+    /* The new syntax needed by standard-compliant browsers (Opera 12.1, IE 10, Fx 16 onwards), without prefix */
+    background: linear-gradient(to right, $list-color);
+    -pie-background: linear-gradient(to right, $list-color);  
+}
+@mixin bg-gradient-img-top-bt($IMAGE_URL, $color-top, $color-bottom...) {
+    background: $color-top;
+    background-image: url($IMAGE_URL); /* fallback */
+    background-image: url($IMAGE_URL), -webkit-gradient(linear, 0 0, 0 bottom, from($color-top), to($color-bottom));
+    background-image: url($IMAGE_URL), -webkit-linear-gradient($color-top, $color-bottom);
+    background-image: url($IMAGE_URL), -moz-linear-gradient($color-top, $color-bottom);
+    background-image: url($IMAGE_URL), -ms-linear-gradient($color-top, $color-bottom);
+    background-image: url($IMAGE_URL), -o-linear-gradient($color-top, $color-bottom);
+    background-image: url($IMAGE_URL), linear-gradient($color-top, $color-bottom);
+    -pie-background-image: url($IMAGE_URL), linear-gradient($color-top, $color-bottom);
+    background-repeat: no-repeat;    
+}
+@mixin bg-gradient-to-bottom( $color-first, $list-color...){  
+    background: -prefix-linear-gradient(to bottom, $list-color);
+    /* The new syntax needed by standard-compliant browsers (Opera 12.1, IE 10, Fx 16 onwards), without prefix */
+    background: linear-gradient(to bottom, $list-color);
+    -pie-background: linear-gradient(to bottom, $list-color);  
+}

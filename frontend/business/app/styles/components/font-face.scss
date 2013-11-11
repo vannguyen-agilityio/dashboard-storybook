@@ -1,0 +1,10 @@
+/*format style font-face*/
+@font-face {
+	font-family: 'nevis'; /*font name*/
+	src: url('../font/nevis.eot'); /* IE9 Compat Modes */
+	src: url('../font/nevis.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	     url('../font/nevis.woff') format('woff'), /* Modern Browsers */
+	     url('../font/nevis.ttf')  format('truetype'), /* Safari, Android, iOS */
+	     url('webfont.svg#svgFontName') format('svg'), /* Legacy iOS */
+	     url('nevis.otf');
+}

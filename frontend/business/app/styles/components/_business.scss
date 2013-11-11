@@ -1,0 +1,180 @@
+body {
+    background-color: #000;    
+}
+
+.wapper {
+    background-color: #fff;
+    padding: 0;
+    max-width: 960px !important;
+}
+.main-content {
+    height: 565px;
+}
+.info-connection {
+    height: 100%;
+    padding: 0;
+    border-left: 1px solid #ccc;
+    box-shadow: inset 11px 11px 16px #dfdfdf;
+}
+.info-connection .company-info {
+    margin-top: 35px;
+}
+.info-content {
+    height: 110px;
+    margin-bottom: 20px;
+}
+.topic {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 20px;
+    font-weight: bold;
+    @include bg-gradient-to-right (#cfcfcf, #d1d1d1, #f1f1f1, #f9f9f9, #fff);
+    behavior: url(../build-PIE/PIE.htc);
+}
+address,
+.communication {
+    margin: 15px 0;
+    font-size: 12px;
+}
+address span,
+.communication span {
+    display: block;
+    padding: 3px 0;
+    margin-left: 22px;
+}
+.group-links {
+    margin-left: 15px;
+    margin-top: 20px;
+}
+.group-links li a{
+    width: 32px;
+    height: 30px;
+    margin-left: 10px;
+    background-image: url(../images/icons-link.png);
+    background-repeat: no-repeat;
+    float: left;
+}
+.linked-in {
+    background-position: 0;
+}
+.twitter {
+    background-position: -32px;    
+}
+.facebook {
+    background-position: -64px;
+}
+.name,
+.email,
+.subject,
+.message {
+    width: 385px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    @include bg-gradient-top-bt(#efefef,#fff);
+}
+label {
+    display: block;
+    color: #4f4f4f;
+    font-size: 13px;
+    margin-bottom: 10px;
+    font-family: Arial;
+}
+.contact-form {
+    margin-left: 25px;
+    margin-top: 25px;
+}
+.btn-submit {
+    width: 98px;
+    height: 28px;
+    line-height: 13px;
+    font-family: 'nevis';
+    font-size: 12px;
+    color: #888;
+    text-transform: uppercase;
+    @include bg-gradient-top-bt(#efefef,#fff);
+}
+.footer {
+    height: 275px;
+    border-top: 1px solid #ccc;
+    box-shadow: inset 0 1px 0 #ddd;
+    background-color: #ededed;  
+}
+.footer-content {
+    height: 215px;
+    padding-left: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.group-links-footer  {
+    width: 85px;
+    float: left;
+}
+.group-links-footer li a {
+    width: 18px;
+    height: 16px;
+    margin-left: 10px;
+    background-image: url(../images/icons-links-footer.png);
+    background-repeat: no-repeat;
+    float: left;
+}
+.group-links-footer .linked-in {
+    background-position: 0;
+}
+.group-links-footer .twitter {
+    background-position: -18px;    
+}
+.group-links-footer .facebook {
+    background-position: -36px;
+}
+.group-links-footer,
+.logo-footer,
+.version {
+    margin-top: 24px;
+}
+.version {
+    float: left;
+    color: #4f4f4f;
+    font-size: 12px;
+}
+.topic-footer {
+    padding: 25px 0;
+    font-size: 15px;
+    font-weight: bold;
+    color: #585858;
+}
+.content-topic {
+    font-size: 12px;
+    line-height: 20px;
+}
+.content-topic a {
+    display: block;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+}
+.blog-update {
+    margin-bottom: 20px;
+    .date {
+        color: #646464;
+        font-size: 12px;
+    }
+}
+.update-link {
+    display: block;
+    line-height: 16px;
+    font-size: 12px;
+    color: #0f4db6;
+    font-weight: bold;
+}
+.update-content {
+    font-size: 12px;
+    color: #4f4f4f;
+}
+.our-blog {
+    padding-right: 0;
+}
+.container{
+  max-width: none !important;
+  width: 960px;
+}
