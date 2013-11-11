@@ -1,0 +1,52 @@
+.our-clients {
+	margin-top: 20px;
+	margin-left: 6px;
+}
+.our-clients a {
+	display: inline-block;	
+	background-image: url(../images/group-img.png);
+	background-repeat: no-repeat;
+}
+.graphic-fuei {
+	background-position: 0 -33px;
+	width: 186px;
+	height: 54px;
+}
+.fashion-era {
+	background-position: 0 -87px;
+	width: 186px;
+	height: 104px;
+}
+.merena {
+	background-position: 0 -200px;
+	width: 186px;
+	height: 89px;
+}
+.sundine-produce {
+	background-position: 0 -296px;
+	width: 186px;
+	height: 80px;
+}
+.arrow-list {
+	margin-right: 10px;	
+	@include arrow-right(5px solid #00162d, 5px solid transparent, 5px solid transparent);
+}
+.side-nav {
+	padding-left: 20px;
+}
+.side-nav li {
+	padding: 6px 0;
+	border-bottom: dashed 1px #838383;
+}
+.side-nav li a {
+	font-size: 12px;
+	font-family: Arial;
+	color: #1f59bb;
+}
+.text-content {
+	color: #666;
+	line-height: 20px;
+	font-size: 12px;
+	margin-top: 30px;
+	margin-left: 20px;
+}

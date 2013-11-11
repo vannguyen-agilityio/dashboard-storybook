@@ -51,6 +51,14 @@ ul {
   -webkit-padding-start: 0px;
   overflow: hidden; }
 
+/*format style font-face*/
+@font-face {
+  font-family: 'MyWebFont';
+  /*font name*/
+  src: url("webfont.eot");
+  /* IE9 Compat Modes */
+  src: url("webfont.eot?#iefix") format("embedded-opentype"), url("webfont.woff") format("woff"), url("webfont.ttf") format("truetype"), url("webfont.svg#svgFontName") format("svg"), url("webfont.otf"); }
+
 /* style header */
 header {
   height: 135px; }
@@ -90,13 +98,7 @@ strong {
 
 .main-content {
   display: inline-block;
-  padding-bottom: 30px;
-  padding-top: 34px;
-  margin-top: 77px;
-  -moz-box-shadow: #cccccc 0 -5px 5px -5px;
-  -webkit-box-shadow: #cccccc 0 -5px 5px -5px;
-  box-shadow: #cccccc 0 -5px 5px -5px;
-  behavior: url("../build-PIE/PIE.htc"); }
+  margin-top: 34px; }
 
 .main-content h3 {
   font-size: 21px;
@@ -132,40 +134,75 @@ strong {
   width: 165px;
   font-size: 12px; }
 
+.btn-gray,
+.btn-blue,
+.bg-black,
+.inner span,
+.new-update img,
+.slide,
+.inner:active .slide,
+.shadow-under,
+.shadow-under:after,
+.shadow-under:before,
+hr {
+  behavior: url(../build-PIE/PIE.htc); }
+
 .btn-gray {
-  margin: 20px 0 10px 5px;
+  margin: 0px 0 6px 0px;
   display: inline-block;
   color: #227ca5;
-  box-shadow: 0px 1px 0px red;
-  behavior: url("../build-PIE/PIE.htc");
   background: #e8e8e8;
-  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#e8e8e8), to(white));
-  background: -webkit-linear-gradient(#e8e8e8, white);
-  background: -moz-linear-gradient(#e8e8e8, white);
-  background: -ms-linear-gradient(#e8e8e8, white);
-  background: -o-linear-gradient(#e8e8e8, white);
-  background: linear-gradient(#e8e8e8, white);
-  -pie-background: linear-gradient(#e8e8e8, white); }
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#e8e8e8), to(whitesmoke));
+  background: -webkit-linear-gradient(#e8e8e8, whitesmoke);
+  background: -moz-linear-gradient(#e8e8e8, whitesmoke);
+  background: -ms-linear-gradient(#e8e8e8, whitesmoke);
+  background: -o-linear-gradient(#e8e8e8, whitesmoke);
+  background: linear-gradient(#e8e8e8, whitesmoke);
+  -pie-background: linear-gradient(#e8e8e8, whitesmoke); }
+
+body:nth-of-type(1) .btn-blue {
+  background: #487fb6;
+  /*fallback for non-CSS3 browsers*/
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#487fb6) to(#3d7ab8, #3973ae, #3d6b99, #2f6192));
+  /*old webkit*/
+  background: -webkit-linear-gradient(left, #487fb6, #3d7ab8, #3973ae, #3d6b99, #2f6192);
+  /*newer webkit*/
+  background: -moz-linear-gradient(left, #487fb6, #3d7ab8, #3973ae, #3d6b99, #2f6192);
+  /*old gecko*/
+  background: -o-linear-gradient(left, #487fb6, #3d7ab8, #3973ae, #3d6b99, #2f6192);
+  /*opera 11.10+*/
+  background: linear-gradient(to right, #487fb6, #3d7ab8, #3973ae, #3d6b99, #2f6192);
+  /*firefox 16+, chrome 26+, IE10+, opera 12.10+, future browsers*/
+  -pie-background: linear-gradient(to right, #487fb6, #3d7ab8, #3973ae, #3d6b99, #2f6192);
+  /*ie 6-9 via PIE*/ }
+
+/* for chrome*/
+body:nth-of-type(1) .btn-gray {
+  background: #e8e8e8;
+  /*fallback for non-CSS3 browsers*/
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#e8e8e8) to(white, whitesmoke, #f1f1f1, #e8e8e8));
+  /*old webkit*/
+  background: -webkit-linear-gradient(left, #e8e8e8, white, whitesmoke, #f1f1f1, #e8e8e8);
+  /*newer webkit*/
+  background: -moz-linear-gradient(left, #e8e8e8, white, whitesmoke, #f1f1f1, #e8e8e8);
+  /*old gecko*/
+  background: -o-linear-gradient(left, #e8e8e8, white, whitesmoke, #f1f1f1, #e8e8e8);
+  /*opera 11.10+*/
+  background: linear-gradient(to right, #e8e8e8, white, whitesmoke, #f1f1f1, #e8e8e8);
+  /*firefox 16+, chrome 26+, IE10+, opera 12.10+, future browsers*/
+  -pie-background: linear-gradient(to right, #e8e8e8, white, whitesmoke, #f1f1f1, #e8e8e8);
+  /*ie 6-9 via PIE*/ }
 
 #slides {
   margin-bottom: 35px; }
 
 .bg-black {
-  height: 336px;
-  background: black;
-  background: -webkit-gradient(linear, 0 0, 0 bottom, from(black), to(#333333));
-  background: -webkit-linear-gradient(black, #333333);
-  background: -moz-linear-gradient(black, #333333);
-  background: -ms-linear-gradient(black, #333333);
-  background: -o-linear-gradient(black, #333333);
-  background: linear-gradient(black, #333333);
-  -pie-background: linear-gradient(black, #333333); }
+  height: 336px; }
 
 .inner {
   position: relative;
   overflow: hidden;
-  height: 341px;
-  top: 40px; }
+  height: 341px; }
 
 .inner span {
   display: inline-block;
@@ -177,7 +214,6 @@ strong {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  behavior: url("../build-PIE/PIE.htc");
   border-radius: 50%;
   background-color: #fff;
   border: 3px solid #000; }
@@ -185,18 +221,16 @@ strong {
 .slide {
   position: absolute;
   background: gray;
-  transition: 1s;
-  behavior: url("../build-PIE/PIE.htc"); }
+  transition: 1s; }
 
 .inner:active .slide {
   transition: 0s;
-  behavior: url("../build-PIE/PIE.htc");
   left: -9999px; }
 
 strong {
   width: 100%;
   display: inline-block;
-  margin-top: 65px;
+  margin-top: 30px;
   font-size: 24px;
   text-align: center; }
 
@@ -204,7 +238,8 @@ strong {
   max-width: 970px !important; }
 
 .main-content img {
-  border: 5px solid #f3f3f3; }
+  border: 5px solid #f3f3f3;
+  display: inline-block; }
 
 .main-content .show-img {
   display: inline-block;
@@ -221,7 +256,7 @@ strong {
   width: 52px;
   height: 52px;
   display: inline-block;
-  background-image: url("../images/group-icon.png");
+  background-image: url(../images/group-icon.png);
   background-repeat: no-repeat; }
 
 .rss {
@@ -241,28 +276,22 @@ strong {
 
 .public-content {
   color: #444;
-  display: inline-block;
-  padding-top: 35px;
-  box-shadow: #ccc 0 -5px 5px -5px;
-  behavior: url("../build-PIE/PIE.htc"); }
+  display: inline-block; }
   .public-content h4, .public-content h5 {
     font-size: 18px;
     padding-bottom: 6px;
     margin-bottom: 10px;
     line-height: 25px; }
   .public-content .btn-blue {
-    margin-top: 10px;
     margin-bottom: 20px;
-    box-shadow: 0px 1px 0px red;
-    background: #4f85bc;
-    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#4f85bc), to(#2f6192));
-    background: -webkit-linear-gradient(#4f85bc, #2f6192);
-    background: -moz-linear-gradient(#4f85bc, #2f6192);
-    background: -ms-linear-gradient(#4f85bc, #2f6192);
-    background: -o-linear-gradient(#4f85bc, #2f6192);
-    background: linear-gradient(#4f85bc, #2f6192);
-    -pie-background: linear-gradient(#4f85bc, #2f6192);
-    behavior: url("../build-PIE/PIE.htc"); }
+    background: #487fb6;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#487fb6), to(#2f6192));
+    background: -webkit-linear-gradient(#487fb6, #2f6192);
+    background: -moz-linear-gradient(#487fb6, #2f6192);
+    background: -ms-linear-gradient(#487fb6, #2f6192);
+    background: -o-linear-gradient(#487fb6, #2f6192);
+    background: linear-gradient(#487fb6, #2f6192);
+    -pie-background: linear-gradient(#487fb6, #2f6192); }
   .public-content .group-links {
     margin: 10px 0 28px 0; }
   .public-content h5 {
@@ -276,7 +305,6 @@ strong {
     padding: 10px 0 10px 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    behavior: url("../build-PIE/PIE.htc");
     font-size: 10px;
     font-family: 'verdana', sans-serif; }
   .public-content .fix-width {
@@ -307,8 +335,17 @@ strong {
   padding-right: 0; }
 
 .public-content .message {
-  padding-bottom: 112px; }
+  padding-bottom: 86px;
+  padding-bottom: 100px\0;
+  /*for IE8*/
+  line-height: 18px; }
 
+@-moz-document url-prefix() {
+  .public-content .message {
+    height: 135px;
+    padding: 10px 0 10px 10px; } }
+
+/*for firefox*/
 footer {
   background: #333;
   color: #fff;
@@ -323,8 +360,7 @@ footer {
   border-radius: 3px;
   -moz-box-shadow: #aaaaaa 0 0 1px 1px;
   -webkit-box-shadow: #aaaaaa 0 0 1px 1px;
-  box-shadow: #aaaaaa 0 0 1px 1px;
-  behavior: url("../build-PIE/PIE.htc"); }
+  box-shadow: #aaaaaa 0 0 1px 1px; }
 
 .nav-footer {
   width: 300px;
@@ -366,14 +402,14 @@ footer {
   text-transform: uppercase; }
 
 .icon-next {
-  top: 22px;
+  top: 12px;
   right: 12px;
-  background: url("../images/next-icon.png") no-repeat; }
+  background: url(../images/next-icon.png) no-repeat; }
 
 .next-blue {
-  top: 32px;
+  top: 13px;
   right: 6px;
-  background: url("../images/next-blue.png") no-repeat; }
+  background: url(../images/next-blue.png) no-repeat; }
 
 .icon-next,
 .next-blue {
@@ -383,39 +419,44 @@ footer {
   height: 7px; }
 
 .btn-layout {
-  position: relative;
-  behavior: url("../build-PIE/PIE.htc"); }
+  position: absolute;
+  height: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px; }
 
-.shadow {
+.shadow-under {
   position: relative;
-  border: 1px solid #e1e1e1;
-  -moz-box-shadow: #eeeeee 0 1px 4px;
-  -webkit-box-shadow: #eeeeee 0 1px 4px;
-  box-shadow: #eeeeee 0 1px 4px;
-  behavior: url("../build-PIE/PIE.htc"); }
+  -moz-box-shadow: #cccccc 0 1px 4px;
+  -webkit-box-shadow: #cccccc 0 1px 4px;
+  box-shadow: #cccccc 0 1px 4px;
+  z-index: 1; }
 
-.shadow:after,
-.shadow:before {
+.shadow-under:after,
+.shadow-under:before {
   content: "";
   position: absolute;
-  z-index: -1;
-  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0 0 10px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 0 10px;
-  box-shadow: rgba(0, 0, 0, 0.5) 0 0 10px;
-  width: 70%;
-  height: 3%;
+  z-index: -10;
+  -moz-box-shadow: #cccccc 0 1px 10px;
+  -webkit-box-shadow: #cccccc 0 1px 10px;
+  box-shadow: #cccccc 0 1px 10px;
+  width: 25%;
+  height: 5%;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   border-radius: 100%;
-  left: 10%;
-  right: 10%;
-  behavior: url("../build-PIE/PIE.htc"); }
+  left: 30%;
+  top: 96%; }
 
-.shadow:after {
+.shadow-under:after {
   bottom: 0px; }
 
-.shadow:before {
+.shadow-under:before {
   top: 0px; }
 
-form {
-  position: relative; }
+hr {
+  box-shadow: inset 0px 0px 2px 0px #444, 0px -1px 1px #eee; }
+
+button:active,
+input:focus,
+textarea:focus {
+  outline: 0; }

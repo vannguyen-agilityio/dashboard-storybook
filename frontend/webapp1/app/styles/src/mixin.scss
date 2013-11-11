@@ -26,7 +26,7 @@
     -moz-border-radius: $style-radius;
     border-radius: $style-radius;
 }
-@mixin bg-gradient-top-bt($color-top, $color-bottom) {
+@mixin bg-gradient-top-bt($color-top, $color-bottom...) {
     background: $color-top;
     background: -webkit-gradient(linear, 0 0, 0 bottom, from($color-top), to($color-bottom));
     background: -webkit-linear-gradient($color-top, $color-bottom);
@@ -50,4 +50,16 @@
     /* The new syntax needed by standard-compliant browsers (Opera 12.1, IE 10, Fx 16 onwards), without prefix */
     background: linear-gradient(to right, $list-color);
     -pie-background: linear-gradient(to right, $list-color);  
+}
+@mixin bg-gradient-img-top-bt($IMAGE_URL,$color-top, $color-bottom...) {
+    background: $color-top;
+    background-image: url($IMAGE_URL); /* fallback */
+    background-image: url($IMAGE_URL), -webkit-gradient(linear, 0 0, 0 bottom, from($color-top), to($color-bottom));
+    background-image: url($IMAGE_URL), -webkit-linear-gradient($color-top, $color-bottom);
+    background-image: url($IMAGE_URL), -moz-linear-gradient($color-top, $color-bottom);
+    background-image: url($IMAGE_URL), -ms-linear-gradient($color-top, $color-bottom);
+    background-image: url($IMAGE_URL), -o-linear-gradient($color-top, $color-bottom);
+    background-image: url($IMAGE_URL), linear-gradient($color-top, $color-bottom);
+    -pie-background-image: url($IMAGE_URL), linear-gradient($color-top, $color-bottom);
+    background-repeat: no-repeat;    
 }

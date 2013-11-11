@@ -7,7 +7,7 @@
 	}
 	.logo-business {
 		display: block;
-		background-image: url(../images/logo-business.png);
+		background-image: url('../images/logo-business.png');
 		width: 287px;
 		height: 76px;	
 		margin: 29px 25px 0 40px;
@@ -20,9 +20,8 @@
 	height: 100%;
 	padding-right: 0;
 }
-.navbar-collapse-header {
-	float: right;
-	margin-right: 8px;
+.nav-header {
+	margin-left: 55px;
 }
 .header-content,
 .btn-contact {
@@ -34,7 +33,7 @@
 }
 .header-content {
 	height: 85px;	
-	@include bg-gradient-img-top-bt("../images/bg-header-content.png",#041c5d,#287ffb);	
+	@include bg-gradient-img-top-bt("../images/bg-header-content.png",#041c5d,#1049b3,#0427fe,#4c4cfe);	
 }
 .nav-header li a {
 	color: #808080;
@@ -42,26 +41,22 @@
 	font-size: 12px;
 	font-weight: bold;
 }
-.nav-header > li > a {
-	padding: 5px 18px;
-}
 .phone-number {
-	height: 34px;
+	height: 35px;
 	width: 215px;	
 	float: right;
-	margin-bottom: 13px;
-	background-image: url(../images/group-img.png);
+	background-image: url(../images/phone-number.png);
 	background-repeat: no-repeat;
 }
-.nav-header li {
-	padding: 0 5px;
-}
-.nav li.selected > a,
-.nav-header li > a:hover {		
+.btn-contact {
+	float: right;
+	width: 76px;
+	height: 28px;	
 	border: 1px solid #00224b;
-	border-radius: 5px;	
-	color: #fff;
-	@include bg-gradient-top-bt (#266ecf, #003c8d);
+	border-radius: 5px;
+	margin-top: 10px;
+	margin-right: 25px;
+	@include bg-gradient-top-bt (#266ecf, #003c8d, #2873d5);
 }
 .contactUs {
 	float: left;
