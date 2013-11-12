@@ -1,0 +1,56 @@
+.nav-header-content {
+	float: right;
+	margin-top: 30px;
+}
+.nav-header-content li {
+	line-height: 20px;
+}
+.nav-header-content > li.disabled > a,
+.nav-header-content > li:hover > a{
+	color: #fff;
+	text-decoration: none;
+}
+.nav-header-content > li > a {
+	color: #93daff;
+	font-size: 13px;
+	padding: 10px 15px;
+}
+.portfolio .main-content {
+	min-height: 254px;
+	margin: 35px 0 50px 0;
+}
+.portfolio .text-intro {
+	margin-top: 10px;
+}
+.main-content h4 {
+	padding: 0 4px;
+	font-size: 15px;
+	color: #727272;
+	font-family: arial;
+	font-weight: bold;
+	margin-top: 25px;
+}
+.portfolio,
+.services section:first-child  {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.content footer {
+	height: 65px;
+	@include bg-gradient-top-bt(#eee, #fff);
+}
+.links-pages {
+	padding-left: 30px;
+}
+.links-pages > li > a {
+	background-color: transparent;
+	border: none;
+	color: #0f4db6;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 5px 6px;
+}
+.links-pages li.selected a,
+.links-pages li:hover a{
+	color: #000;
+}

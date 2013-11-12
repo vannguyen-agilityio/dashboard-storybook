@@ -33,8 +33,8 @@
 	text-transform: uppercase;
 }
 .header-content {
-	height: 85px;	
-	@include bg-gradient-img-top-bt("../images/bg-header-content.png",#041c5d,#287ffb);	
+	height: 85px;
+	@include bg-gradient-img-top-bt("../images/bg-header-content.png",#072667,#2a61c2);	
 }
 .nav-header li a {
 	color: #808080;
@@ -63,12 +63,12 @@
 	color: #fff;
 	@include bg-gradient-top-bt (#266ecf, #003c8d);
 }
-.contactUs {
+.header-content .link-selected {
 	float: left;
 	font-size: 25px;	
 	margin-left: 40px;	
 }
-.contactUs,
+.header-content h2,
 .text-focus {	
 	margin-top: 25px;
 	font-family: Arial;
