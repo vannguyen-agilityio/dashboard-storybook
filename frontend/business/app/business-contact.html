@@ -1,45 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Webapp</title>
+    <title>Contact</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="bower_components/modernizr/modernizr.js"></script>
-    <!-- endbuild -->
+    <!-- endbuild -->    
+    <!--[if IE 8]>
+        <script src="scripts/src/respond.min.js"></script>
+    <![endif]-->
 </head>
-<body>
-	<header class="container wapper header-main">                
-		<div class="col-md-4 logo-header">
-			<a href="javascript:void(0);" title="Logo Besiness" class="logo-business"><h1>Logo Besiness</h1></a>      
-		</div>
+<body>    
+    <header class="container wapper header-main">                
+        <div class="col-md-4 logo-header">
+            <a href="javascript:void(0);" title="Logo Besiness" class="logo-business"><h1>Logo Besiness</h1></a>      
+        </div>
         <div class="col-md-8 header-main-content">
             <div class="phone-number"></div>  
-			<nav class="col-md-9 collapse navbar-collapse bs-navbar-collapse navbar-collapse-header" role="navigation">
-				<ul class="nav-header nav navbar-nav">
-					<li><a href="javascript: void(0);" title="Back to home page">Home</a></li>
-					<li><a href="javascript:void(0);" title="Link to About page">About</a></li>
-					<li><a href="javascript:void(0);" title="Link to Services page">Services</a></li>
-					<li><a href="javascript:void(0);" title="Link to Portfolio">Portfolio</a></li>
-					<li class="selected"><a href="javascript:void(0);" title="Link to Contact">Contact</a></li>
-				</ul>
-			</nav>           
+            <nav class="col-md-9 collapse navbar-collapse bs-navbar-collapse navbar-collapse-header" role="navigation">
+                <ul class="nav-header nav navbar-nav">
+                    <li><a href="javascript:void(0);" title="Back to home page">Home</a></li>
+                    <li><a href="javascript:void(0);" title="Link to About page">About</a></li>
+                    <li><a href="javascript:void(0);" title="Link to Services page">Services</a></li>
+                    <li><a href="javascript:void(0);" title="Link to Portfolio">Portfolio</a></li>
+                    <li class="selected"><a href="javascript:void(0);" title="Link to Contact">Contact</a></li>
+                </ul>
+            </nav>           
         </div>
-	</header>	
-	<div class="container wapper">
+    </header>
+    <div class="container wapper contact">
         <header class="header-content">
             <h2 class="link-selected">Contact Us</h2>
             <span class="text-focus">Thank you for stopping by. How may we help you!</span>  
         </header>
         <div class="main-content">   
-	    <div class="col-md-9">     
-        	<form class="contact-form">
+        <div class="col-md-9">     
+            <form class="contact-form">
                 <label>Name:</label>
                 <input type="text" class="name">
                 <label>Email:</label>
@@ -52,8 +59,8 @@
                     <button type="button" class="btn btn-default btn-submit">Submit</button>
                     <i class="icon-next"></i>
                 </div>
-            </form>     	
-    	</div>
+            </form>         
+        </div>
         <aside class="col-md-3 info-connection">
             <section class="info-content company-info">
                 <h3 class="topic">Company Info</h3>
@@ -126,9 +133,9 @@
                 </section>
             </div>
             <div class="provided-by col-md-12">   
-                <p class="version col-md-8">Copyright &copy; 2010 Business. All rights reserved. Designed by GraphicFuel.com</p>	
-        		<div class="logo-and-links col-md-4"> 
-        			<ul class="group-links-footer">
+                <p class="version col-md-8">Copyright &copy; 2010 Business. All rights reserved. Designed by GraphicFuel.com</p>    
+                <div class="logo-and-links col-md-4"> 
+                    <ul class="group-links-footer">
                         <li>
                             <a href="javascript:void(0);" class="twitter"></a>
                         </li>                   
@@ -144,6 +151,25 @@
                     </div>
                 </div>
             </div>
-    </footer>     
+    </footer>   
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    <!-- build:js scripts/main.js -->
+    <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

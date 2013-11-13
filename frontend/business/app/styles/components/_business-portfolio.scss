@@ -38,6 +38,7 @@
 .content footer {
 	height: 65px;
 	@include bg-gradient-top-bt(#eee, #fff);
+	behavior: url(../build-PIE/PIE.htc);
 }
 .links-pages {
 	padding-left: 30px;

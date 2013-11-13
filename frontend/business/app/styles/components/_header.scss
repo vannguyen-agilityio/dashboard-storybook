@@ -34,7 +34,8 @@
 }
 .header-content {
 	height: 85px;
-	@include bg-gradient-img-top-bt("../images/bg-header-content.png",#072667,#2a61c2);	
+	@include bg-gradient-img-top-bt("../images/bg-header-content.png",#033c84, #0808fa);
+	behavior: url(../build-PIE/PIE.htc);	
 }
 .nav-header li a {
 	color: #808080;
@@ -57,11 +58,12 @@
 	padding: 0 5px;
 }
 .nav li.selected > a,
-.nav-header li > a:hover {		
+.nav li a:hover {		
 	border: 1px solid #00224b;
 	border-radius: 5px;	
 	color: #fff;
 	@include bg-gradient-top-bt (#266ecf, #003c8d);
+	behavior: url(../build-PIE/PIE.htc);
 }
 .header-content .link-selected {
 	float: left;
@@ -87,4 +89,8 @@
 	color: #4f4f4f;
 	padding: 3px;
 	font-size: 12px;
+}
+.nav li a:hover  {
+	@include bg-gradient-top-bt (#266ecf, #003c8d);
+	behavior: url(../build-PIE/PIE.htc);
 }

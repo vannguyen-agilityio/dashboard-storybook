@@ -1,5 +1,6 @@
+@import "compass";
 body {
-    background-color: #000;    
+    background-color: #000;  
 }
 
 .wapper {
@@ -7,8 +8,8 @@ body {
     padding: 0;
     max-width: 960px !important;
 }
-.main-content {
-   min-height: 565px;
+.contact .main-content {
+    height: 562px;
 }
 .info-connection {
     height: 100%;
@@ -178,4 +179,12 @@ label {
 .container{
   max-width: none !important;
   width: 960px;
+}
+.btn-submit,
+.topic,
+.name,
+.email,
+.subject,
+.message  {
+    behavior: url(../build-PIE/PIE.htc);
 }
