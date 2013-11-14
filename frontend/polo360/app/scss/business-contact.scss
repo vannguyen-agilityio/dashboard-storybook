@@ -1,13 +1,11 @@
 body {
-    @include bg-gradient-img-top-bt("../images/background.png",#000, #000);
+    /*background-color: #000; */ 
 }
-.wapper {   
-    padding: 0;   
-    background-color: #fff;   
+.wapper {
+    background-color: #fff;
+    padding: 0;
+    background-color: red/9;
     width: 960px !important;
-}
-.navbar-nav > li > a {
-    padding: 0px 8px !important;  
 }
 .contact .main-content {
     height: 562px;
@@ -16,7 +14,8 @@ body {
     height: 100%;
     padding: 0;
     border-left: 1px solid #ccc;
-    box-shadow: #dfdfdf 11px 11px 16px inset;  
+    box-shadow: inset 11px 11px 16px #dfdfdf;
+    behavior: url(../build-PIE/PIE.htc);
 }
 .info-connection .company-info {
     margin-top: 35px;
@@ -31,6 +30,7 @@ body {
     padding-left: 20px;
     font-weight: bold;
     @include bg-gradient-to-right (#cfcfcf, #d1d1d1, #f1f1f1, #f9f9f9, #fff);
+    behavior: url(../build-PIE/PIE.htc);
 }
 address,
 .communication {
@@ -64,17 +64,21 @@ address span,
 .facebook {
     background-position: -64px;
 }
+input[type="text"] {
+     @include bg-gradient-top-bt(#efefef,#fff);
+    behavior: url(../build-PIE/PIE.htc);
+}
 .name,
 .email,
 .subject,
 .message {
-    display: inline-block;
     width: 385px;
     padding: 5px;
     border: 1px solid #ccc;
+    border-radius: 5px;
     margin-bottom: 20px;
-    border-radius: 5px;  
-    @include bg-gradient-top-bt(#efefef,#fff); 
+    resize: none;
+   
 }
 label {
     display: block;
@@ -180,15 +184,11 @@ label {
   max-width: none !important;
   width: 960px;
 }
-.info-connection,
 .btn-submit,
 .topic,
-.wapper,
 .name,
 .email,
 .subject,
-.message,
-body
- {
+.message  {
     behavior: url(../build-PIE/PIE.htc);
 }

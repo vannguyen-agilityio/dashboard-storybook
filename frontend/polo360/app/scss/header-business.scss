@@ -23,7 +23,6 @@
 .navbar-collapse-header {
 	float: right;
 	margin-right: 8px;
-	margin-left: 100px\9;
 }
 .header-content,
 .btn-contact {
@@ -44,10 +43,9 @@
 	font-size: 12px;
 	font-weight: bold;
 }
-.navbar-nav > li > a {
-    padding: 0px 8px !important;  
+.nav-header > li > a {
+	padding: 5px 18px;
 }
-
 .phone-number {
 	height: 34px;
 	width: 215px;	
@@ -59,12 +57,11 @@
 .nav-header li {
 	padding: 0 5px;
 }
-.navbar-nav > li.selected > a,
-.nav-header > li > a:hover {		
+.nav li.selected > a,
+.nav li a:hover {		
 	border: 1px solid #00224b;
 	border-radius: 5px;	
 	color: #fff;
-	-pie-track-hover:false;
 	@include bg-gradient-top-bt (#266ecf, #003c8d);
 	behavior: url(../build-PIE/PIE.htc);
 }
@@ -92,4 +89,8 @@
 	color: #4f4f4f;
 	padding: 3px;
 	font-size: 12px;
+}
+.nav li a:hover  {
+	@include bg-gradient-top-bt (#266ecf, #003c8d);
+	behavior: url(../build-PIE/PIE.htc);
 }
