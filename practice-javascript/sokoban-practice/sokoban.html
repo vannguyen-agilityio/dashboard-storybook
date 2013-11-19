@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sokoban</title>
+</head>
+<body>
+	<img id="empty-img" src="images/empty.png">
+	<img id="wall-img" src="images/wall.png">
+	<img id="floor-img" src="images/floor.png">
+	<img id="target-img" src="images/target.png">
+	<img id="cargo-img" src="images/cargo.png">
+	<img id="cargo-target-img" src="images/cargo-target.png">
+	<img id="keeper-img" src="images/keeper.png">
+	<img id="keeper-target-img" src="images/keeper-target.png">
+	<div id="control">
+		<h2>Current stage: <span id="current-state">1</span></h2>
+		<label>Stages:</label><select id="stage-select"></select>
+		<button id="go-to-state">Go to stage</button>		
+	</div>
+
+	<script type="text/javascript" src="object.js"></script>
+	<script type="text/javascript" src="add-event.js"></script>	
+	<script type="text/javascript" src="grid.js"></script>	
+	<script type="text/javascript" src="canvas.js"></script>	
+	<script type="text/javascript" src="maps.js"></script>
+	<script type="text/javascript" src="sokoban.js"></script>	
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
