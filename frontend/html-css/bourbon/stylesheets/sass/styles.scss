@@ -1,0 +1,72 @@
+@import "bourbon/bourbon";
+
+
+/* Block */
+.btn {
+  @include position(relative, null null null null);
+}
+
+/* Element */
+.btn__price {
+  background-color: white;
+  color: #fff;
+  padding-right: 12px;
+  padding-left: 12px;
+  margin-right: -10px; /* realign button text padding */
+  font-weight: 600;
+  background-color: #333;
+  opacity: .4;
+  border-radius: 5px 0 0 5px;
+}
+
+/* Element */
+.btn__text {
+  padding: 0 10px;
+  border-radius: 0 5px 5px 0;
+}
+
+/*Modifier*/
+.btn-default {
+  @include button;
+}
+
+/* Modifier */
+.btn--blue {
+  @include button(#0074D9);
+}
+
+/* Modifier */
+.btn--green {
+  @include button(#3D9970);
+}
+
+/* Modifier */
+.btn--orange {
+  @include button(shiny,  #FF4136, 30px);
+}
+
+
+#{$all-buttons} {
+  background-color: red;
+}
+
+#{$all-buttons-focus},
+#{$all-buttons-hover} {
+  background-color: pink;
+}
+
+#{$all-buttons-active} {
+  background-color: blue;
+}
+
+.btn__arrow {
+  @include position(absolute, 50% 0 null null);
+}
+
+.btn__arrow--down {
+  @include triangle(12px, gray, down);
+}
+.btn__arrow--up {
+  @include triangle(12px, gray, up);
+}
+
