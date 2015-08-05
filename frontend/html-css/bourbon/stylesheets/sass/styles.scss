@@ -26,7 +26,7 @@
 }
 
 /*Modifier*/
-.btn-default {
+.btn--default {
   @include button;
 }
 
@@ -45,6 +45,16 @@
   @include button(shiny,  #FF4136, 30px);
 }
 
+.btn__arrow {
+  @include position(absolute, 50% 0 null null);
+}
+
+.btn__arrow--down {
+  @include triangle(12px, gray, down);
+}
+.btn__arrow--up {
+  @include triangle(12px, gray, up);
+}
 
 #{$all-buttons} {
   background-color: red;
@@ -58,15 +68,3 @@
 #{$all-buttons-active} {
   background-color: blue;
 }
-
-.btn__arrow {
-  @include position(absolute, 50% 0 null null);
-}
-
-.btn__arrow--down {
-  @include triangle(12px, gray, down);
-}
-.btn__arrow--up {
-  @include triangle(12px, gray, up);
-}
-
