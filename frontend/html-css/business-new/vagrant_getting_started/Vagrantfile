@@ -1,0 +1,39 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+# SHARED_BOX_URL = "http://172.16.126.96:9300/package.box"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  # You should add the following to /etc/hosts
+  # business.local   192.168.33.10
+  config.vm.network :private_network, ip: "192.168.33.10"
+  config.vm.synced_folder "../", "/src"
+
+  # Adding some scripts support
+
+
+  if defined?(SHARED_BOX_URL)
+    config.vm.box = "busines"
+    config.vm.box_url = SHARED_BOX_URL
+  else
+    config.vm.box = "precise64"
+    config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+    config.vm.provision "shell", :path => "bootstrap.sh", :privileged => false
+  end
+
+
+  config.vm.provider :virtualbox do |vb|
+    # Use VBoxManage to customize the VM. For example to change memory:
+    vb.customize ["modifyvm", :id, "--memory", "1024"]
+  end
+
+  # This is the MySQL Server port
+  # If you want to use this port, make sure you read the article
+  # http://www.cyberciti.biz/tips/how-do-i-enable-remote-access-to-mysql-database-server.html
+  # Forward grunt test server port
+  config.vm.network :forwarded_port, guest: 9000, host: 9000
+end
