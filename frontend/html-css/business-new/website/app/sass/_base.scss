@@ -1,0 +1,20 @@
+
+
+html,
+body {
+  font-size: $font-base-destop;
+}
+
+@include media($tablet) {
+  html,
+  body {
+    font-size: $font-base-tablet;
+  }
+}
+
+@include media($mobile) {
+  html,
+  body {
+    font-size: $font-base-mobile;
+  }
+}

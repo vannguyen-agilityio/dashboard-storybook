@@ -1,0 +1,25 @@
+// base font size
+$font-base-destop: 18px;
+$font-base-tablet: 15px;
+$font-base-mobile: 10px;
+
+// color
+$white: #fff;
+$black: #000;
+
+// media screen
+$max-mobile-breakpoint: 767px;
+$min-tablet-breakpoint: 768px;
+$max-tablet-breakpoint: 1024px;
+$min-desktop-breakpoint: 1025px;
+
+$destop: new-breakpoint(min-width $min-desktop-breakpoint 12);
+$tablet-destop: new-breakpoint(min-width $min-tablet-breakpoint 12);
+$tablet: new-breakpoint(max-width $max-tablet-breakpoint min-width $min-tablet-breakpoint 8);
+$mobile-tablet: new-breakpoint(max-width $max-tablet-breakpoint 8);
+$mobile: new-breakpoint(max-width $max-mobile-breakpoint 4);
+
+// $first-breakpoint-value: 400px;
+// $second-breakpoint-value: 700px;
+// $medium-viewport: new-breakpoint(min-width em($first-breakpoint-value) max-width em($second-breakpoint-value));
+// $large-viewport: new-breakpoint(min-width em($second-breakpoint-value + 1));

@@ -1,4 +1,4 @@
-// Generated on 2015-08-06 using
+// Generated on 2015-08-07 using
 // generator-webapp 1.0.1
 'use strict';
 
@@ -51,14 +51,10 @@ module.exports = function (grunt) {
         files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['sass:server', 'postcss']
       },
-      // styles: {
-      //   files: ['<%= config.app %>/styles/{,*/}*.css'],
-      //   tasks: ['newer:copy:styles', 'postcss']
-      // }
       styles: {
-      files: ['<%= config.app %>/sass/{,*/}*.scss'],
-      tasks: ['sass', 'newer:copy:styles', 'autoprefixer']
-    }
+        files: ['<%= config.app %>/sass/{,*/}*.scss'],
+        tasks: ['sass', 'newer:copy:styles', 'autoprefixer']
+      }
     },
 
     browserSync: {
@@ -168,20 +164,24 @@ module.exports = function (grunt) {
     // Compiles Sass to CSS and generates necessary files if requested
     sass: {
       options: {
-        sourceMap: true,
-        sourceMapEmbed: true,
-        sourceMapContents: true,
-        includePaths: ['.']
+        // sourceMap: true,
+        // sourceMapEmbed: true,
+        // sourceMapContents: true,
+        // includePaths: ['.'],
+        loadPath: [
+          'bower_components/bourbon/app/assets/stylesheets',
+          'bower_components/neat/app/assets/stylesheets'
+        ]
       },
-      // dist: {
-      //   files: [{
-      //     expand: true,
-      //     cwd: '<%= config.app %>/styles',
-      //     src: ['*.{scss,sass}'],
-      //     dest: '.tmp/styles',
-      //     ext: '.css'
-      //   }]
-      // },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %>/sass',
+          src: ['*.{scss,sass}'],
+          dest: '.tmp/styles',
+          ext: '.css'
+        }]
+      },
       server: {
         files: [{
           expand: true,
@@ -190,22 +190,6 @@ module.exports = function (grunt) {
           dest: '.tmp/styles',
           ext: '.css'
         }]
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= config.app %>/sass',
-          src: ['*.scss'],
-          dest: '<%= config.app %>/styles',
-          ext: '.css'
-        }],
-
-        options: {
-          loadPath: [
-            'bower_components/bourbon/dist',
-            'bower_components/neat/app/assets/stylesheets'
-          ]
-        }
       }
     },
 
@@ -412,11 +396,11 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
+      'sass',
       'concurrent:server',
       'postcss',
       'browserSync:livereload',
-      'watch',
-      'sass'
+      'watch'
     ]);
   });
 
@@ -444,6 +428,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'wiredep',
     'useminPrepare',
+    'sass',
     'concurrent:dist',
     'postcss',
     'concat',
@@ -453,8 +438,7 @@ module.exports = function (grunt) {
     'modernizr',
     'filerev',
     'usemin',
-    'htmlmin',
-    'sass'
+    'htmlmin'
   ]);
 
   grunt.registerTask('default', [

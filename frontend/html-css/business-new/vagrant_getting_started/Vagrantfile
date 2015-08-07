@@ -10,30 +10,37 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # You should add the following to /etc/hosts
   # business.local   192.168.33.10
-  config.vm.network :private_network, ip: "192.168.33.10"
-  config.vm.synced_folder "../", "/src"
-
-  # Adding some scripts support
-
-
   if defined?(SHARED_BOX_URL)
-    config.vm.box = "busines"
+    config.vm.box = "busines-new"
     config.vm.box_url = SHARED_BOX_URL
   else
     config.vm.box = "precise64"
     config.vm.box_url = "http://files.vagrantup.com/precise64.box"
-    config.vm.provision "shell", :path => "bootstrap.sh", :privileged => false
   end
+  config.vm.network :private_network, ip: "192.168.33.10"
+  config.vm.synced_folder("../", "/src", :mount_options => ['dmode=777','fmode=777'])
+  # config.vm.synced_folder(".", "/vagrant",
+                          # :owner => "vagrant",
+                          # :group => "vagrant",
+                          # :mount_options => ['dmode=777','fmode=777'])
 
+  config.ssh.forward_agent = true
+  config.ssh.forward_x11   = true
+
+
+  # Adding some scripts support
 
   config.vm.provider :virtualbox do |vb|
     # Use VBoxManage to customize the VM. For example to change memory:
-    vb.customize ["modifyvm", :id, "--memory", "1024"]
+    vb.customize(["modifyvm", :id, "--natdnshostresolver1", "off"  ])
+    vb.customize(["modifyvm", :id, "--natdnsproxy1",        "off"  ])
+    vb.customize(["modifyvm", :id, "--memory",              "1024" ])
   end
 
   # This is the MySQL Server port
   # If you want to use this port, make sure you read the article
   # http://www.cyberciti.biz/tips/how-do-i-enable-remote-access-to-mysql-database-server.html
   # Forward grunt test server port
+  config.vm.provision :shell, path: "bootstrap.sh", :privileged => false
   config.vm.network :forwarded_port, guest: 9000, host: 9000
 end
