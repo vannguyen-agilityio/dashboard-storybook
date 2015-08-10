@@ -1,7 +1,6 @@
-
-$background-color: #5B5E63;
-
-.header{
+.header {
+  @include clearfix();
+  margin-bottom: em(20px);
   &__logo {
       @include media($tablet-destop) {
        @include span-columns(4);
@@ -13,11 +12,15 @@ $background-color: #5B5E63;
     }
   }
   &__nav {
-    background-color: $background-color;
-    padding: 0 2em 0 1em;
+    background-color: $nav-background-color;
     text-align: center;
     -webkit-font-smoothing: antialiased;
     @include clearfix;
+    @include pad(0 default 0 default);
+    @include media($tablet-destop) {
+      height: $nav-height;
+      line-height: $nav-height;
+    }
   }
   &__list {
     display: inline-block;
@@ -26,13 +29,18 @@ $background-color: #5B5E63;
     margin: 0;
   }
   &__item {
-    padding: 0.5em;
+    padding: em(10px);
     @include media($tablet-destop) {
       float: left;
+      padding: 0 em(10px);
     }
   }
   &__link {
-    color: $white;
-    font-size: 1em;
+    color: $nav-color;
+    font-size: $base-font-size;
+    text-decoration: none;
+    &:hover {
+      color: $nav-color-hover;
+    }
   }
 }

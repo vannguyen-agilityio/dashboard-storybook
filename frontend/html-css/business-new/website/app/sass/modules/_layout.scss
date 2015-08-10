@@ -1,0 +1,6 @@
+.container {
+  @include outer-container(100%);
+}
+.content {
+  @include outer-container(80%);
+}
