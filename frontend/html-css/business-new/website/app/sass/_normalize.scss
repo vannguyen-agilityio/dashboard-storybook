@@ -100,14 +100,14 @@ body {
  * Address `outline` inconsistency between Chrome and other browsers.
  */
 
-a:focus {
-    outline: thin dotted;
-}
+// a:focus {
+//     outline: thin dotted;
+// }
 
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
-
+a:focus,
 a:active,
 a:hover {
     outline: 0;
@@ -288,12 +288,12 @@ sub {
  * Address margins set differently in IE 6/7.
  */
 
-dl,
-menu,
-ol,
-ul {
-    margin: 1em 0;
-}
+// dl,
+// menu,
+// ol,
+// ul {
+//     margin: 1em 0;
+// }
 
 dd {
     margin: 0 0 0 40px;

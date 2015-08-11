@@ -1,18 +1,24 @@
 .header {
   @include clearfix();
-  margin-bottom: em(20px);
+  background-color: $nav-background-color;
   &__logo {
       @include media($tablet-destop) {
-       @include span-columns(4);
-      }
+      @include span-columns(4);
+      float: left;
     }
+    max-height: $nav-height;
+    padding-right: 2em;
+    img {
+      max-height: $nav-height;
+      padding: 0.8em 0;
+    }
+  }
   &__navigation {
     @include media($tablet-destop) {
       @include span-columns(8);
     }
   }
   &__nav {
-    background-color: $nav-background-color;
     text-align: center;
     -webkit-font-smoothing: antialiased;
     @include clearfix;

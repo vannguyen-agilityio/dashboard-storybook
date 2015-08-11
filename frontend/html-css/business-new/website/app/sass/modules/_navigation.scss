@@ -1,4 +1,4 @@
-.header {
+.navigation {
   $base-border-color: gainsboro !default;
   $base-border-radius: 3px !default;
   $action-color: #477DCA !default;
@@ -45,7 +45,6 @@
   }
 
   // Mobile view
-
   &__menu-button {
     color: $navigation-color;
     display: block;
@@ -68,7 +67,7 @@
 
   // Nav menu
 
-  &__nav {
+  nav {
     float: none;
     min-height: $navigation-height;
     z-index: 9999999;
@@ -78,7 +77,7 @@
     }
   }
 
-  &__nav-menu {
+  &__menu {
     -webkit-transform-style: preserve-3d; // stop webkit flicker
     clear: both;
     display: none;
@@ -101,7 +100,7 @@
 
   // The nav items
 
-  &__nav-link {
+  &__link {
     background: $navigation-background;
     display: block;
     line-height: $navigation-height;
@@ -133,7 +132,6 @@
         color: $navigation-color-hover;
       }
     }
-
     // Sub menus
     &.more {
       padding-right: 0;
@@ -167,7 +165,7 @@
     padding-bottom: 3px;
   }
 
-  // Sub menus
+
   li.more {
     overflow: visible;
     padding-right: 0;
@@ -192,8 +190,8 @@
       }
     }
 
-    &:focus > .header__nav-sub,
-    &:hover > .header__nav-sub {
+    &:focus > .submenu,
+    &:hover > .submenu {
       display: block;
     }
 
@@ -203,7 +201,7 @@
     }
   }
 
-  &__nav-sub {
+  ul.submenu {
     display: none;
     padding-left: 0;
 
@@ -213,7 +211,7 @@
       top: 1.5em;
     }
 
-    .header__nav-sub {
+    .submenu {
       @include media($horizontal-bar-mode) {
         left: $navigation-submenu-width - 0.2em;
         top: 0;
@@ -257,7 +255,7 @@
 
   // Elements on the far right
 
-  &__nav-tools {
+  &__tools {
     background: #505050;
     clear: both;
     display: block;
@@ -285,7 +283,7 @@
       position: relative;
 
       input[type=search] {
-        @include box-sizing(border-box);
+        // @include box-sizing(border-box);
         background: $navigation-search-background;
         border-radius: $base-border-radius * 2;
         border: $navigation-search-border;
@@ -326,7 +324,7 @@
       width: 16em;
 
       input {
-        @include box-sizing(border-box);
+        // @include box-sizing(border-box);
         display: block;
       }
     }
