@@ -26,7 +26,21 @@ $tablet: new-breakpoint(max-width $max-tablet-breakpoint min-width $min-tablet-b
 $mobile-tablet: new-breakpoint(max-width $max-tablet-breakpoint 8);
 $mobile: new-breakpoint(max-width $max-mobile-breakpoint 4);
 
-// $first-breakpoint-value: 400px;
-// $second-breakpoint-value: 700px;
-// $medium-viewport: new-breakpoint(min-width em($first-breakpoint-value) max-width em($second-breakpoint-value));
-// $large-viewport: new-breakpoint(min-width em($second-breakpoint-value + 1));
+/// Device Widths
+$phone-portrait: em(320);
+$phone-landscape: em(568);
+$tablet-portrait: em(768);
+$tablet-landscape: em(1024);
+$desktop: em(1030);
+// Target device and smaller screens
+$phone-portrait-down: new-breakpoint(max-width $phone-portrait);
+$phone-landscape-down: new-breakpoint(max-width $phone-landscape);
+$tablet-portrait-down: new-breakpoint(max-width $tablet-portrait);
+$tablet-landscape-down: new-breakpoint(max-width $tablet-landscape);
+$desktop-down: new-breakpoint(max-width $desktop);
+// Target device and bigger screens
+$phone-portrait-up: new-breakpoint(min-width $phone-portrait);
+$phone-landscape-up: new-breakpoint(min-width $phone-landscape);
+$tablet-portrait-up: new-breakpoint(min-width $tablet-portrait);
+$tablet-landscape-up: new-breakpoint(min-width $tablet-landscape);
+$desktop-up: new-breakpoint(min-width $desktop);

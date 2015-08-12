@@ -1,0 +1,33 @@
+.swiper-container {
+    @include clearfix;
+    margin: 20px auto;
+    width: 100%;
+    height: 250px
+
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(center);
+}
+.swiper-detail {
+    h2,p,
+    .buttons {
+        opacity: 0;
+        padding-top: 25px;
+    }
+}
+.swiper-slide-active {
+    .swiper-detail {
+        h2,p,
+        .buttons {
+            opacity: 1;
+            padding-top: 0;
+            @include transition (all 1s ease-in-out);
+        }
+    }
+}

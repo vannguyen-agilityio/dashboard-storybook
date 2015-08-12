@@ -167,17 +167,23 @@ module.exports = function (grunt) {
         // sourceMap: true,
         // sourceMapEmbed: true,
         // sourceMapContents: true,
-        // includePaths: ['.'],
-        loadPath: [
-          'bower_components/bourbon/app/assets/stylesheets',
-          'bower_components/neat/app/assets/stylesheets'
-        ]
+        includePaths: [
+            './bower_components/bourbon/app/assets/stylesheets',
+            './bower_components/neat/app/assets/stylesheets',
+            './bower_components/bitters/app/assets/stylesheets',
+            './bower_components/swiper/dist/css'
+
+        ],
+        // loadPath: [
+        //   'bower_components/bourbon/app/assets/stylesheets',
+        //   'bower_components/neat/app/assets/stylesheets'
+        // ]
       },
       dist: {
         files: [{
           expand: true,
           cwd: '<%= config.app %>/sass',
-          src: ['*.{scss,sass}'],
+          src: ['*.{scss,sass,css}'],
           dest: '.tmp/styles',
           ext: '.css'
         }]

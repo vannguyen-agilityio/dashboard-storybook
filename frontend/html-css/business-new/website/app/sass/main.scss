@@ -1,7 +1,5 @@
-@import 'bower_components/bourbon/app/assets/stylesheets/bourbon';
-@import 'bower_components/bitters/app/assets/stylesheets/base';
-@import 'bower_components/neat/app/assets/stylesheets/neat';
+@import 'library';
 @import 'normalize';
 @import 'variables';
-@import 'base';
+@import 'font-base';
 @import 'modules/modules';
