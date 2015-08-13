@@ -1,0 +1,26 @@
+.topbar {
+  background:url(../images/lines.png);
+  height:5px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.navbar-nav > li > a {
+  font-size: 1em;
+  line-height: 3.6em;
+}
+.navbar-fixed-top {
+  top: 5px;
+}
+.navbar-inverse {
+  background: #111;
+}
+.navbar-default .navbar-nav >.active > a {
+  &,
+  &:hover,
+  &:focus {
+    background: none;
+    color: #21abca;
+  }
+}

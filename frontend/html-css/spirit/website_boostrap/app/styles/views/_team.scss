@@ -1,0 +1,30 @@
+
+/*team*/
+.team {
+    figure{width: 100%;
+  }
+  img {
+    width: 100%;
+  }
+  b {
+    font-size: 1.2em;
+    display: block;
+  }
+  a i.fa { color: #fff;
+    font-size: 2em;
+    &:hover{color: #21abca;}
+  }
+}
+
+.highlight-info {
+  background:url(../images/lab.jpg) center fixed;
+  background-size: cover;
+  color:#fff;
+  .overlay {
+    background: rgba(33,171,202,0.5);
+  }
+  h4 {
+    color: #fff;
+    margin:0.5em 0 0 0;
+  }
+}

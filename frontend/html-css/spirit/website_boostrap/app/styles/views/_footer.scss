@@ -1,0 +1,22 @@
+.footer {
+  background-color: #111;
+  color: #fff;
+  font-size: 1em;
+  color: #aaa;
+  a {
+    color: #aaa;
+    margin: 0 1em;
+  }
+}
+
+.gototop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.5);
+  padding: 10px;
+  color: #fff;
+  i {
+    line-height: 0.5em;
+  }
+}
