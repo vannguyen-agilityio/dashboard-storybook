@@ -30,20 +30,24 @@ h4 {
   line-height: 1em;
 }
 h1 {
-  font:700 5em Roboto,Arial,Helvetica;
+  font-weight: 700;
+  font-size: 5em;
   margin:0.25em 0;
   text-transform: uppercase;
 }
 h2 {
-  font:300 2.5em Roboto,Arial,Helvetica;
+  font-weight: 300;
+  font-size: 2.5em;
   margin-bottom: 1.5em;
 }
 h3 {
-  font:300 2em Roboto,Arial,Helvetica;
+  font-weight: 300;
+  font-size: 2em;
   margin:2em 0 1em 0;
 }
 h4 {
-  font:300 1.5em Roboto,Arial,Helvetica;
+  font-weight: 300;
+  font-size: 1.5em;
   margin-bottom: 1em;
 }
 h4 i {
