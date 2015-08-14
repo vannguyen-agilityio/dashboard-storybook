@@ -54,6 +54,10 @@ module.exports = function (grunt) {
       styles: {
         files: ['<%= config.app %>/sass/{,*/}*.scss'],
         tasks: ['sass', 'newer:copy:styles', 'autoprefixer']
+      },
+      bower_components: {
+        files: ['bower_components/*'],
+        tasks: ['wiredep']
       }
     },
 
@@ -170,7 +174,9 @@ module.exports = function (grunt) {
         includePaths: [
             './bower_components/bourbon/app/assets/stylesheets',
             './bower_components/neat/app/assets/stylesheets',
-            './bower_components/bitters/app/assets/stylesheets'
+            './bower_components/bitters/app/assets/stylesheets',
+            './bower_components/wow/css/libs',
+            './bower_components/font-awesome/scss'
         ],
         // loadPath: [
         //   'bower_components/bourbon/app/assets/stylesheets',
@@ -357,20 +363,20 @@ module.exports = function (grunt) {
 
     // Generates a custom Modernizr build that includes only the tests you
     // reference in your app
-    modernizr: {
-      dist: {
-        devFile: 'bower_components/modernizr/modernizr.js',
-        outputFile: '<%= config.dist %>/scripts/vendor/modernizr.js',
-        files: {
-          src: [
-            '<%= config.dist %>/scripts/{,*/}*.js',
-            '<%= config.dist %>/styles/{,*/}*.css',
-            '!<%= config.dist %>/scripts/vendor/*'
-          ]
-        },
-        uglify: true
-      }
-    },
+    // modernizr: {
+    //   dist: {
+    //     devFile: 'bower_components/modernizr/modernizr.js',
+    //     outputFile: '<%= config.dist %>/scripts/vendor/modernizr.js',
+    //     files: {
+    //       src: [
+    //         '<%= config.dist %>/scripts/{,*/}*.js',
+    //         '<%= config.dist %>/styles/{,*/}*.css',
+    //         '!<%= config.dist %>/scripts/vendor/*'
+    //       ]
+    //     },
+    //     uglify: true
+    //   }
+    // },
 
     // Run some tasks in parallel to speed up build process
     concurrent: {
@@ -450,4 +456,5 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+  grunt.registerTask('changes', ['watch']);
 };

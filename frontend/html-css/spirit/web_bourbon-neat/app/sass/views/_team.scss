@@ -1,0 +1,39 @@
+/*team*/
+.team {
+  @include outer-container(60%);
+  @include media($mobile-tablet) {
+    @include outer-container(93%);
+  }
+  &-item {
+    @include span-columns(3);
+  }
+  figure {
+    width: 100%;
+  }
+  img {
+    width: 100%;
+  }
+  b {
+    font-size: 1em;
+    display: block;
+    font-weight: 300;
+  }
+  a i.fa {
+    color: $white;
+    font-size: 1.5em;
+    &:hover{
+      color: #21abca;
+    }
+  }
+  &.grid figure figcaption {
+    font-size: 1em;
+    @include media($mobile-tablet) {
+      font-size: em(12px);
+      &:before {
+        @include position(absolute, 10px 10px 10px 10px);
+      }
+    }
+
+  }
+}
+

@@ -1,3 +1,42 @@
 .container {
   @include outer-container(100%);
 }
+
+.spacer {
+    padding: 6em 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+html,
+body {
+  color: $color-base;
+  font-family: $base-font-family;
+  font-size: $font-base-destop;
+}
+
+@include media($tablet) {
+  html,
+  body {
+    font-size: $font-base-tablet;
+  }
+}
+
+@include media($mobile) {
+  html,
+  body {
+    font-size: $font-base-mobile;
+  }
+}
+
+h2,
+h3,
+h4 {
+  font-weight: 300;
+}
+
+p {
+  font-size: em(13px);
+}

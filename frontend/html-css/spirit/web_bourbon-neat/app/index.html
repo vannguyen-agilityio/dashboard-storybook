@@ -9,16 +9,21 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!-- font awesome -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/swiper/dist/css/swiper.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-    <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="bower_components/modernizr/modernizr.js"></script>
+    <!-- gallery -->
+    <link rel="stylesheet" href="sass/lib/gallery/blueimp-gallery.min.css">
     <!-- endbuild -->
 
   </head>
@@ -46,9 +51,9 @@
             </nav>
         </div>
     </header>
-    <!-- #Header Starts -->
+    <!-- Header Ends -->
 
-    <!-- works -->
+    <!-- Works Start-->
     <div id="works"  class="works grid">
         <figure class="effect-oscar  wowload fadeIn">
             <img src="images/portfolio/1.jpg" alt="img01"/>
@@ -63,7 +68,7 @@
             <figcaption>
                 <h2>Events</h2>
                 <p>Lily likes to play with crayons and pencils<br>
-                <a href="images/portfolio/2.jpg" title="1" data-gallery>View more</a></p>
+                <a href="images/portfolio/2.jpg" title="2" data-gallery>View more</a></p>
             </figcaption>
         </figure>
         <figure class="effect-oscar  wowload fadeInUp">
@@ -71,7 +76,7 @@
             <figcaption>
                 <h2>music</h2>
                 <p>Lily likes to play with crayons and pencils<br>
-                <a href="images/portfolio/3.jpg" title="1" data-gallery>View more</a></p>
+                <a href="images/portfolio/3.jpg" title="3" data-gallery>View more</a></p>
             </figcaption>
         </figure>
         <figure class="effect-oscar  wowload fadeInUp">
@@ -79,7 +84,7 @@
             <figcaption>
                 <h2>Vintage</h2>
                 <p>Lily likes to play with crayons and pencils<br>
-                <a href="images/portfolio/4.jpg" title="1" data-gallery>View more</a></p>
+                <a href="images/portfolio/4.jpg" title="4" data-gallery>View more</a></p>
             </figcaption>
         </figure>
         <figure class="effect-oscar  wowload fadeInUp">
@@ -87,7 +92,7 @@
             <figcaption>
                 <h2>Typers</h2>
                 <p>Lily likes to play with crayons and pencils<br>
-                <a href="images/portfolio/5.jpg" title="1" data-gallery>View more</a></p>
+                <a href="images/portfolio/5.jpg" title="5" data-gallery>View more</a></p>
             </figcaption>
         </figure>
         <figure class="effect-oscar  wowload fadeInUp">
@@ -95,7 +100,7 @@
             <figcaption>
                 <h2>hotel</h2>
                 <p>Lily likes to play with crayons and pencils<br>
-                <a href="images/portfolio/6.jpg" title="1" data-gallery>View more</a></p>
+                <a href="images/portfolio/6.jpg" title="6" data-gallery>View more</a></p>
             </figcaption>
         </figure>
         <figure class="effect-oscar  wowload fadeInUp">
@@ -103,7 +108,7 @@
             <figcaption>
                 <h2>Chinese</h2>
                 <p>Lily likes to play with crayons and pencils<br>
-                <a href="images/portfolio/7.jpg" title="1" data-gallery>View more</a></p>
+                <a href="images/portfolio/7.jpg" title="7" data-gallery>View more</a></p>
             </figcaption>
         </figure>
         <figure class="effect-oscar  wowload fadeInUp">
@@ -111,7 +116,7 @@
             <figcaption>
                 <h2>Dicrap</h2>
                 <p>Lily likes to play with crayons and pencils<br>
-                <a href="images/portfolio/8.jpg" title="1" data-gallery>View more</a></p>
+                <a href="images/portfolio/8.jpg" title="8" data-gallery>View more</a></p>
             </figcaption>
         </figure>
         <figure class="effect-oscar  wowload fadeInUp">
@@ -119,7 +124,7 @@
             <figcaption>
                 <h2>Coffee</h2>
                 <p>Lily likes to play with crayons and pencils<br>
-                <a href="images/portfolio/9.jpg" title="1" data-gallery>View more</a></p>
+                <a href="images/portfolio/9.jpg" title="9" data-gallery>View more</a></p>
             </figcaption>
         </figure>
         <figure class="effect-oscar  wowload fadeInUp">
@@ -127,7 +132,7 @@
             <figcaption>
                 <h2>cameras</h2>
                 <p>Lily likes to play with crayons and pencils<br>
-                <a href="images/portfolio/10.jpg" title="1" data-gallery>View more</a></p>
+                <a href="images/portfolio/10.jpg" title="10" data-gallery>View more</a></p>
             </figcaption>
         </figure>
         <figure class="effect-oscar  wowload fadeInUp">
@@ -135,7 +140,7 @@
             <figcaption>
                 <h2>design</h2>
                 <p>Lily likes to play with crayons and pencils<br>
-                <a href="images/portfolio/11.jpg" title="1" data-gallery>View more</a></p>
+                <a href="images/portfolio/11.jpg" title="11" data-gallery>View more</a></p>
             </figcaption>
         </figure>
         <figure class="effect-oscar  wowload fadeInUp">
@@ -143,13 +148,14 @@
             <figcaption>
                 <h2>studio</h2>
                 <p>Lily likes to play with crayons and pencils<br>
-                <a href="images/portfolio/12.jpg" title="1" data-gallery>View more</a></p>
+                <a href="images/portfolio/12.jpg" title="12" data-gallery>View more</a></p>
             </figcaption>
         </figure>
     </div>
-    <!-- works -->
+    <!-- Works Ends-->
 
-    <div id="about"  class="container spacer about">
+    <!-- About Starts -->
+    <div id="about"  class="spacer about">
         <h2 class="about-text wowload fadeInUp">Creative digital agency based on London</h2>
         <div class="about-title">
           <div class="about-col wowload fadeInLeft">
@@ -163,8 +169,8 @@
         </div>
 
         <div class="about-process">
-            <h3 class="text-center wowload fadeInUp">Process</h3>
-            <ul class="row text-center list-inline  wowload bounceInUp">
+            <h3 class="about-text wowload fadeInUp">Process</h3>
+            <ul class="about-text wowload bounceInUp">
                 <li>
                     <span><i class="fa fa-history"></i><b>Research</b></span>
                 </li>
@@ -184,17 +190,189 @@
         </div>
     </div>
 
+    <!-- Cirlce Starts -->
+    <div class="highlight-info">
+      <div class="highlight-overlay spacer">
+        <div class="highlight-container">
+          <div class="wowload fadeInDownBig">
+            <div class="highlight-item">
+              <i class="fa fa-smile-o  fa-5x"></i><h4>24 Clients</h4>
+            </div>
+            <div class="highlight-item">
+              <i class="fa fa-rocket  fa-5x"></i><h4>75 Projects</h4>
+            </div>
+            <div class="highlight-item">
+              <i class="fa fa-cloud-download  fa-5x"></i><h4>454 Downloads</h4>
+            </div>
+            <div class="highlight-item">
+              <i class="fa fa-map-marker fa-5x"></i><h4>2 Offices</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Cirlce Ends -->
+    <!-- About Ends -->
+
+    <!-- Partners -->
+    <div id="partners" class="partner container spacer">
+      <h2 class="text-center  wowload fadeInUp">Some of our happy clients</h2>
+      <div class="partner-slide">
+        <div class="partner-item partner-item--photo wowload fadeInLeft">
+          <img src="images/partners/1.jpg" alt="partners">
+          <img src="images/partners/2.jpg" alt="partners">
+          <img src="images/partners/3.jpg" alt="partners">
+          <img src="images/partners/4.jpg" alt="partners">
+        </div>
+        <div class="partner-item">
+            <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide item active animated bounceInRight">
+
+                    <div class="swiper-photo animated slideInLeft">
+                        <img alt="portfolio" src="images/team/1.jpg" width="100" class="img-circle img-responsive">
+                    </div>
+                    <div class="swiper-detail">
+                        <p> I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. </p>
+                        <span>Angel Smith - <b>eshop Canada</b></span>
+                    </div>
+
+                </div>
+                <div class="swiper-slide item  animated bounceInRight">
+                    <div class="swiper-photo animated slideInLeft">
+                        <img alt="portfolio" src="images/team/2.jpg" width="100" class="img-circle img-responsive">
+                    </div>
+                    <div  class="swiper-detail">
+                        <p>No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.</p>
+                        <span>John Partic - <b>Crazy Pixel</b></span>
+                    </div>
+                </div>
+                <div class="swiper-slide item  animated bounceInRight">
+                    <div class="swiper-photo animated slideInLeft">
+                        <img alt="portfolio" src="images/team/3.jpg" width="100" class="img-circle img-responsive">
+                    </div>
+                    <div  class="swiper-detail">
+                        <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue.</p>
+                        <span>Harris David - <b>Jet London</b></span>
+                    </div>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+        </div>
+      </div>
+
+      <!-- team -->
+      <h3 class="text-center  wowload fadeInUp">Our team</h3>
+      <p class="text-center  wowload fadeInLeft">Our creative team that is making everything possible</p>
+      <div class="team grid wowload fadeInUpBig">
+        <div class="team-item">
+          <figure class="effect-chico">
+            <img src="images/team/8.jpg" alt="img01" class="img-responsive" />
+            <figcaption>
+              <p><b>Barbara Husto</b><br>Senior Designer<br><br><a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a></p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="team-item">
+          <figure class="effect-chico">
+              <img src="images/team/10.jpg" alt="img01"/>
+              <figcaption>
+                <p><b>Barbara Husto</b><br>Senior Designer<br><br><a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a></p>
+              </figcaption>
+          </figure>
+        </div>
+
+        <div class="team-item">
+          <figure class="effect-chico">
+            <img src="images/team/12.jpg" alt="img01"/>
+            <figcaption>
+              <p><b>Barbara Husto</b><br>Senior Designer<br><br><a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a></p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="team-item">
+          <figure class="effect-chico">
+            <img src="images/team/17.jpg" alt="img01"/>
+            <figcaption>
+              <p><b>Barbara Husto</b><br>Senior Designer<br><br><a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a></p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <!-- team -->
+    </div>
+
+
+    <!--Contact Starts-->
+    <div id="contact" class="contact spacer">
+      <div class="contact-form">
+        <h2 class="text-center wowload fadeInUp">Get in touch to start your project</h2>
+        <div class="contact-layout wowload fadeInLeftBig">
+            <div class="contact-detail">
+              <input type="text" placeholder="Name">
+              <input type="text" placeholder="Company">
+              <textarea rows="5" placeholder="Message"></textarea>
+              <button><i class="fa fa-paper-plane"></i> Send</button>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!--Contact Ends-->
+
+
+    <!-- Footer Starts -->
+    <footer class="footer text-center spacer">
+      <p class="wowload flipInX">
+        <a href="#">
+          <i class="fa fa-facebook fa-2x"></i>
+        </a>
+        <a href="#">
+          <i class="fa fa-instagram fa-2x"></i>
+        </a>
+        <a href="#">
+          <i class="fa fa-twitter fa-2x"></i>
+        </a>
+        <a href="#">
+          <i class="fa fa-flickr fa-2x"></i>
+        </a>
+      </p>
+      Copyright 2014 Cyrus Creative Studio. All rights reserved.
+    </footer>
+    <!-- # Footer Ends -->
+
+    <a href="#works" class="gototop "><i class="fa fa-angle-up  fa-3x"></i></a>
+
+    <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+    <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+        <!-- The container for the modal slides -->
+        <div class="slides"></div>
+        <!-- Controls for the borderless lightbox -->
+        <h3 class="title">Title</h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    </div>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/wow/dist/wow.js"></script>
+    <script src="/bower_components/swiper/dist/js/swiper.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
 
 
     <!-- build:js scripts/main.js -->
+    <!-- gallery -->
+    <script src="sass/lib/gallery/jquery.blueimp-gallery.min.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
 

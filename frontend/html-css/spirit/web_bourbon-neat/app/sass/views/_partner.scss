@@ -1,0 +1,38 @@
+/*testimonials*/
+.partner {
+  &-item {
+    @include span-columns(6);
+    &--photo img {
+      float: left;
+      margin:0 em(60px) em(25px) 0;
+    }
+  }
+  &-slide {
+    @include clearfix;
+    @include outer-container(60%);
+    @include media($mobile-tablet) {
+      @include outer-container(93%);
+    }
+  }
+}
+
+.swiper {
+  &-container {
+     min-height: em(195px);
+  img {
+    margin-top: em(5px);
+  }
+  span {
+    color: #888;
+    b {
+      font-weight: 400;
+    }
+  }
+  }
+  &-photo {
+    @include span-columns(2);
+  }
+  &-detail {
+    @include span-columns(10);
+  }
+}

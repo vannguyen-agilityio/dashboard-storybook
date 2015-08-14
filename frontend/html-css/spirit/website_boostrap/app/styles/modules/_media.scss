@@ -10,7 +10,8 @@
   }
 
   .grid figure h2 {
-    font: 700 1.5em Roboto,Arial,Helvetica;
+    font-size: 1.5em;
+    font-weight: 700;
   }
 
   figure.effect-oscar figcaption {
@@ -36,10 +37,12 @@
 
 @media (max-width: 900px) {
   h1 {
-    font: 700 3.5em Roboto,Arial,Helvetica;
+    font-size: 3.5em;
+    font-weight: 700;
   }
   h4 {
-    font: 300 1.3em Roboto,Arial,Helvetica;
+    font-size: 1.3em;
+    font-weight: 300;
   }
   .btn {
     padding: 1em 2em;
@@ -98,7 +101,8 @@
     font-size: 1.7em;
   }
   h4 {
-    font: 300 1.2em Roboto,Arial,Helvetica;
+    font-size: 1.2em;
+    font-weight: 300;
   }
 
   .partner h2 {
@@ -106,16 +110,15 @@
   }
 
   .works {
-    padding-top: 5em;
+    padding-top: 5em !important;
   }
 
   .partners {
     display: block;
     float: left;
-  }
-
-  .partners img {
-    width: 120px;
+    img {
+      width: 120px;
+    }
   }
 
   .about.spacer {

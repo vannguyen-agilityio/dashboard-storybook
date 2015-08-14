@@ -11,21 +11,24 @@
     font-size: 1.2em;
     display: block;
   }
-  a i.fa { color: #fff;
+  a i.fa {
+    color: $white;
     font-size: 2em;
-    &:hover{color: #21abca;}
+    &:hover{
+      color: #21abca;
+    }
   }
 }
 
 .highlight-info {
   background:url(../images/lab.jpg) center fixed;
   background-size: cover;
-  color:#fff;
+  color:$white;
   .overlay {
     background: rgba(33,171,202,0.5);
   }
   h4 {
-    color: #fff;
+    color: $white;
     margin:0.5em 0 0 0;
   }
 }
