@@ -1,0 +1,85 @@
+
+/********************************************************/
+/*                    Navigation bar                    */
+/********************************************************/
+.mainmenu {
+  z-index: 999999;
+  width:100%;
+  padding: 30px 0 0 0;
+  @include media(769px) {
+    position: fixed;
+  }
+  .dropdown-menu {
+    top: -14em;
+    left: 0px;
+    font-size: 13px;
+    padding:0;
+    background:none;
+    border:0 none;
+    border-radius: 2px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    display:block;
+    opacity:0;
+    -webkit-transition: all .45s;
+       -moz-transition: all .45s;
+            transition: all .45s;
+    .active {
+      font-weight:bold;
+    }
+    a {
+      padding:10px 10px;
+      margin:0;
+      color:white;
+      text-decoration: none;
+      -webkit-border-radius: 2px;
+         -moz-border-radius: 2px;
+              border-radius: 2px;
+      &:hover {
+        background:rgba(255,255,255,.1);
+        color:white;
+        padding:10px 8px 10px 12px;
+      }
+    }
+  }
+  .open .dropdown-menu {
+    top:2px;
+    opacity:1;
+  }
+}
+
+.navbar-toggle {
+  cursor: pointer;
+  position:relative;
+  float:left;
+  display:block;
+  padding: 9px 10px;
+  background: rgba(255, 255, 255, 0.2);
+  background-image: none;
+  border: 0 none;
+  top:0px;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+  outline: 0;
+  opacity: 1;
+  -webkit-transition: all .45s;
+     -moz-transition: all .45s;
+          transition: all .45s;
+          float: left;
+
+  .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    + .icon-bar {
+      margin-top: 4px;
+    }
+  }
+}
+.open .navbar-toggle {
+  top:-70px;
+  opacity: 0;
+}
+

@@ -1,0 +1,22 @@
+//////////////////////////////////////////////////
+//                                              //
+//  Home Styling Module                         //
+//                                              //
+//  Requires: Text styling module               //
+//                                              //
+//////////////////////////////////////////////////
+
+//////////////////////////////
+// Default variables        //
+//////////////////////////////
+
+$list__number-color: #CC0000 !default;
+
+////////////////////
+// Styling        //
+////////////////////
+
+/* Show one of sections home */
+.section.home {
+  display: block;
+}
