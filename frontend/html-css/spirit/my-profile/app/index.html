@@ -28,13 +28,16 @@
     <![endif]-->
 
 
-    <nav class="mainmenu">
-      <div class="container">
-        <div class="dropdown">
-          <button type="button" class="navbar-toggle js-navbar-toggle"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          <!-- <a data-toggle="dropdown" href="#">Dropdown trigger</a> -->
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#home" class="active">Hello</a></li>
+    <nav class="nav js-nav">
+      <div class="global__container">
+        <div class="nav__dropdown js-dropdown">
+          <button class="nav__toggle js-navbar-toggle" type="button">
+            <span class="nav__icon"></span>
+            <span class="nav__icon"></span>
+            <span class="nav__icon"></span>
+          </button>
+          <ul class="nav__dropdown-menu" role="menu">
+            <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About me</a></li>
             <li><a href="#skills">Themes</a></li>
             <li><a href="#contact">Get in touch</a></li>
@@ -45,64 +48,78 @@
 
 
     <!-- Main (Home) section -->
-    <section class="section home" id="home">
-      <div class="container__layout">
-        <div class="container-running">
-          <div class="content-running">
-            <div id="layerBall" class="ball">
-              <a href="#home" class="active"><small>Home Visit</small></a>
+    <section class="global__section js-section home" id="home">
+      <div class="global__layout-centered">
+        <div class="home__content">
+          <div class="home__graph js-running">
+
+            <div class="circle">Home</div>
+            <div class="ball ball--one">
+              <a href="#home" class="active"></a>
             </div>
-            <div id="layerPulse" class="pulse"></div>
+            <div class="pulse pulse--one"></div>
+
             <div class="line line--one"></div>
-            <div id="layerBall1" class="ball1">
+
+            <div class="ball ball--two">
               <a href="#about"><small>About Visit</small></a>
             </div>
-            <div id="layerPulse1" class="pulse1"></div>
+            <div class="pulse pulse--two"></div>
             <div class="line line--two"></div>
 
-            <div id="layerBall2" class="ball2">
+            <div class="ball ball--three">
               <a href="#skills"><small>Skillss Visit</small></a>
             </div>
-            <div id="layerPulse2" class="pulse2"></div>
+            <div class="pulse pulse--three"></div>
             <div class="line line--three"></div>
 
-            <div id="layerBall3" class="ball3">
+            <div class="ball ball--four">
               <a href="#contact"><small>Contact Visit</small></a>
             </div>
-            <div id="layerPulse3" class="pulse3"></div>
+            <div class="pulse pulse--four"></div>
             <div class="line line--four"></div>
 
-            <div id="layerBall4" class="ball4">
+            <div class="ball ball--five">
               <a href="javascript:void(0)"><small>Visits</small></a>
             </div>
-            <div id="layerPulse4" class="pulse4"></div>
+            <div class="pulse pulse--five"></div>
+
           </div>
         </div>
       </div>
     </section>
 
     <!-- Second (About) section -->
-    <section class="section" id="about">
-      <div class="container__layout">
-        <h2 class="text-center title">About me</h2>
+    <section class="about global__section js-section" id="about">
+      <div class="global__container">
+        <h2 class="global__text-center about__title">About me</h2>
+        <div class="about__detail">
+          <div class="about__info">
+            <h5><strong>Where's my lorem ipsum?<br></strong></h5>
+            <p>Well, here it is: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, ullam, ducimus, eaque, ex autem est dolore illo similique quasi unde sint rerum magnam quod amet iste dolorem ad laudantium molestias enim quibusdam inventore totam fugit eum iusto ratione alias deleniti suscipit modi quis nostrum veniam fugiat debitis officiis impedit ipsum natus ipsa. Doloremque, id, at, corporis, libero laborum architecto mollitia molestiae maxime aut deserunt sed perspiciatis quibusdam praesentium consectetur in sint impedit voluptates! Deleniti, sequi voluptate recusandae facere nostrum?</p>
+          </div>
+          <div class="about__info">
+            <h5><strong>More, more lipsum!<br></strong></h5>
+            <p>Tempore, eos, voluptatem minus commodi error aut eaque neque consequuntur optio nesciunt quod quibusdam. Ipsum, voluptatibus, totam, modi perspiciatis repudiandae odio ad possimus molestias culpa optio eaque itaque dicta quod cupiditate reiciendis illo illum aspernatur ducimus praesentium quae porro alias repellat quasi cum fugiat accusamus molestiae exercitationem amet fugit sint eligendi omnis adipisci corrupti. Aspernatur.</p>
+            <h5><strong>Author links<br></strong></h5>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Third (Skill) section -->
-    <section class="section" id="skills">
-      <div class="container__layout">
-        <h2 class="text-center title">More Skill</h2>
+    <section class="global__section js-section" id="skills">
+      <div class="global__container">
+        <h2 class="global__text-center title">More Skill</h2>
       </div>
     </section>
 
     <!-- Fourth (Contact) section -->
-    <section class="section" id="contact">
-      <div class="container__layout">
-
-        <h2 class="text-center title">Get in touch</h2>
-
-        <div class="row">
-          <div class="col-sm-8 col-sm-offset-2 text-center">
+    <section class="global__section js-section" id="contact">
+      <div class="global__container">
+        <h2 class="global__text-center title">Get in touch</h2>
+        <div class="">
+          <div class="global__text-center">
             <p class="lead">Have a question about this template, or want to suggest a new feature?</p>
             <p>Feel free to email me, or drop me a line in Twitter!</p>
             <p><b>gt@gettemplate.com</b><br><br></p>

@@ -8,14 +8,14 @@ var section_show_time = 1300;
 // jQuery stuff
 jQuery(document).ready(function($) {
 
-  // Switch section
-  $('a', '.mainmenu').click(function() {
+  // Switch section on nav
+  $('a', '.js-nav').click(function() {
     if( ! $(this).hasClass('active') ) {
-      $('a','.container-running').removeClass( 'active' );
+      $('a','.js-running').removeClass( 'active' );
       current_item = this;
       // close all visible divs with the class of .section
-      $('.section:visible').fadeOut( section_hide_time, function() {
-        $('a', '.mainmenu').removeClass( 'active' );
+      $('.js-section:visible').fadeOut( section_hide_time, function() {
+        $('a', '.js-nav').removeClass( 'active' );
         $(current_item).addClass( 'active' );
         var new_section = $( $(current_item).attr('href') );
         new_section.fadeIn( section_show_time );
@@ -24,16 +24,16 @@ jQuery(document).ready(function($) {
     return false;
   });
 
-  // Switch section
-  $('a', '.container-running').click(function() {
+  //Switch section on line
+  $('a', '.js-running').click(function() {
 
     if( ! $(this).hasClass('active') ) {
-      $('.dropdown').removeClass('open');
-      $('a', '.mainmenu').removeClass( 'active' );
+      $('.js-dropdown').removeClass('open');
+      $('a', '.js-nav').removeClass( 'active' );
       current_item = this;
       // close all visible divs with the class of .section
-      $('.section:visible').fadeOut( section_hide_time, function() {
-        $('a','.container-running').removeClass( 'active' );
+      $('.js-section:visible').fadeOut( section_hide_time, function() {
+        $('a','.js-running').removeClass( 'active' );
         $(current_item).addClass( 'active' );
         var new_section = $( $(current_item).attr('href') );
         new_section.fadeIn( section_show_time );
@@ -43,11 +43,11 @@ jQuery(document).ready(function($) {
   });
 
 
-
+ //running line
   $('.content-runing').removeClass('running');
 
-  $('.section:visible').fadeIn( section_hide_time, function() {
-    $('.content-running').removeClass('running').delay(10).queue(function(next){
+  $('.js-section:visible').fadeIn( section_hide_time, function() {
+    $('.js-running').removeClass('running').delay(10).queue(function(next){
       $(this).addClass('running');
         next();
       });
@@ -64,17 +64,7 @@ jQuery(document).ready(function($) {
   return false;
   });
 
-
   $(document).on('click touchstart', function () {
-    $('.dropdown').removeClass('open');
+    $('.js-dropdown').removeClass('open');
   });
-
-  // $('.content-runing').removeClass('running');
-  //   $('.trigger-running').click(function() {
-  //     $('.content-running').removeClass('running').delay(10).queue(function(next){
-  //       $(this).addClass('running');
-  //           next();
-  //       });
-  //       return false;
-  //   });
 });

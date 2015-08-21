@@ -1,52 +1,90 @@
+//////////////////////////////////////////////////
+//                                              //
+//  Layout Styling Module                       //
+//                                              //
+//                                              //
+//////////////////////////////////////////////////
+
+//////////////////////////////
+// Default variables        //
+//////////////////////////////
+
+$layout__max-width: 1024 !default;
+$layout__padding: 20, 20, 20, 20 !default;
+
+$layout__border-width: 10px !default;
+$layout__border-style: solid !default;
+$layout__border-color: #C10000 !default;
+
+$layout__bg-color: #DDDDDD !default;
+$layout__bg-image: none !default;
+$layout__bg-repeat: no-repeat !default;
+$layout__bg-position: top center !default;
+$layout__bg-size: 100% !default;
+
+
+
+////////////////////
+// Styling        //
+////////////////////
+
+html, body {
+    min-height: 100%;
+    height: 100%;
+}
+
 html {
   background:#505D6E url(../images/body4.jpg) no-repeat center center fixed;
   min-height:100%;
-  // show scroll
   overflow: scroll;
   @include prefixer(background-size, cover, webkit moz o spec);
 
 }
 
-.text-center {
+body {
+  // background: $layout__bg-image $layout__bg-color $layout__bg-repeat $layout__bg-position;
+  // background-size: $layout__bg-size;
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.global__container {
+  @include outer-container(90%);
+}
+
+// Center content
+.global__block-centered {
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.global__layout-centered {
+  @extend .global__block-centered;
+  max-width: em($layout__max-width);
+  padding: em(nth($layout__padding, 1)) em(nth($layout__padding, 2)) em(nth($layout__padding, 3)) em(nth($layout__padding, 4));
+  // background-color: $color__white;
+  // border-top: $layout__border-width $layout__border-style $layout__border-color;
+}
+
+.global__text-center {
   text-align: center;
 }
 
 /********************************************************/
 /*             Sections - universal classes             */
 /********************************************************/
-.section {
-  z-index: 1;
+.global__section {
   min-height:420px;
   width: 100%;
   height:100%;
-  padding-top:100px;
+  padding-top:140px;
   padding-bottom:50px;
   display:none;
   top:0;
+  z-index: 1;
 }
 
-
-.dropdown {
-  position: relative;
-  &-menu {
-    position: absolute;
-    list-style: none;
-    float: left;
-    min-width: 160px;
-    a {
-      display: block;
-    }
-  }
-
-}
-
-@include media(768px) {
-  .mainmenu {
-    position: fixed;
-  }
-}
-.mainmenu {
-  z-index: 999999;
-  width: 100%;
-  padding: 30px 0 0 0;
-}

@@ -11,10 +11,16 @@
 // Default variables        //
 //////////////////////////////
 
-$media__border: 1px dotted #CCCCCC !default;
-$media__padding: 20, 0, 10, 0 !default;
+
 
 
 ////////////////////
 // Styling        //
 ////////////////////
+
+
+.about {
+  &__info {
+    @include span-columns(6);
+  }
+}

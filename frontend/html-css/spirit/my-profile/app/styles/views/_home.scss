@@ -10,13 +10,27 @@
 // Default variables        //
 //////////////////////////////
 
-$list__number-color: #CC0000 !default;
+$layout__with: 960 !default;
 
 ////////////////////
 // Styling        //
 ////////////////////
 
+@import "modules/line";
+
 /* Show one of sections home */
-.section.home {
-  display: block;
+.home {
+  &.global__section {
+    display: block;
+  }
+  &__content {
+    @include size(em($layout__with) 100%);
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  &__graph {
+    @include outer-container(80%);
+    @include position(relative, 50% null null null);
+    @include size(100% em(30));
+  }
 }
