@@ -1,0 +1,36 @@
+.footer {
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height: em(120);   /* Height of the footer */
+  font-size: 1em;
+  @include media($mobile) {
+    padding: 0 em(90);
+    border-top: 1px solid $color__white;
+  }
+  &__link {
+    @include media($mobile) {
+      float: left;
+      margin: 0;
+      line-height: em(120);
+    }
+    a {
+      @include size(em(40) em(40));
+      display: inline-block;
+      border-radius: 50%;
+      background-color: $color__black;
+      line-height: em(40);
+    }
+  }
+  a {
+    color: $color__white;
+    margin: 0 1em;
+    text-decoration: none;
+  }
+  &__link-mail {
+    @include media($mobile) {
+      line-height: em(120);
+      float: right;
+    }
+  }
+}

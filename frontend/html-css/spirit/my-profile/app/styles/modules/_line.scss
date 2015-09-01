@@ -164,6 +164,7 @@
   border: 10px solid $color__circle--border;
   border-top-color: $color__circle--border-top;
   border-radius:50%;
+  color: $color__neutral;
   text-align:center;
   @include prefixer(box-shadow, 0 0 50px 10px #453D9B, webkit moz spec);
   @include background-image(linear-gradient(top, #ffffff 48%, #ecebfa 49%, #ecebfa 51%, #fff 52%));

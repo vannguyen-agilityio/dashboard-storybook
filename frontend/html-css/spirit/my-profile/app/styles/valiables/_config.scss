@@ -51,7 +51,7 @@ $text__line--gamma: 20;
 // $text__line--delta: 20 !default;
 
 // Colours
-$text__colour--base: $color__neutral--dark;
+$text__colour--base: $color__white;
 $text__colour--alpha: $color__primary;
 $text__colour--beta: $color__primary;
 $text__colour--gamma: $text__colour--base;
@@ -89,17 +89,4 @@ $layout__bg-image: url("../images/bg.jpg");
 $layout__bg-size: cover;
 
 
-///////////////
-// 2.2 Lists //
-///////////////
-
-// $list__number-color: #CC0000 !default;
-
-
-///////////////
-// 2.3 Media //
-///////////////
-
-// $media__border: 1px dotted #CCCCCC !default;
-// $media__padding: 20, 0, 10, 0 !default;
 

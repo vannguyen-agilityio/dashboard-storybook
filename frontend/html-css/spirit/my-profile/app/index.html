@@ -8,6 +8,8 @@
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
+    <!-- font awesome -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
@@ -27,29 +29,34 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-
-    <nav class="nav js-nav">
-      <div class="global__container">
-        <div class="nav__dropdown js-dropdown">
-          <button class="nav__toggle js-navbar-toggle" type="button">
-            <span class="nav__icon"></span>
-            <span class="nav__icon"></span>
-            <span class="nav__icon"></span>
-          </button>
-          <ul class="nav__dropdown-menu" role="menu">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About me</a></li>
-            <li><a href="#skills">Themes</a></li>
-            <li><a href="#contact">Get in touch</a></li>
-          </ul>
+     <nav class="nav js-nav">
+        <div class="global__container">
+          <div class="nav__dropdown js-dropdown">
+            <button class="nav__toggle js-navbar-toggle" type="button">
+              <span class="nav__icon"></span>
+              <span class="nav__icon"></span>
+              <span class="nav__icon"></span>
+            </button>
+            <!-- <a data-toggle="dropdown" href="#">Dropdown trigger</a> -->
+            <ul class="nav__dropdown-menu" role="menu">
+              <li>
+                <a href="#home" class="active">
+                  <span>Home</span>
+                </a>
+              </li>
+              <li><a href="#about">
+              <span>About me</span></a></li>
+              <li><a href="#skills"><span>Skills</span></a></li>
+              <li><a href="#rsrv"><span>RSRV</span></a></li>
+              <li><a href="#contact"><span>Get in touch</span></a></li>
+            </ul>
+          </div>
         </div>
-      </div>
     </nav>
-
-
     <!-- Main (Home) section -->
-    <section class="global__section js-section home" id="home">
+    <section class="global__section js-section home active" id="home">
       <div class="global__layout-centered">
+        <div class="global__layout-centered">
         <div class="home__content">
           <div class="home__graph js-running">
 
@@ -74,50 +81,223 @@
             <div class="line line--three"></div>
 
             <div class="ball ball--four">
-              <a href="#contact"><small>Contact Visit</small></a>
+              <a href="#rsrv"><small>RSRV Visit</small></a>
             </div>
             <div class="pulse pulse--four"></div>
             <div class="line line--four"></div>
 
             <div class="ball ball--five">
-              <a href="javascript:void(0)"><small>Visits</small></a>
+              <a href="#contact"><small>Contact Visit</small></a>
             </div>
             <div class="pulse pulse--five"></div>
 
           </div>
         </div>
       </div>
+      </div>
     </section>
 
     <!-- Second (About) section -->
     <section class="about global__section js-section" id="about">
       <div class="global__container">
-        <h2 class="global__text-center about__title">About me</h2>
+        <h2 class="global__text-center about__title  wowload fadeInUp">About me</h2>
         <div class="about__detail">
-          <div class="about__info">
+          <div class="about__info  wowload fadeInLeft">
             <h5><strong>Where's my lorem ipsum?<br></strong></h5>
             <p>Well, here it is: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, ullam, ducimus, eaque, ex autem est dolore illo similique quasi unde sint rerum magnam quod amet iste dolorem ad laudantium molestias enim quibusdam inventore totam fugit eum iusto ratione alias deleniti suscipit modi quis nostrum veniam fugiat debitis officiis impedit ipsum natus ipsa. Doloremque, id, at, corporis, libero laborum architecto mollitia molestiae maxime aut deserunt sed perspiciatis quibusdam praesentium consectetur in sint impedit voluptates! Deleniti, sequi voluptate recusandae facere nostrum?</p>
           </div>
-          <div class="about__info">
+          <div class="about__info  wowload fadeInRight">
             <h5><strong>More, more lipsum!<br></strong></h5>
             <p>Tempore, eos, voluptatem minus commodi error aut eaque neque consequuntur optio nesciunt quod quibusdam. Ipsum, voluptatibus, totam, modi perspiciatis repudiandae odio ad possimus molestias culpa optio eaque itaque dicta quod cupiditate reiciendis illo illum aspernatur ducimus praesentium quae porro alias repellat quasi cum fugiat accusamus molestiae exercitationem amet fugit sint eligendi omnis adipisci corrupti. Aspernatur.</p>
             <h5><strong>Author links<br></strong></h5>
+          </div>
+
+        </div>
+        <div class="experience__heading global__text-center">
+            <!-- Heading -->
+            <h3>Professional Experience</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+        </div>
+        <div id="timeline" class="timeline">
+          <div class="timeline__movement timeline__movement-top">
+            <div class="timeline__badge timeline__future-movement">
+                <a href="#">
+                  <span class="fa fa-plus"></span>
+                </a>
+            </div>
+            <div class="timeline__badge timeline__filter-movement">
+                <a href="#">
+                  <span class="fa fa-clock-o"></span>
+                </a>
+            </div>
+          </div>
+          <div class="timeline__movement">
+            <div class="timeline__badge">
+              <span class="timeline__balloon-date-day">Feb</span>
+              <span class="timeline__balloon-date-month">2014</span>
+            </div>
+            <div class="timeline__item">
+                <div class="timeline__item-layout">
+                    <div class="timeline__item-content">
+                        <div class="timeline__panel credits">
+                            <ul class="timeline__panel-ul">
+                                <li><span class="importo">Mussum ipsum cacilds</span></li>
+                                <li><span class="causale">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span> </li>
+                                <li><p><small class="text-muted"> 18/02/2014 - Present</small></p> </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="timeline__item">
+                <div class="timeline__item-layout">
+                    <div class="timeline__item-content timeline__item-content-right">
+                        <div class="timeline__panel debits">
+                            <ul class="timeline__panel-ul">
+                                <li><span class="importo">Mussum ipsum cacilds</span></li>
+                                <li><span class="causale">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span> </li>
+                                <li><p><small class="text-muted"> 18/02/2014 - Present</small></p> </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Third (Skill) section -->
-    <section class="global__section js-section" id="skills">
-      <div class="global__container">
-        <h2 class="global__text-center title">More Skill</h2>
-      </div>
+    <section class="skill global__section js-section" id="skills">
+       <div class="skill__content global__container">
+
+          <div class="skill__heading global__text-center">
+            <!-- Heading -->
+            <h2>My Skills</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+          </div>
+          <div class="skill__detail">
+            <div class="skill__class">
+                <h2>Programming <strong>Skills</strong></h2>
+                <p class="skill__programming">
+                  It takes knowledge, smart work, and dedication to make great ideas come to life. I have been helping make great ideas happen for the past 7 years and am always ready for new challenges.
+                </p>
+                <div class="skill__item">
+                  <div class="skill__title">HTML5</div>
+                  <div class="skill__process">
+                    <div class="progress progress-striped">
+                      <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                        <span>80% Complete </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="skill__item">
+                    <div class="skill__title">CSS/CC3</div>
+                    <div class="skill__process">
+                      <div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                          <span>80% Complete </span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="skill__item">
+                    <div class="skill__title">JavaScript</div>
+                    <div class="skill__process">
+                      <div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                          <span>40% Complete </span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="skill__item">
+                    <div class="skill__title">jQuery/Ajax</div>
+                    <div class="skill__process">
+                      <div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                          <span>40% Complete </span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill__class">
+                <h2>Designing <strong>Skills</strong></h2>
+                <p class="skill__designing">
+                  Problem solving is not always about sitting in a board room talking about the way things should be done. I have a strong background in UI design which allows me to think on my feet and act upon it.
+                </p>
+                <div class="skill__item">
+                    <div class="skill__title">Photoshop</div>
+                    <div class="skill__process">
+                      <div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                          <span>90% Complete </span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="skill__item">
+                    <div class="skill__title">Illustrator</div>
+                    <div class="skill__process">
+                        <div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                          <span>80% Complete </span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="skill__item">
+                    <div class="skill__title">Indesign</div>
+                    <div class="skill__process">
+                        <div class="skill__progress">
+                          <progress id="progressbar"  min="75" max="100" value="0"></progress>
+                          <span class="progress-value">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
     </section>
 
-    <!-- Fourth (Contact) section -->
+    <!-- Fourth (RSRV) section -->
+    <section class="rsrv global__section js-section" id="rsrv">
+       <div class="rsrv__content global__container">
+          <div class="rsrv__header">
+            <h2 class="rsrv__head global__text-center global__text-uppercase js-head">Rsrv</h2>
+            <h4 class="rsrv__title wowload fadeInUp">Commodo massa dolor diceam est un partuient dolor cum massa parturient est un ligula diceam parturient.</h4>
+            <div class="rsrv__email wowload fadeInLeft">
+              <div class="rsrv__address">
+                <label>Email Address:</label>
+                <input type="email" placeholder="van.nguyenthi@asnet.com">
+              </div>
+              <span class="rsrv__lestme">
+                <button class="global__text-uppercase">Let me in</button>
+              </span>
+            </div>
+          </div>
+          <div class="rsrv__chating">
+              <p class="rsrv__chater-one">
+                <i></i>
+                Commodo massa lorem ipsum est.
+              </p>
+              <p class="rsrv__chater-two">Commodo massa dolor.</p>
+              <p class="rsrv__chater-three">
+                <i></i>
+                Commodo massa lorem ipsum est.
+              </p>
+              <p class="rsrv__chater-four">Commodo massa dolor.</p>
+          </div>
+        </div>
+    </section>
+
+    <!-- Five (Contact) section -->
     <section class="global__section js-section" id="contact">
       <div class="global__container">
-        <h2 class="global__text-center title">Get in touch</h2>
+        <h2 class="global__text-center">Get in touch</h2>
         <div class="">
           <div class="global__text-center">
             <p class="lead">Have a question about this template, or want to suggest a new feature?</p>
@@ -130,9 +310,30 @@
             </ul>
           </div>
         </div>
+        <div class="loader">Loading...</div>
 
       </div>
     </section>
+
+    <!-- Footer Starts -->
+    <footer class="footer global__text-center spacer">
+      <p class="footer__link wowload fadeInUp">
+        <a href="#">
+          <i class="fa fa-facebook fa-1x"></i>
+        </a>
+        <a href="#">
+          <i class="fa fa-twitter fa-1x"></i>
+        </a>
+         <a href="#">
+          <i class="fa fa-instagram fa-1x"></i>
+        </a>
+      </p>
+       <a href="javascript:void(0);" class="footer__link-mail">
+          <i class="fa fa-envelope-o fa-1x"></i>
+          info@rsrv.co
+        </a>
+    </footer>
+    <!-- # Footer Ends -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
@@ -148,6 +349,7 @@
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <!-- endbower -->
+    <script src="/bower_components/wow/dist/wow.js"></script>
     <!-- endbuild -->
 
     <!-- build:js scripts/main.js -->

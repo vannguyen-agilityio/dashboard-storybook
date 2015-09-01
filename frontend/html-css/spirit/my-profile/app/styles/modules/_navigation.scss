@@ -23,22 +23,25 @@
       box-shadow: none;
       display:block;
       opacity:0;
-      @include position(absolute, -14em null null 0em);
+      @include position(absolute, -20em null null 0em);
       @include transition(all .45s);
       .active {
-        font-weight:bold;
+        background-color: pink;
+      }
+      li {
+        display: block;
+        height: 27px;
       }
       a {
-        display: block;
-        padding: em(10) em(10);
         margin:0;
         color:$color__white;
         text-decoration: none;
         border-radius: 2px;
+        padding: em(10) em(8) em(10) em(12);
         &:hover {
-          background:rgba(255,255,255,.1);
+          @include animation(fadeInUp .5s);
+          background-color:rgba(255,255,255,.1);
           color:white;
-          padding: em(10) em(8) em(10) em(12);
         }
       }
     }
@@ -74,5 +77,19 @@
   &__toggle {
     top:-70px;
     opacity: 0;
+  }
+}
+
+/* ANIMATION */
+
+@include keyframes(fadeInUp) {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

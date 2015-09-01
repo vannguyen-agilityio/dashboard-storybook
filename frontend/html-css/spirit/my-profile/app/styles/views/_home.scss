@@ -20,7 +20,7 @@ $layout__with: 960 !default;
 
 /* Show one of sections home */
 .home {
-  &.global__section {
+  &.active{
     display: block;
   }
   &__content {

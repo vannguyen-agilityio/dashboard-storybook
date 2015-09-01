@@ -1,6 +1,7 @@
 
 @import './bower_components/bourbon/app/assets/stylesheets/bourbon.scss';
 @import './bower_components/neat/app/assets/stylesheets/neat.scss';
+@import '../bower_components/wow/css/libs/animate.css';
 
 @import "valiables/base";
 @import "valiables/config";
@@ -16,14 +17,13 @@
 @import "modules/text";
 @import "modules/global";
 @import "modules/navigation";
+@import "modules/loader";
+@import "modules/footer";
 
 
 
 // Views
 @import "views/home";
 @import "views/about";
-
-
-
-
-
+@import "views/skills";
+@import "views/rsrv";

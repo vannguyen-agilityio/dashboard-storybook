@@ -1,0 +1,169 @@
+.middle-block {
+  display: table-cell;
+  vertical-align: middle;
+}
+.remove-style-default {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+//vaiables
+
+$boder__white: 1px solid $color__white;
+
+.rsrv {
+  &__header {
+    z-index: 1;
+  }
+  &__title {
+    max-width: 400px;
+    text-align: center;
+    margin: 0 auto;
+    padding: em(50) 0;
+  }
+  &__email {
+    display: table;
+    height: em(50);
+    margin: 0 auto;
+    z-index: 1;
+    @include media ($mobile) {
+      display: block;
+      height: auto;
+    }
+  }
+  &__address,
+  &__lestme {
+    @extend .middle-block;
+    @include media ($mobile) {
+      display: block;
+    }
+  }
+  &__address {
+    background-color: #ddd;
+    padding: 0 em(20);
+    @include border-left-radius(em(25));
+    input {
+      padding-left: em(20);
+      @extend .remove-style-default;
+    }
+    @include media ($mobile) {
+      margin-bottom: em(40);
+      width: 100%;
+      text-align: center;
+      background-color: transparent;
+      label {
+        width: 100%;
+      }
+      input {
+        padding: 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+  &__lestme {
+    background-color: #ccc;
+    @include border-right-radius(em(25));
+    button {
+      color: $color__white;
+      height: 100%;
+      min-height: em(50);
+      opacity: 0.5;
+      @extend .remove-style-default;
+    }
+    @include media($mobile) {
+      width: 100%;
+      text-align: center;
+      @include border-left-radius(em(25));
+    }
+  }
+  &__chater {
+    text-align: center;
+    &-one,
+    &-three {
+      position: relative;
+      margin: em(50) 0;
+      border: $boder__white;
+      border-radius: em(5);
+      max-width: em(300);
+      min-height: em(40);
+      line-height: em(40);
+      opacity: 0;
+      @include transform(scale(0));
+      i {
+        border: $boder__white;
+        border-radius: 50%;
+        display: inline-block;
+        line-height: em(15);
+        text-align: center;
+        position: absolute;
+        left: em(-20);
+        top: 50%;
+        @include size(em(20) em(20));
+        &:before {
+          content: 'r';
+        }
+      }
+    }
+    &-two,
+    &-four {
+      background-color: $color__black;
+      border-radius: em(5);
+      max-width: em(300);
+      min-height: em(40);
+      line-height: em(40);
+      margin: 0 auto;
+      opacity: 0;
+      @include transform(scale(0));
+    }
+    &-one {
+      z-index: 0;
+      @include animation(turning 3s 0.5s forwards, lineone 4s 6s forwards);
+    }
+    &-two {
+      @include animation(turning 3s 1.5s forwards, linetwo 5s 6s forwards);
+    }
+    &-three {
+      @include animation(turning 3s 2.5s forwards, linethree 5s 6s forwards);
+    }
+    &-four {
+      @include animation(turning 3s 3.5s forwards, linefour 5s 10s forwards infinite);
+    }
+  }
+}
+
+@include keyframes(turning) {
+  0% { @include transform(scale(0,0)); opacity: 0; }
+    50% { @include transform(scale(0,0.1)); opacity: 0.5; }
+      100% { @include transform(scale(1,1)); opacity: 1;}
+}
+@include keyframes(lineone) {
+  0% { @include transform(translateY(0)); opacity: 1;}
+  50% { @include transform(translateY(em(-25))); opacity: 0.5;}
+    100% { @include transform(translateY(em(-50))); opacity: 0;}
+}
+
+@include keyframes(linetwo) {
+  0% { @include transform(translateY(0)); opacity: 1;}
+    40% { @include transform(translateY(em(-50))); opacity: 0.6;}
+      80% { @include transform(translateY(em(-80))); opacity: 0.2;}
+       100% { @include transform(translateY(em(-100))); opacity: 0;}
+}
+
+@include keyframes(linethree) {
+  0% { @include transform(translateY(0)); opacity: 1;}
+    40% { @include transform(translateY(em(-50))); opacity: 0.6;}
+      60% { @include transform(translateY(em(-100))); opacity: 0.4;}
+        80% { @include transform(translateY(em(-150))); opacity: 0.2;}
+          100% { @include transform(translateY(em(-200))); opacity: 0;}
+}
+
+@include keyframes(linefour) {
+  0% { @include transform(translateY(0)); opacity: 1;}
+    20% { @include transform(translateY(em(-50))); opacity: 0.8;}
+      40% { @include transform(translateY(em(-100))); opacity: 0.6;}
+       60% { @include transform(translateY(em(-150))); opacity: 0.4;}
+        80% { @include transform(translateY(em(-200))); opacity: 0.2;}
+          100% { @include transform(translateY(em(-250))); opacity: 0;}
+}

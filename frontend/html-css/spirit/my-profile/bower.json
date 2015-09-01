@@ -5,7 +5,8 @@
     "jquery": "~2.1.1",
     "modernizr": "~2.8.1",
     "bourbon": "~4.2.3",
-    "neat": "~1.7.2"
+    "neat": "~1.7.2",
+    "wow": "~1.1.2"
   },
   "devDependencies": {
     "chai": "~3.2.0",
