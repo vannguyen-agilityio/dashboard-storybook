@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////
 //                                              //
-//  Contact Styling Module                        //
+//  About Styling View                          //
 //                                              //
 //  Requires: Text styling module               //
 //                                              //
@@ -30,13 +30,16 @@
   &__info {
     @include span-columns(6);
   }
-}
+  &.global__section {
+    min-height: 100%;
+    height: auto;
+  }
 
+}
 
 .experience {
   &__heading {
-    padding: 3px 10px;
-    padding-bottom: 15px;
+    padding: 3px 10px 15px;
     margin-bottom: 30px;
     display: block;
   }
@@ -45,29 +48,26 @@
   list-style: none;
   position: relative;
   &:before {
-    top: 0;
-    bottom: 0;
-    position: absolute;
+    @include position(absolute, 0 null 0 50%);
     content: " ";
     width: 2px;
-    background-color: #CC4646;
-    left: 50%;
+    background-color: $color__experience;
     margin-left: -1.5px;
   }
 
   &__panel {
-    border: 1px solid #d4d4d4;
+    border: 1px solid $color__experience-light;
     border-radius: 3px;
-    background-color: #FFFFFF;
-    color: #666;
+    background-color: $color__white;
+    color: $color__neutral;
     padding: 10px;
     position: relative;
-    -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+    @include prefixer(box-shadow, 0 1px 6px rgba(0, 0, 0, 0.175), webkit moz spec);
   }
 
   &__item {
     padding: 20px 0;
+    @include transform(scale(0,0));
     @include span-columns(6);
     &-content {
       @include span-columns(11);
@@ -77,52 +77,76 @@
     }
   }
   &__movement {
-    border-bottom: dashed 1px #CC4646;
+    border-bottom: dashed 1px $color__experience;
     position: relative;
+    margin: 0 auto;
+    @include size(0 0);
     @include clearfix();
     &-top {
-      height: 60px;
+      @include animation(move-height-top 1s 8s forwards, move-width 5s 9s forwards);
+    }
+    &-content-one {
+      @include animation(move-height-content 1s 10s forwards, move-width 5s 12s forwards);
+      .timeline__item {
+        @include animation(scale-width 4s 17s forwards);
+      }
+      .timeline__date-movement {
+        @include animation(scale-width 1s 10s forwards);
+      }
+    }
+    &-content-two {
+      @include animation(move-height-content 1s 20s forwards, move-width 5s 22s forwards);
+      .timeline__item {
+        @include animation(scale-width 4s 27s forwards);
+      }
+      .timeline__date-movement {
+        @include animation(scale-width 1s 21s forwards);
+      }
+    }
+    &-content-three {
+      @include animation(move-height-content 1s 30s forwards, move-width 5s 32s forwards);
+      .timeline__item {
+        @include animation(scale-width 4s 38s forwards);
+      }
+      .timeline__date-movement {
+        @include animation(scale-width 1s 31s forwards);
+      }
     }
   }
   &__badge {
-    color: #fff;
-    width: 50px;
-    height: 50px;
+    color: $color__white;
     font-size: 1.2em;
     text-align: center;
-    position: absolute;
-    top: 20px;
-    left: 50%;
     margin-left: -25px;
-    background-color: #CC4646;
+    background-color: $color__experience;
     z-index: 36;
-    border-top-right-radius: 50%;
-    border-top-left-radius: 50%;
-    border-bottom-right-radius: 50%;
-    border-bottom-left-radius: 50%;
+    border-radius: 50%;
+    @include transform(scale(0,0));
+    @include size(50px 50px);
+    @include position(absolute, 20px null null 50%);
     &.timeline__future-movement {
-      background-color: #ffffff;
-    height: 35px;
-    width: 35px;
-    font-size: 1.7em;
-    top: -16px;
-    margin-left: -18px;
-    a span {
-      color: #CC4646;
+      background-color: $color__white;
+     @include size(35px 35px);
+      font-size: 1.7em;
+      top: -16px;
+      margin-left: -18px;
+      @include animation(scale-width 1s 4s forwards);
+      a span {
+      color: $color__experience;
       font-size: 0.9em;
       top: 2px;
       left: 1px;
       }
     }
     &.timeline__filter-movement {
-      background-color: #ffffff;
+      background-color: $color__white;
       font-size: 1.7em;
-      height: 35px;
       margin-left: -18px;
-      width: 35px;
       top: 40px;
+      @include size(35px 35px);
+      @include animation(scale-width 1s 7s forwards);
       a span {
-        color: #CC4646;
+        color: $color__experience;
         font-size: 0.9em;
         top: 2px;
         left: 1px;
@@ -130,4 +154,22 @@
     }
   }
 
+}
+
+/* ANIMATION */
+@include keyframes(move-width) {
+  0% { width:0px;}
+    100% { width: 100%;}
+}
+@include keyframes(move-height-top) {
+  0% { height: 0px;}
+    100% { height: 60px;}
+}
+@include keyframes(move-height-content) {
+  0% { height: 0px;}
+    100% { height: 150px;}
+}
+@include keyframes(scale-width) {
+  0%   { @include transform(scale(0,0));}
+    100% { @include transform(scale(1,1));}
 }

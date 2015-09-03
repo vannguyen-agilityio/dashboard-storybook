@@ -20,29 +20,14 @@ jQuery(document).ready(function($) {
         var attr_href = $(current_item).attr('href'),
             new_section = $(attr_href);
         if (attr_href == '#skills') {
-          if(!Modernizr){
-            alert('Sorry your brower does not support HTML5 progress bar');
-          } else {
-            var progressbar = $('#progressbar'),
-              max = progressbar.attr('min'),
-              time = (1000/max)*5,
-                  value = progressbar.val();
-
-              var loading = function() {
-                  value += 1;
-                  addValue = progressbar.val(value);
-
-                  $('.progress-value').html(value + '%');
-
-                  if (value == max) {
-                      clearInterval(animate);
-                  }
-              };
-
-              var animate = setInterval(function() {
-                  loading();
-              }, time);
-          };
+          document.getElementById('skillbar-bar0').style.width="0px";
+          document.getElementById('skillbar-bar1').style.width="0px";
+          document.getElementById('skillbar-bar2').style.width="0px";
+          $('.skillbar').each(function(){
+            $(this).find('.skillbar-bar').animate({
+              width:$(this).attr('data-percent')
+            },8000);
+          });
         }
         new_section.fadeIn( section_show_time );
       } );
@@ -64,29 +49,14 @@ jQuery(document).ready(function($) {
         var attr_href = $(current_item).attr('href'),
             new_section = $(attr_href);
         if (attr_href == '#skills') {
-          if(!Modernizr){
-            alert('Sorry your brower does not support HTML5 progress bar');
-          } else {
-            var progressbar = $('#progressbar'),
-              max = progressbar.attr('min'),
-              time = (1000/max)*5,
-                value = progressbar.val();
-
-              var loading = function() {
-                value += 1;
-                addValue = progressbar.val(value);
-
-                $('.progress-value').html(value + '%');
-
-                if (value == max) {
-                  clearInterval(animate);
-                }
-              };
-
-              var animate = setInterval(function() {
-                  loading();
-              }, time);
-          };
+          document.getElementById('skillbar-bar0').style.width="0px";
+          document.getElementById('skillbar-bar1').style.width="0px";
+          document.getElementById('skillbar-bar2').style.width="0px";
+          $('.skillbar').each(function(){
+            $(this).find('.skillbar-bar').animate({
+              width:$(this).attr('data-percent')
+            },8000);
+          });
         }
         new_section.fadeIn( section_show_time );
       } );
@@ -132,6 +102,17 @@ jQuery(document).ready(function($) {
     }
   );
   wow.init();
+
+
+
+$(window).scroll(function() {
+  if($(window).scrollTop() > 0) {
+    $('.js-nav').addClass('hide');
+  } else {
+    $('.js-nav').removeClass('hide');
+  }
+});
+
 
   // $(window).scroll(function() {
   //   console.log('dfvndfvnd');

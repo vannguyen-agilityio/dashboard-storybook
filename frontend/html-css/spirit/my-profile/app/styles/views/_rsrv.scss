@@ -118,7 +118,6 @@ $boder__white: 1px solid $color__white;
       @include transform(scale(0));
     }
     &-one {
-      z-index: 0;
       @include animation(turning 3s 0.5s forwards, lineone 4s 6s forwards);
     }
     &-two {

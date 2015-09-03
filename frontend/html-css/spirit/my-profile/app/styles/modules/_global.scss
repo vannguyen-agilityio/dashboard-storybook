@@ -36,7 +36,7 @@ html, body {
 
 html {
   background:#505D6E url(../images/body4.jpg) no-repeat center center fixed;
-  min-height:100%;
+
   // overflow: scroll;
   @include prefixer(background-size, cover, webkit moz o spec);
 
@@ -45,7 +45,8 @@ html {
 body {
   // background: $layout__bg-image $layout__bg-color $layout__bg-repeat $layout__bg-position;
   // background-size: $layout__bg-size;
- padding-bottom: em(120);   /* Height of the footer */
+
+  padding-bottom: em(120);   /* Height of the footer */
   * {
     box-sizing: border-box;
   }
@@ -67,8 +68,6 @@ body {
   @extend .global__block-centered;
   max-width: em($layout__max-width);
   padding: em(nth($layout__padding, 1)) em(nth($layout__padding, 2)) em(nth($layout__padding, 3)) em(nth($layout__padding, 4));
-  // background-color: $color__white;
-  // border-top: $layout__border-width $layout__border-style $layout__border-color;
 }
 
 .global__text-center {
@@ -89,6 +88,10 @@ body {
   padding: em(50) 0;
   display:none;
   top:0;
+  position: relative;
   z-index: 1;
 }
 
+.hide {
+  opacity: 0;
+}
