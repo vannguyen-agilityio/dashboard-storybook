@@ -1,12 +1,16 @@
 // generated on 2015-08-18 using generator-gulp-webapp 1.0.3
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
+// import svgSprite from 'gulp-svg-sprites';
 import browserSync from 'browser-sync';
 import del from 'del';
 import {stream as wiredep} from 'wiredep';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
+
+var svgSprite = require('gulp-svg-sprite');
+var rename = require('gulp-rename');
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
@@ -156,10 +160,36 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+//Create SVG sprites with PNG fallbacks
+gulp.task('sprites', function () {
+    return gulp.src('app/images/svg/*.svg')
+
+        .pipe(svgSprite({
+            mode: { symbol: true }
+        }))
+        .pipe(gulp.dest('app'));
+});
+
+//Validate .scss files with scss-lint
+var scsslint = require('gulp-scss-lint');
+
+gulp.task('scss-lint', function() {
+  gulp.src('app/styles/*.scss')
+    .pipe(scsslint());
+});
+
+//minify css using gulp
+var cssmin = require('gulp-minify-css');
+
+
+gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras', 'sprites', 'scss-lint'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
 gulp.task('default', ['clean'], () => {
   gulp.start('build');
+  gulp.src('app/styles/*.css')
+        .pipe(cssmin())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('app'));
 });

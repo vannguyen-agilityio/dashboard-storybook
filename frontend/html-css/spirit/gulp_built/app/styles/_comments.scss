@@ -1,0 +1,464 @@
+
+//import font
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Roboto:400,300);
+
+
+
+//creat mixin
+@mixin transform($method) {
+      -ms-transform:  $method; /* IE 9 */
+     -moz-transform:  $method; /* Firefox */
+  -webkit-transform:  $method; /* Chrome, Safari */
+          transform:  $method;
+}
+
+// box-shadow
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: inset $top $left $blur $color;
+       -moz-box-shadow: inset $top $left $blur $color;
+            box-shadow: inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+       -moz-box-shadow: $top $left $blur $color;
+            box-shadow: $top $left $blur $color;
+  }
+}
+
+
+// centered align
+@mixin absolute-center($top: 50%) {
+  position: absolute;
+  top: $top;
+  left: 50%;
+  @include transform(translate(-50%, -$top));
+}
+
+// vertical align: middle
+@mixin vertical-center($position: absolute) {
+  position: $position;
+  top: 50%;
+  @include transform(translateY(-50%));
+}
+
+// display: table-cell
+@mixin display-cell($vertical: middle) {
+  display: table-cell;
+  vertical-align: $vertical;
+}
+
+// background-size: cover
+@mixin background-size($size: cover) {
+  -webkit-background-size: $size;
+  -moz-background-size: $size;
+  -o-background-size: $size;
+  background-size: $size;
+}
+
+// background-images: cover
+@mixin background-cover($size: cover) {
+  background-position: center center;
+  background-repeat: no-repeat;
+  @include background-size($size);
+}
+
+
+// Convert pixels to ems
+// eg. for a relational value of 12px write em(12) when the parent is 16px
+// if the parent is another value say 24px write em(12, 24)
+
+$em-base: 16;
+
+@function em($pxval, $base: $em-base) {
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+  @return ($pxval / $base) * 1em;
+}
+
+
+//valiables
+$bg-color: #efefef;
+$bg-color-photo: #d7d7d7;
+$boder-editor-color: #cccccc;
+$boder-bottom-list: #ffffff;
+$color-black: #222222;
+$color-black-med: #373737;
+$color-black-lest: #686868;
+$color-placeholder: #b5b5b5;
+$color-hover-menu: #58c3cb;
+$font-base: 16px;
+$font-family: 'Open Sans', sans-serif;
+
+//style for comments
+.comment {
+  font-family: $font-family;
+  font-weight: 300;
+  font-size: $font-base;
+  font-style: normal;
+  min-width: 320px;
+  a {
+    text-decoration: none;
+  }
+  &-icon  {
+    background: url('../images/icon.png') no-repeat;
+    display: inline-block;
+    overflow: hidden; text-indent: -9999px;
+    text-align: left;
+  }
+
+  &-title,
+  &-count {
+    color: $color-black;
+  }
+
+  &-count {
+    font-size: em(32, $em-base);
+    font-family: Roboto;
+  }
+
+  &-title {
+    border-bottom: 1px solid $boder-bottom-list;
+    display: block;
+    font-size: em(16, $em-base);
+    font-weight: 400;
+    margin: 0;
+    padding: em(12, $em-base) em(25, $em-base);
+  }
+
+  &-status {
+    background-color: $bg-color;
+    min-height: em(100, $em-base);
+  }
+
+  &-heading {
+    font-size: em(12, $em-base);
+  }
+
+  &-content {
+    font-size: em(14, $em-base);
+    font-weight: 400;
+    color: $color-black-med;
+  }
+
+  &-item {
+    border-bottom: 1px solid $boder-bottom-list;
+    display: table;
+    min-height: em(70, $em-base);
+    padding: em(15, $em-base) em(20, $em-base);
+    position: relative;
+    width: 100%;
+    &:hover {
+      .comment-menu {
+        display: inline-block;
+      }
+    }
+  }
+
+  &-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    .angle-icon {
+      display: block;
+      position: relative;
+      height: em(46, $em-base);
+      width: em(57, $em-base);
+      cursor: pointer;
+      i {
+        cursor: pointer;
+        display: inline-block;
+        @include absolute-center();
+      }
+    }
+    ul {
+      background-color: $boder-bottom-list;
+      border-bottom: solid 1px $bg-color-photo;
+      display: none;
+      font-size: em(13, $em-base);
+      padding: em(15, $em-base) em(20, $em-base);
+      position: absolute;
+      right: 0;
+      z-index: 2;
+      width: em(200, $em-base);
+      @include box-shadow(-3px, -3px, 10px, $bg-color-photo);
+      li {
+        position: relative;
+        padding: em(5, $em-base) 0;
+      }
+      span {
+        padding: 0 em(10, $em-base) 0 em(28, $em-base);
+        &:before {
+          content: "";
+          left: 0;
+          @include vertical-center();
+          text-align: left;
+          display: inline-block;
+          overflow: hidden;
+          text-indent: -9999px;
+        }
+      }
+      a {
+        color: $color-black-lest;
+      }
+    }
+    &-edit,
+    &-remove {
+      &:hover {
+        color: $color-hover-menu;
+      }
+    }
+    &-edit {
+      &:before {
+        @extend .comment-icon;
+        background-position: -0px -89px;
+        width: 19px;
+        height: 17px;
+      }
+      &:hover {
+        &:before {
+          @extend .comment-icon;
+          background-position: -0px -73px;
+          width: 19px;
+          height: 17px;
+
+        }
+      }
+    }
+    &-remove {
+      &:before {
+        @extend .comment-icon;
+        background-position: -0px -123px;
+        width: 17px;
+        height: 17px;
+      }
+      &:hover {
+        &:before {
+          @extend .comment-icon;
+          background-position: -0px -106px;
+          width: 17px;
+          height: 17px;
+        }
+      }
+    }
+    &.open {
+      .angle-icon {
+        background-color: $boder-bottom-list;
+        z-index: 3;
+      }
+      ul {
+        display: inline-block;
+      }
+    }
+  }
+
+  &-angle {
+    &:before {
+      content: "";
+      float: left;
+    }
+    &-review {
+      @extend .comment-icon;
+      background-position: -0px -27px;
+      width: 26px;
+      height: 26px;
+      vertical-align: bottom;
+    }
+    &-menu {
+      @extend .comment-icon;
+      background-position: -0px -0px;
+      width: 26px;
+      height: 26px;
+    }
+  }
+
+  &-name,
+  &-linking {
+    color: $color-black-med;
+    font-family: $font-family;
+    font-weight: 600;
+  }
+
+  &-linking {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    font-size: inherit;
+    outline: none;
+  }
+
+  &-detail {
+    padding-left: em(10, $em-base);
+    @include display-cell();
+  }
+
+  &-photo {
+    height: 40px;
+    width: 40px;
+    @include display-cell(top);
+    &-layout {
+      background-color: $bg-color-photo;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      height: 40px;
+      width: 40px;
+    }
+    img {
+      @include absolute-center();
+    }
+  }
+
+  &-post {
+    display: table;
+    padding: em(15, $em-base) em(20, $em-base);
+    width: 100%;
+  }
+
+  &-date {
+    position: relative;
+    padding: 0 em(8, $em-base);
+    color: $color-black-lest;
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      font-size: em(36, $em-base);
+      border: 1px solid $color-black-lest;
+      border-radius: 50%;
+    }
+    &:before {
+      left: 0;
+    }
+    &:after {
+      right: 0;
+    }
+  }
+
+  &-action {
+    color: $color-black;
+    i {
+      display: none;
+    }
+    &.liked {
+      i {
+        display: inline-block;
+      }
+    }
+  }
+
+  &-thumb-up {
+    @extend .comment-icon;
+    background-position: 0px -140px;
+    width: 12px;
+    height: 14px;
+    vertical-align: bottom;
+  }
+
+  &-like {
+    font-weight: 600;
+    color: $color-black-med;
+  }
+
+  &-editor {
+    border: 1px solid $boder-editor-color;
+    border-radius: em(5, $em-base);
+    padding: em(14, $em-base) em(12, $em-base);
+    min-height: em(42, $em-base);
+    margin-left: em(10, $em-base);
+    height: auto;
+    font-size: em(12, $em-base);
+    word-break: break-word;
+    word-wrap: break-word;
+    //placeholder
+    &:empty:before {
+      content: attr(placeholder);
+      display: block; /* For Firefox */
+      color: $color-placeholder;
+    }
+  }
+
+  &-view {
+    padding: em(10, $em-base) 0;
+    font-size: em(25, $em-base);
+    text-align: center;
+    a {
+      color: $color-black;
+    }
+    i {
+      display: inline-block;
+    }
+  }
+
+  &-mention {
+    &-list {
+      min-width: 240px;
+      outline: 0;
+      position: absolute;
+      @include box-shadow(0, 5px, 15px, rgba(0, 0, 0, 0.5));
+    }
+    &-body {
+      cursor: pointer;
+      @include display-cell();
+      overflow: hidden;
+      padding: 0 em(10, $em-base);
+      zoom: 1;
+      span {
+        display: block;
+        font-size: em(11, $em-base);
+        color: $color-placeholder;
+      }
+    }
+    &-item {
+      padding: em(10, $em-base);
+      a {
+        @include display-cell(top);
+        padding: 0 em(3, $em-base);
+      }
+      &:hover {
+        background-color: $bg-color;
+      }
+    }
+    &-avatar {
+      background-color: $bg-color-photo;
+      border-radius: 50%;
+      color: white;
+      display: block;
+      overflow: hidden;
+      height: 40px;
+      width: 40px;
+      position: relative;
+      font-size: em(22, $em-base);
+      img,
+      span {
+        @include absolute-center();
+      }
+    }
+    &-heading {
+      margin: 0;
+      font-weight: 600;
+      font-size: em(13, $em-base);
+      color: $color-black-lest;
+    }
+    &-user {
+      @extend .comment-icon;
+      background-position: -0px -52px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .comment {
+    &-item,
+    &-post {
+      padding: em(15, $em-base) em(10, $em-base);
+    }
+  }
+}
