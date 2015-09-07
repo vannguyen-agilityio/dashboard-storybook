@@ -1,0 +1,101 @@
+html,
+body {
+  color: $color-base;
+  @include size(100% 100%);
+  font-family: $base-font-family;
+  font-size: $font-base-destop;
+}
+
+@include media($tablet) {
+  html,
+  body {
+    font-size: $font-base-tablet;
+  }
+}
+
+@include media($mobile) {
+  html,
+  body {
+    font-size: $font-base-mobile;
+  }
+}
+
+h2,
+h3,
+h4 {
+  font-weight: 300;
+}
+
+p {
+  font-size: em(13px);
+}
+
+.container {
+  height: 100%;
+  @include outer-container(100%);
+}
+.text-center {
+  text-align: center;
+}
+
+
+
+
+
+//creat mixin
+@mixin transform($method) {
+      -ms-transform:  $method; /* IE 9 */
+     -moz-transform:  $method; /* Firefox */
+  -webkit-transform:  $method; /* Chrome, Safari */
+          transform:  $method;
+}
+
+// box-shadow
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: inset $top $left $blur $color;
+       -moz-box-shadow: inset $top $left $blur $color;
+            box-shadow: inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+       -moz-box-shadow: $top $left $blur $color;
+            box-shadow: $top $left $blur $color;
+  }
+}
+
+
+// centered align
+@mixin absolute-center($top: 50%) {
+  position: absolute;
+  top: $top;
+  left: 50%;
+  @include transform(translate(-50%, -$top));
+}
+
+// vertical align: middle
+@mixin vertical-center($position: absolute) {
+  position: $position;
+  top: 50%;
+  @include transform(translateY(-50%));
+}
+
+// display: table-cell
+@mixin display-cell($vertical: middle) {
+  display: table-cell;
+  vertical-align: $vertical;
+}
+
+
+.nav-overlay {
+  @include position(fixed, 0 null null 0);
+  @include size(100% 100%);
+  background: rgba(0,0,0,.8);
+  z-index: 2;
+  display: none;
+  opacity: 0;
+  @include transition(opacity 1s cubic-bezier(0.19,1,0.22,1) 0);
+  &.displayed {
+    display: block;
+    opacity: 1;
+  }
+}

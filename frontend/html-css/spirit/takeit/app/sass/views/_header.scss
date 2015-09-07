@@ -1,0 +1,100 @@
+//var
+
+$navigation-height: em(68);
+
+
+.navigation {
+  background-color: transparent;
+  position: fixed;
+  min-height: $navigation-height;
+  width: 100%;
+  z-index: 999;
+  &-wrapper {
+    @include clearfix;
+    @include outer-container(60%);
+    @include media($mobile-tablet) {
+      @include outer-container(93%);
+    }
+    position: relative;
+    z-index: 1;
+  }
+  &-menu {
+    vertical-align: middle;
+    display: table-cell;
+  }
+}
+.nav {
+  display: none;
+  position: absolute;
+  right: 0;
+  z-index: 3;
+  min-width: 300px;
+  height: 100%;
+  background-color: #c42846;
+  opacity: 0;
+  &.displayed {
+    display: table;
+    @include animation(fadeInDown 1s 0.15s forwards);
+  }
+}
+
+.logo {
+  display: inline-block;
+  color: #fff;
+  font-size: 2.5em;
+  line-height: 4.5em;
+}
+
+.menu-button {
+  float: right;
+  margin-top: em(68);
+  position: relative;
+  cursor: pointer;
+  padding: em(12);
+  i {
+    display: block;
+    @include size(30px 3px);
+    background-color: $white;
+    margin-bottom: em(5);
+    @include transition(opacity 1s cubic-bezier(0.19,1,0.22,1) 0);
+    &:nth-child(3) {
+      position: absolute;
+      top: em(20);
+    }
+  }
+  &.active {
+    i {
+      &:nth-child(1),
+      &:nth-child(4) {
+        opacity: 0;
+      }
+      &:nth-child(2) {
+        @include transform(rotate(45deg));
+      }
+      &:nth-child(3) {
+        @include transform(rotate(-45deg));
+      }
+    }
+  }
+}
+
+//animation
+
+@include keyframes(turning) {
+  0% { @include transform(scale(0,0)); opacity: 0; }
+    50% { @include transform(scale(0,0.1)); opacity: 0.5; }
+      100% { @include transform(scale(1,1)); opacity: 1;}
+}
+
+@include keyframes(fadeInDown) {
+  from {
+    opacity: 0;
+    @include transform(translate3d(0, -100%, 0));
+  }
+
+  to {
+    opacity: 1;
+    @include transform(none);
+  }
+}
+
