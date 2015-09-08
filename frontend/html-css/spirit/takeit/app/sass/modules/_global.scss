@@ -89,7 +89,7 @@ p {
 .nav-overlay {
   @include position(fixed, 0 null null 0);
   @include size(100% 100%);
-  background: rgba(0,0,0,.8);
+  background: rgba(0,0,0,0.5);
   z-index: 2;
   display: none;
   opacity: 0;
@@ -99,3 +99,49 @@ p {
     opacity: 1;
   }
 }
+
+//animation move bubble
+@include keyframes(move) {
+  0% {
+    transform: translate(100px, 500px);
+  }
+}
+
+.bubble-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  min-height: 100%;
+}
+.bubble-wrap {
+  margin: 0 auto;
+  @include size(500px 500px);
+}
+.bubble {
+  position: absolute;
+  background: black;
+  opacity: 0.7;
+  border-radius: 50%;
+  @include animation (move 2.5s 0s infinite);
+}
+@for $i from 1 through 20 {
+  .bubble:nth-child(#{$i}){
+     $size: random(30)+px;
+     width: $size;
+     height: $size;
+     @include animation-delay(-$i * .5s);
+     background: hsl(random(360) , 70%, 50%);
+  }
+}
+
+@for $i from 1 through 10 {
+  .bubble:nth-child(#{$i}){
+    @include transform(translate( (random(10000) * 1px),  (random(1000) * 1px)));
+  }
+}
+@for $i from 11 through 20 {
+  .bubble:nth-child(#{$i}){
+    @include transform(translate( (random(10000) * -1px),  (random(1000) * 1px)));
+  }
+}
+

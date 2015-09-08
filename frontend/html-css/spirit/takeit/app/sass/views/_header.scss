@@ -19,8 +19,8 @@ $navigation-height: em(68);
     z-index: 1;
   }
   &-menu {
-    vertical-align: middle;
-    display: table-cell;
+    margin-top: em(300);
+    padding: 0 em(70);
   }
 }
 .nav {
@@ -28,19 +28,47 @@ $navigation-height: em(68);
   position: absolute;
   right: 0;
   z-index: 3;
-  min-width: 300px;
+  min-width: 500px;
   height: 100%;
   background-color: #c42846;
-  opacity: 0;
+  li {
+    margin-bottom: 15px;
+    opacity: 0;
+
+    a {
+      color: $white;
+      font-size: em(28);
+      @include transition(border 0.9ms cubic-bezier(0.19,1,0.22,1) 0s);
+      &:hover {
+        border-bottom: 2px solid $white;
+      }
+    }
+  }
   &.displayed {
-    display: table;
-    @include animation(fadeInDown 1s 0.15s forwards);
+    display: block;
+    @include animation(fadeInDown 1s 0s forwards);
+    li {
+
+      &:nth-child(1) {
+        @include animation(fadeInDown 1s 1s forwards);
+      }
+      &:nth-child(2) {
+       @include animation(fadeInDown 1.5s 1.5s forwards);
+      }
+      &:nth-child(3) {
+        @include animation(fadeInDown 2s 2s forwards);
+      }
+      &:nth-child(4) {
+        @include animation(fadeInDown 2.5s 2.5s forwards);
+      }
+    }
+
   }
 }
 
 .logo {
   display: inline-block;
-  color: #fff;
+  color: $white;
   font-size: 2.5em;
   line-height: 4.5em;
 }
@@ -51,15 +79,29 @@ $navigation-height: em(68);
   position: relative;
   cursor: pointer;
   padding: em(12);
+
   i {
     display: block;
     @include size(30px 3px);
     background-color: $white;
     margin-bottom: em(5);
+    opacity: 1;
     @include transition(opacity 1s cubic-bezier(0.19,1,0.22,1) 0);
     &:nth-child(3) {
       position: absolute;
       top: em(20);
+    }
+    &:nth-child(1),
+    &:nth-child(4) {
+      opacity: 1;
+    }
+    &:nth-child(2) {
+      @include transform(rotate(0deg));
+      @include transition-duration(1.0s);
+    }
+    &:nth-child(3) {
+      @include transform(rotate(0deg));
+      @include transition-duration(1.0s);
     }
   }
   &.active {
@@ -70,9 +112,11 @@ $navigation-height: em(68);
       }
       &:nth-child(2) {
         @include transform(rotate(45deg));
+        @include transition-duration(1.0s);
       }
       &:nth-child(3) {
         @include transform(rotate(-45deg));
+        @include transition-duration(1.0s);
       }
     }
   }
@@ -82,7 +126,7 @@ $navigation-height: em(68);
 
 @include keyframes(turning) {
   0% { @include transform(scale(0,0)); opacity: 0; }
-    50% { @include transform(scale(0,0.1)); opacity: 0.5; }
+    50% { @include transform(scale(0,0.1)); opacity: 0.5;}
       100% { @include transform(scale(1,1)); opacity: 1;}
 }
 
@@ -98,3 +142,20 @@ $navigation-height: em(68);
   }
 }
 
+
+@include keyframes(fadeInUp) {
+  0% {
+    opacity: 0;
+    @include transform(translateY(2000px));
+  }
+
+  50% {
+    opacity: 0;
+    @include transform(translateY(100px));
+  }
+
+  100% {
+    opacity: 1;
+    @include transform(translateY(0));
+  }
+}

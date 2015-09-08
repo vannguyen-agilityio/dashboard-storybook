@@ -10,43 +10,29 @@
   &-slide {
     height: 100%;
     @include clearfix;
-    @include outer-container(60%);
+    @include outer-container(100%);
     @include media($mobile-tablet) {
       @include outer-container(100%);
     }
   }
 }
 
-.swiper {
-  &-container {
-    height: 100%;
-  img {
-    margin-top: em(5px);
-  }
-  span {
-    color: #888;
-    b {
-      font-weight: 400;
-    }
-  }
-  }
-  &-photo {
-    @include span-columns(2);
-  }
-  &-detail {
-    @include span-columns(10);
-  }
-}
 .screen {
   height: 100%;
-  padding-top: 168px;
+  padding-top: 128px;
   &-one {
-    background-color: #00a7e7;
+    background-color: $blue;
   }
   &-two {
     background-color: #293039;
   }
   &-three {
     background-color: pink;
+  }
+  &-wrapper {
+    position: relative;
+    @include outer-container(60%);
+    margin-top: -168px;
+    height: 100%;
   }
 }
