@@ -1,6 +1,7 @@
 //var
 
 $navigation-height: em(68);
+$bg-nav-color: #c42846;
 
 
 .navigation {
@@ -30,7 +31,7 @@ $navigation-height: em(68);
   z-index: 3;
   min-width: 500px;
   height: 100%;
-  background-color: #c42846;
+  background-color: $bg-nav-color;
   li {
     margin-bottom: 15px;
     opacity: 0;
@@ -119,43 +120,5 @@ $navigation-height: em(68);
         @include transition-duration(1.0s);
       }
     }
-  }
-}
-
-//animation
-
-@include keyframes(turning) {
-  0% { @include transform(scale(0,0)); opacity: 0; }
-    50% { @include transform(scale(0,0.1)); opacity: 0.5;}
-      100% { @include transform(scale(1,1)); opacity: 1;}
-}
-
-@include keyframes(fadeInDown) {
-  from {
-    opacity: 0;
-    @include transform(translate3d(0, -100%, 0));
-  }
-
-  to {
-    opacity: 1;
-    @include transform(none);
-  }
-}
-
-
-@include keyframes(fadeInUp) {
-  0% {
-    opacity: 0;
-    @include transform(translateY(2000px));
-  }
-
-  50% {
-    opacity: 0;
-    @include transform(translateY(100px));
-  }
-
-  100% {
-    opacity: 1;
-    @include transform(translateY(0));
   }
 }

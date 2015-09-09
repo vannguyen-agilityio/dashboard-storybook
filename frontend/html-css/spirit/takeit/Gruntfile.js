@@ -175,7 +175,6 @@ module.exports = function (grunt) {
             './bower_components/bourbon/app/assets/stylesheets',
             './bower_components/neat/app/assets/stylesheets',
             './bower_components/bitters/app/assets/stylesheets',
-            './bower_components/wow/css/libs',
             './bower_components/font-awesome/scss'
         ],
         // loadPath: [

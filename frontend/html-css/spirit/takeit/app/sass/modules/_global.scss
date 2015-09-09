@@ -38,54 +38,6 @@ p {
   text-align: center;
 }
 
-
-
-
-
-//creat mixin
-@mixin transform($method) {
-      -ms-transform:  $method; /* IE 9 */
-     -moz-transform:  $method; /* Firefox */
-  -webkit-transform:  $method; /* Chrome, Safari */
-          transform:  $method;
-}
-
-// box-shadow
-@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
-  @if $inset {
-    -webkit-box-shadow: inset $top $left $blur $color;
-       -moz-box-shadow: inset $top $left $blur $color;
-            box-shadow: inset $top $left $blur $color;
-  } @else {
-    -webkit-box-shadow: $top $left $blur $color;
-       -moz-box-shadow: $top $left $blur $color;
-            box-shadow: $top $left $blur $color;
-  }
-}
-
-
-// centered align
-@mixin absolute-center($top: 50%) {
-  position: absolute;
-  top: $top;
-  left: 50%;
-  @include transform(translate(-50%, -$top));
-}
-
-// vertical align: middle
-@mixin vertical-center($position: absolute) {
-  position: $position;
-  top: 50%;
-  @include transform(translateY(-50%));
-}
-
-// display: table-cell
-@mixin display-cell($vertical: middle) {
-  display: table-cell;
-  vertical-align: $vertical;
-}
-
-
 .nav-overlay {
   @include position(fixed, 0 null null 0);
   @include size(100% 100%);
@@ -97,13 +49,6 @@ p {
   &.displayed {
     display: block;
     opacity: 1;
-  }
-}
-
-//animation move bubble
-@include keyframes(move) {
-  0% {
-    transform: translate(100px, 500px);
   }
 }
 
@@ -122,7 +67,7 @@ p {
   background: black;
   opacity: 0.7;
   border-radius: 50%;
-  @include animation (move 2.5s 0s infinite);
+  @include animation (moveBubble 2.5s 0s infinite);
 }
 @for $i from 1 through 20 {
   .bubble:nth-child(#{$i}){
@@ -145,3 +90,24 @@ p {
   }
 }
 
+.swiper-pagination {
+  position: absolute;
+  text-align: center;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
+}
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  border-radius: 100%;
+  background: #000;
+  opacity: 0.2;
+}

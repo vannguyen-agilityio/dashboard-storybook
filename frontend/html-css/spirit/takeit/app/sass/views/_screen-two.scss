@@ -1,126 +1,158 @@
-.iphone-container {
-  position: absolute;
-  bottom: -130px;
-  left: 50%;
-  margin-left: -195px;
-  z-index: 4;
-  opacity: 0;
-  @include transform(translateY(1000px));
-  will-change: transform;
-  video {
+.screen-two {
+  &-title {
     position: absolute;
-    width: em(220);
-    height: em(400);
+    width: 100%;
+    padding: 0 100px;
+    box-sizing: border-box;
+    left: 50%;
+    max-width: 800px;
+    padding: 0 50px;
+    top: 28%;
+    z-index: 11;
+    text-align: center;
+    -webkit-transform: translate3d(-50%,-50%,0);
+    transform: translate3d(-50%,-50%,0);
+    h3 {
+      color: #d1f2fd;
+      font-size: em(38);
+      font-weight: 600;
+      margin: 0;
+    }
+    h4 {
+      color: $white;
+    }
+  }
+  &-iphone {
+    margin-left: -195px;
     z-index: 4;
-    top: em(99);
-    left: em(63);
-    background-color: $blue;
+    opacity: 0;
+    @include position(absolute, null null -130px 50%);
+    @include transform(translateY(1000px));
+    will-change: transform;
+    video {
+      z-index: 4;
+      background-color: $blue;
+      @include position(absolute, 99px null null 63px);
+      @include size(262px 465px);
+    }
+  }
+  &-clouds {
+    width: 100%;
+    z-index: 1;
+    opacity: 0;
+    @include position(absolute, null null 0 0);
+    /*Time to finalise the cloud shape*/
+    .cloud {
+      @include size(200px 60px);
+      background: #1c2128;
+      border-radius: 200px;
+      position: relative;
+    }
+
+    .cloud:before,
+    .cloud:after {
+      content: '';
+      background: #1c2128;
+      @include size(100px 80px);
+      @include position(absolute, -15px null null 10px);
+      border-radius: 100px;
+      @include transform(rotate(30deg));
+      fill: #1c2128;
+    }
+
+    .cloud:after {
+      @include size(120px 120px);
+      top: -55px;
+      left: auto;
+      right: 15px;
+    }
+
+    /*Time to animate*/
+    .cloud1 {
+      @include animation(moveClouds 15s linear infinite);
+    }
+
+    /*variable speed, opacity, and position of clouds for realistic effect*/
+    .cloud2 {
+      left: 200px;
+
+      @include transform(scale(0.6));
+      opacity: 0.6;
+      @include animation(moveClouds 25s linear infinite);
+    }
+
+    .cloud3 {
+      left: -250px;
+      top: -200px;
+      @include transform(scale(0.8));
+      opacity: 0.8;
+      @include animation(moveClouds 20s linear infinite);
+    }
+
+    .cloud4 {
+      left: 470px;
+      top: -250px;
+      @include transform(scale(0.75));
+      opacity: 0.75;
+      @include animation(moveClouds 18s linear infinite);
+    }
+
+    .cloud5 {
+      left: -150px;
+      top: -150px;
+      @include transform(scale(0.8));
+      opacity: 0.8;
+      @include animation(moveClouds 20s linear infinite);
+    }
+  }
+  &-stars {
+    margin-left: -600px;
+    z-index: 0;
+    @include position(absolute, null null 200px 50%);
+    @include size(1200px 100px);
+    span {
+      display: block;
+      height: 1px;
+      width: 1px;
+      background: $white;
+      position: absolute;
+      opacity: .5;
+      box-shadow: 0 0 8px 1px rgba(255,255,255,.5);
+    }
   }
 }
-.clouds {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-}
-
-.stars {
-  position: absolute;
-  bottom: 200px;
-  left: 50%;
-  margin-left: -600px;
-  width: 1200px;
-  height: 100px;
-  z-index: 0;
-  span {
-    display: block;
-    height: 1px;
-    width: 1px;
-    background: $white;
-    position: absolute;
-    opacity: .5;
-    box-shadow: 0 0 8px 1px rgba(255,255,255,.5);
-  }
-}
-
-.swiper {
-
-  &-slide {
-    &-active {
-      .iphone-container {
-        @include animation(fadeInUp 2s 0.5s forwards);
+.screen {
+  &.active {
+    .screen-two-iphone {
+      @include animation(fadeInUp 2s 0.8s forwards);
+    }
+    .pics-container {
+      &.state-1 {
+        @include animation(fadeInUpPic 2s 0.5s forwards);
+        .pic {
+          &:nth-child(1) {
+            @include transform(translate3d(185px,105px,0) rotate(-20deg) scale(1,1));
+          }
+          &:nth-child(2) {
+            @include transform( translate3d(-25px,35px,0) rotate(15deg) scale(1,1));
+          }
+          &:nth-child(3) {
+            @include transform(translate3d(-195px,115px,0) rotate(35deg) scale(1,1));
+          }
+          &:nth-child(4) {
+            @include transform(translate3d(315px,-200px,0) rotate(-15deg) scale(1,1));
+          }
+          &:nth-child(5) {
+            @include transform(translate3d(-5px,-70px,0) rotate(-20deg) scale(1,1));
+          }
+          &:nth-child(6) {
+            @include transform(translate3d(-215px,-20px,0) rotate(18deg) scale(1,1));
+          }
+        }
       }
     }
   }
 }
 
 
-/*Time to finalise the cloud shape*/
-.cloud {
-  @include size(200px 60px);
-  background: #1c2128;
-  border-radius: 200px;
-  position: relative;
-}
 
-.cloud:before,
-.cloud:after {
-  content: '';
-  background: #1c2128;
-  @include size(100px 80px);
-  @include position(absolute, -15px null null 10px);
-  border-radius: 100px;
-  @include transform(rotate(30deg));
-  fill: #1c2128;
-}
-
-.cloud:after {
-  @include size(120px 120px);
-  top: -55px;
-  left: auto;
-  right: 15px;
-}
-
-/*Time to animate*/
-.cloud1 {
-  @include animation(moveclouds 15s linear infinite);
-}
-
-/*variable speed, opacity, and position of clouds for realistic effect*/
-.cloud2 {
-  left: 200px;
-
-  @include transform(scale(0.6));
-  opacity: 0.6;
-  @include animation(moveclouds 25s linear infinite);
-}
-
-.cloud3 {
-  left: -250px;
-  top: -200px;
-  @include transform(scale(0.8));
-  opacity: 0.8;
-  @include animation(moveclouds 20s linear infinite);
-}
-
-.cloud4 {
-  left: 470px;
-  top: -250px;
-  @include transform(scale(0.75));
-  opacity: 0.75;
-  @include animation(moveclouds 18s linear infinite);
-}
-
-.cloud5 {
-  left: -150px;
-  top: -150px;
-  @include transform(scale(0.8));
-  opacity: 0.8;
-  @include animation(moveclouds 20s linear infinite);
-}
-
-@include keyframes(moveclouds) {
-  0% {margin-left: 1000px;}
-  100% {margin-left: -1000px;}
-}

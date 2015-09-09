@@ -7,14 +7,14 @@
       margin:0 em(60px) em(25px) 0;
     }
   }
-  &-slide {
-    height: 100%;
-    @include clearfix;
-    @include outer-container(100%);
-    @include media($mobile-tablet) {
-      @include outer-container(100%);
-    }
-  }
+  // &-slide {
+  //   height: 100%;
+  //   @include clearfix;
+  //   @include outer-container(100%);
+  //   @include media($mobile-tablet) {
+  //     @include outer-container(100%);
+  //   }
+  // }
 }
 
 .screen {
@@ -30,9 +30,13 @@
     background-color: pink;
   }
   &-wrapper {
+    will-change: transform;
     position: relative;
     @include outer-container(60%);
     margin-top: -168px;
     height: 100%;
+    @include media($mobile-tablet) {
+      @include outer-container(93%);
+    }
   }
 }

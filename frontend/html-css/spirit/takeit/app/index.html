@@ -16,7 +16,6 @@
 
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="/bower_components/swiper/dist/css/swiper.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -44,6 +43,9 @@
             </span>
         </div>
     </header>
+    <!-- Header Ends -->
+
+    <!-- Navigation Start-->
     <nav id="nav" class="nav" role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu">
         <li class="nav-link nav-link--active"><a href="javascript:void(0)">Discover the application</a></li>
@@ -53,169 +55,218 @@
         <li class="nav-link"><a href="javascript:void(0)">Contact Us</a></li>
       </ul>
     </nav>
+    <!-- Navigation End-->
+
+    <!-- Overlay only show when nav displayed -->
     <div id="overlay" class="nav-overlay"></div>
-    <!-- Header Ends -->
+
 
     <!-- Partners -->
-    <div id="partners" class="partner container spacer">
-      <div class="partner-slide">
+    <div id="partners" class="swiper-wrapper">
+        <!-- Start Screen One -->
 
+        <div class="screen screen-one active">
+            <div class="screen-wrapper">
+                <!-- Add Pagination -->
+                <div class="swiper-pagination custom swiper-pagination-clickable">
+                    <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+                    <span class="swiper-pagination-bullet"></span>
+                    <span class="swiper-pagination-bullet"></span>
+                </div>
+                <div class="swiper-detail">
+                    <div class="swiper-title">
+                        <div class="swiper-content">
+                            <h1>
+                                <span>Your</span>
+                                <span>prints</span>
+                                <span>for</span>
+                                <span>free</span>
+                            </h1>
+                            <h2>Your best iPhone photos printed for free.</h2>
+                            <a href="javascript:void(0);" class="swiper-appstore" target="_blank">
+                                <img src="http://www.takeitapp.co/assets/medias/button-apple-store-en.png" width="168" height="50">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bubble-container">
+                <div class="bubble-wrap">
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                  <div class="bubble"></div>
+                </div>
+            </div>
+        </div>
 
-            <!-- Swiper -->
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide item">
+        <!-- Start Screen Two -->
 
-                    <div class="screen screen-one">
-
-                        <div class="screen-wrapper">
-                            <!-- Add Pagination -->
-                            <div class="swiper-pagination custom"></div>
-                            <div class="swiper-detail">
-                                <div class="swiper-title">
-                                    <div class="swiper-content">
-                                        <h1>
-                                            <span>Your</span>
-                                            <span>prints</span>
-                                            <span>for</span>
-                                            <span>free</span>
-                                        </h1>
-                                        <h2>Your best iPhone photos printed for free.</h2>
-                                        <a href="javascript:void(0);" class="swiper-appstore" target="_blank">
-                                            <img src="http://www.takeitapp.co/assets/medias/button-apple-store-en.png" width="168" height="50">
-                                        </a>
+        <div class="screen screen-two bottom">
+            <div class="screen-wrapper">
+                <!-- Add Pagination -->
+                <div class="swiper-pagination custom swiper-pagination-clickable"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span></div>
+                <div class="screen-two-content">
+                    <div class="screen-two-title">
+                        <h3>Every month, 5 free prints</h3>
+                        <h4>Select from your Albums or the photos sent by your friends on the app.</h4>
+                    </div>
+                    <div class="screen-two-iphone">
+                        <img src="http://www.takeitapp.co/assets/medias/iphone-blue.png" class="iphone" data-src="http://www.takeitapp.co/assets/medias/iphone-blue.png">
+                        <video loop="">
+                            <source src="free-polaroids.webm" type="video/webm">
+                            <source src="free-polaroids.mp4" type="video/mp4">
+                            <source src="free-polaroids.ogg" type="video/ogg">
+                        </video>
+                    </div>
+                    <div class="screen-two-clouds">
+                        <div class="cloud cloud1"></div>
+                        <!-- Time for multiple clouds to dance around -->
+                        <div class="cloud cloud2"></div>
+                        <div class="cloud cloud3"></div>
+                        <div class="cloud cloud4"></div>
+                        <div class="cloud cloud5"></div>
+                    </div>
+                    <div class="screen-two-stars">
+                        <span style="top:6px;left:769px;" class="shine star-0"></span>
+                        <span style="top:33px;left:717px;" class="shine star-1"></span>
+                        <span style="top:48px;left:69px;" class="shine star-2"></span>
+                        <span style="top:44px;left:981px;" class="shine star-3"></span>
+                        <span style="top:61px;left:1190px;" class="shine star-0"></span>
+                        <span style="top:45px;left:933px;" class="shine star-1"></span>
+                        <span style="top:76px;left:215px;" class="shine star-2"></span>
+                        <span style="top:92px;left:322px;" class="shine star-3"></span>
+                        <span style="top:57px;left:189px;" class="shine star-0"></span>
+                        <span style="top:0px;left:541px;" class="shine star-1"></span>
+                        <span style="top:75px;left:1051px;" class="shine star-2"></span>
+                        <span style="top:81px;left:1108px;" class="shine star-3"></span>
+                        <span style="top:99px;left:191px;" class="shine star-0"></span>
+                        <span style="top:28px;left:248px;" class="shine star-1"></span>
+                        <span style="top:77px;left:777px;" class="shine star-2"></span>
+                        <span style="top:24px;left:520px;" class="shine star-3"></span>
+                        <span style="top:11px;left:26px;" class="shine star-0"></span>
+                        <span style="top:17px;left:992px;" class="shine star-1"></span>
+                        <span style="top:48px;left:365px;" class="shine star-2"></span>
+                        <span style="top:95px;left:284px;" class="shine star-3"></span>
+                        <span style="top:41px;left:1094px;" class="shine star-0"></span>
+                        <span style="top:49px;left:1046px;" class="shine star-1"></span>
+                        <span style="top:21px;left:349px;" class="shine star-2"></span>
+                        <span style="top:80px;left:403px;" class="shine star-3"></span>
+                        <span style="top:29px;left:1046px;" class="shine star-0"></span>
+                        <span style="top:28px;left:331px;" class="shine star-1"></span>
+                        <span style="top:35px;left:1019px;" class="shine star-2"></span>
+                        <span style="top:60px;left:358px;" class="shine star-3"></span>
+                        <span style="top:44px;left:721px;" class="shine star-0"></span>
+                        <span style="top:54px;left:189px;" class="shine star-1"></span>
+                        <span style="top:22px;left:952px;" class="shine star-2"></span>
+                        <span style="top:4px;left:872px;" class="shine star-3"></span>
+                        <span style="top:91px;left:130px;" class="shine star-0"></span>
+                        <span style="top:15px;left:121px;" class="shine star-1"></span>
+                        <span style="top:73px;left:217px;" class="shine star-2"></span>
+                        <span style="top:18px;left:351px;" class="shine star-3"></span>
+                        <span style="top:40px;left:448px;" class="shine star-0"></span>
+                        <span style="top:75px;left:426px;" class="shine star-1"></span>
+                        <span style="top:78px;left:736px;" class="shine star-2"></span>
+                        <span style="top:60px;left:839px;" class="shine star-3"></span>
+                        <span style="top:80px;left:970px;" class="shine star-0"></span>
+                        <span style="top:41px;left:546px;" class="shine star-1"></span>
+                        <span style="top:42px;left:1159px;" class="shine star-2"></span>
+                        <span style="top:23px;left:254px;" class="shine star-3"></span>
+                        <span style="top:85px;left:499px;" class="shine star-0"></span>
+                        <span style="top:35px;left:932px;" class="shine star-1"></span>
+                        <span style="top:85px;left:356px;" class="shine star-2"></span>
+                        <span style="top:79px;left:227px;" class="shine star-3"></span>
+                        <span style="top:38px;left:711px;" class="shine star-0"></span>
+                        <span style="top:33px;left:148px;" class="shine star-1"></span>
+                    </div>
+                    <div id="pics" class="pics-container state-1">
+                        <div class="state-3-translate">
+                            <div class="pics">
+                                <div class="pic">
+                                    <div class="pic-state-3">
+                                        <div class="borders">
+                                            <img src="http://www.takeitapp.co/assets/medias/free/take-it-pola-1.jpg" data-src="http://www.takeitapp.co/assets/medias/free/take-it-pola-1.jpg">
+                                        </div>
                                     </div>
                                 </div>
-
-                            </div>
-                        </div>
-                        <div class="bubble-container">
-                            <div class="bubble-wrap">
-                              <div class="bubble"></div>
-                              <div class="bubble"></div>
-                              <div class="bubble"></div>
-                              <div class="bubble"></div>
-                              <div class="bubble"></div>
-                              <div class="bubble"></div>
-                              <div class="bubble"></div>
-                              <div class="bubble"></div>
-                              <div class="bubble"></div>
-                              <div class="bubble"></div>
-                              <div class="bubble"></div>
-                              <div class="bubble"></div>
-                              <div class="bubble"></div>
-                              <div class="bubble"></div>
-                              <div class="bubble"></div>
-                              <div class="bubble"></div>
-                              <div class="bubble"></div>
-                              <div class="bubble"></div>
-                              <div class="bubble"></div>
-                              <div class="bubble"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide item">
-                    <div class="screen screen-two">
-                        <div class="screen-wrapper">
-                            <!-- Add Pagination -->
-                            <div class="swiper-pagination custom"></div>
-                            <div class=" ">
-                                <div class="iphone-container">
-                                    <img src="http://www.takeitapp.co/assets/medias/iphone-blue.png" class="iphone" data-src="http://www.takeitapp.co/assets/medias/iphone-blue.png">
-                                    <video loop="">
-                                        <source src="free-polaroids.webm" type="video/webm">
-                                        <source src="free-polaroids.mp4" type="video/mp4">
-                                        <source src="free-polaroids.ogg" type="video/ogg">
-                                    </video>
+                                <div class="pic">
+                                    <div class="pic-state-3">
+                                        <div class="borders">
+                                            <img src="http://www.takeitapp.co/assets/medias/free/take-it-pola-2.jpg" data-src="http://www.takeitapp.co/assets/medias/free/take-it-pola-2.jpg">
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <div class="clouds">
-                                    <div class="cloud cloud1"></div>
-                                    <!-- Time for multiple clouds to dance around -->
-                                    <div class="cloud cloud2"></div>
-                                    <div class="cloud cloud3"></div>
-                                    <div class="cloud cloud4"></div>
-                                    <div class="cloud cloud5"></div>
+                                <div class="pic">
+                                    <div class="pic-state-3">
+                                        <div class="borders">
+                                            <img src="http://www.takeitapp.co/assets/medias/free/take-it-pola-3.jpg" data-src="http://www.takeitapp.co/assets/medias/free/take-it-pola-3.jpg">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="stars">
-                                    <span style="top:6px;left:769px;" class="shine star-0"></span>
-                                    <span style="top:33px;left:717px;" class="shine star-1"></span>
-                                    <span style="top:48px;left:69px;" class="shine star-2"></span>
-                                    <span style="top:44px;left:981px;" class="shine star-3"></span>
-                                    <span style="top:61px;left:1190px;" class="shine star-0"></span>
-                                    <span style="top:45px;left:933px;" class="shine star-1"></span>
-                                    <span style="top:76px;left:215px;" class="shine star-2"></span>
-                                    <span style="top:92px;left:322px;" class="shine star-3"></span>
-                                    <span style="top:57px;left:189px;" class="shine star-0"></span>
-                                    <span style="top:0px;left:541px;" class="shine star-1"></span>
-                                    <span style="top:75px;left:1051px;" class="shine star-2"></span>
-                                    <span style="top:81px;left:1108px;" class="shine star-3"></span>
-                                    <span style="top:99px;left:191px;" class="shine star-0"></span>
-                                    <span style="top:28px;left:248px;" class="shine star-1"></span>
-                                    <span style="top:77px;left:777px;" class="shine star-2"></span>
-                                    <span style="top:24px;left:520px;" class="shine star-3"></span>
-                                    <span style="top:11px;left:26px;" class="shine star-0"></span>
-                                    <span style="top:17px;left:992px;" class="shine star-1"></span>
-                                    <span style="top:48px;left:365px;" class="shine star-2"></span>
-                                    <span style="top:95px;left:284px;" class="shine star-3"></span>
-                                    <span style="top:41px;left:1094px;" class="shine star-0"></span>
-                                    <span style="top:49px;left:1046px;" class="shine star-1"></span>
-                                    <span style="top:21px;left:349px;" class="shine star-2"></span>
-                                    <span style="top:80px;left:403px;" class="shine star-3"></span>
-                                    <span style="top:29px;left:1046px;" class="shine star-0"></span>
-                                    <span style="top:28px;left:331px;" class="shine star-1"></span>
-                                    <span style="top:35px;left:1019px;" class="shine star-2"></span>
-                                    <span style="top:60px;left:358px;" class="shine star-3"></span>
-                                    <span style="top:44px;left:721px;" class="shine star-0"></span>
-                                    <span style="top:54px;left:189px;" class="shine star-1"></span>
-                                    <span style="top:22px;left:952px;" class="shine star-2"></span>
-                                    <span style="top:4px;left:872px;" class="shine star-3"></span>
-                                    <span style="top:91px;left:130px;" class="shine star-0"></span>
-                                    <span style="top:15px;left:121px;" class="shine star-1"></span>
-                                    <span style="top:73px;left:217px;" class="shine star-2"></span>
-                                    <span style="top:18px;left:351px;" class="shine star-3"></span>
-                                    <span style="top:40px;left:448px;" class="shine star-0"></span>
-                                    <span style="top:75px;left:426px;" class="shine star-1"></span>
-                                    <span style="top:78px;left:736px;" class="shine star-2"></span>
-                                    <span style="top:60px;left:839px;" class="shine star-3"></span>
-                                    <span style="top:80px;left:970px;" class="shine star-0"></span>
-                                    <span style="top:41px;left:546px;" class="shine star-1"></span>
-                                    <span style="top:42px;left:1159px;" class="shine star-2"></span>
-                                    <span style="top:23px;left:254px;" class="shine star-3"></span>
-                                    <span style="top:85px;left:499px;" class="shine star-0"></span>
-                                    <span style="top:35px;left:932px;" class="shine star-1"></span>
-                                    <span style="top:85px;left:356px;" class="shine star-2"></span>
-                                    <span style="top:79px;left:227px;" class="shine star-3"></span>
-                                    <span style="top:38px;left:711px;" class="shine star-0"></span>
-                                    <span style="top:33px;left:148px;" class="shine star-1"></span>
+                                <div class="pic">
+                                    <div class="pic-state-3">
+                                        <div class="borders">
+                                            <img src="http://www.takeitapp.co/assets/medias/free/take-it-pola-4.jpg" data-src="http://www.takeitapp.co/assets/medias/free/take-it-pola-4.jpg">
+                                        </div>
+                                    </div>
                                 </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide item">
-                    <div class="screen screen-three">
-                        <div class="screen-wrapper">
-                            <!-- Add Pagination -->
-                            <div class="swiper-pagination custom"></div>
-                           <div class="">
+                                <div class="pic">
+                                    <div class="pic-state-3">
+                                        <div class="borders">
+                                            <img src="http://www.takeitapp.co/assets/medias/free/take-it-pola-5.jpg" data-src="http://www.takeitapp.co/assets/medias/free/take-it-pola-5.jpg">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pic">
+                                    <div class="pic-state-3">
+                                        <div class="borders">
+                                            <img src="http://www.takeitapp.co/assets/medias/free/take-it-pola-6.jpg" data-src="http://www.takeitapp.co/assets/medias/free/take-it-pola-6.jpg">
+                                        </div>
+                                        <div class="back">
+                                            <div class="text"><p>I love you Meghan!</p><strong>Maxime</strong></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
+        <!-- Start Screen Three -->
+
+        <div class="screen screen-three bottom">
+            <div class="screen-wrapper">
+
+               <!-- Add Pagination -->
+                <div class="swiper-pagination custom swiper-pagination-clickable">
+                    <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+                    <span class="swiper-pagination-bullet"></span>
+                    <span class="swiper-pagination-bullet"></span>
+                </div>
+
+
+            </div>
         </div>
 
 
-        </div>
-      </div>
-
-      <!-- team -->
-
-      <!-- team -->
     </div>
 
 
@@ -248,7 +299,6 @@
     <!-- bower:js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/swiper/dist/js/swiper.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

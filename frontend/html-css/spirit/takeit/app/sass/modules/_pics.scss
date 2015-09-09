@@ -1,0 +1,96 @@
+.pics-container {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  &.state-1 {
+    @include transform(translate3d(0,100%,0));
+    will-change: transform;
+  }
+
+  .state-3-translate {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+  .pics {
+    width: 700px;
+    height: 530px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -265px 0 0 -350px;
+  }
+  .pic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transform: scale(.5,.5);
+    transform: scale(.5,.5);
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 800px;
+    z-index: 1;
+    img {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+    &:nth-child(1) {
+      top: -255px;
+      left: -200px;
+      @include transition-delay(3s);
+      will-change: transform;
+    }
+    &:nth-child(2) {
+      top: -255px;
+      left: 130px;
+      @include transition-delay(3.5s);
+      will-change: transform;
+    }
+    &:nth-child(3) {
+      top: -255px;
+      left: 460px;
+      @include transition-delay(3.25s);
+      will-change: transform;
+    }
+    &:nth-child(4) {
+      top: 120px;
+      left: -200px;
+      @include transition-delay(3.7s);
+      will-change: transform;
+    }
+    &:nth-child(5) {
+      top: 120px;
+      left: 130px;
+      @include transition-delay(3.1s);
+      will-change: transform;
+    }
+    &:nth-child(6) {
+      top: 120px;
+      left: 460px;
+      z-index: 0;
+    }
+  }
+  .pic-state-3 {
+    transition: -webkit-transform 2000ms cubic-bezier(.19,1,.22,1) 500ms;
+    transition: transform 2000ms cubic-bezier(.19,1,.22,1) 500ms;
+  }
+  .borders {
+    border: 20px solid #FFF;
+    border-bottom-width: 90px;
+    height: 400px;
+    width: 400px;
+    position: relative;
+    z-index: 2;
+    transition: -webkit-transform 0ms cubic-bezier(.19,1,.22,1) 500ms;
+    transition: transform 0ms cubic-bezier(.19,1,.22,1) 500ms;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+}
