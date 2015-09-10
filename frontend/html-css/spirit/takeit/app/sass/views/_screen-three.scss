@@ -1,3 +1,37 @@
 .screen-three {
-  color: $white;
+  h3,h4 {
+    color: $white;
+  }
+  h3 {
+    font-size: em(30);
+  }
+  h4 {
+    font-size: em(18);
+  }
+  .content {
+    z-index: 10;
+    overflow: hidden;
+    width: 700px;
+    padding: 0;
+    top: 50%;
+    .mask {
+      @include transition(transform 0ms cubic-bezier(.19,1,.22,1) 1000ms);
+      @include transform(translate3d(0,101%,0));
+      will-change: transform;
+    }
+  }
+  .mask {
+    position: relative;
+    width: 700px;
+    background: $black;
+    padding: 50px 150px;
+  }
+  &.active {
+    .content {
+      .mask {
+        @include transition(transform 1500ms cubic-bezier(.19,1,.22,1) 1000ms);
+        @include transform(translate3d(0,0,0));
+      }
+    }
+  }
 }

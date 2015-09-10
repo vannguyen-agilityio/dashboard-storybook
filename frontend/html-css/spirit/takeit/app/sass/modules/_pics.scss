@@ -1,75 +1,71 @@
 .pics-container {
-  z-index: 3;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  &.state-1 {
+    z-index: 1;
+    @include position(absolute, 0 null null 0);
+    @include size(100% 100%);
+    @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 0ms);
     @include transform(translate3d(0,100%,0));
     will-change: transform;
-  }
-
   .state-3-translate {
-    height: 100%;
-    width: 100%;
     position: relative;
+    @include size(100% 100%);
+    @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 500ms);
+    will-change: transform;
   }
   .pics {
-    width: 700px;
-    height: 530px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    @include position(absolute, 50% null null 50%);
+    @include size(700px 530px);
     margin: -265px 0 0 -350px;
   }
   .pic {
-    position: absolute;
-    top: 0;
-    left: 0;
-    -webkit-transform-origin: 50% 100%;
-    transform-origin: 50% 100%;
-    -webkit-transform: scale(.5,.5);
-    transform: scale(.5,.5);
-    will-change: transform;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-perspective: 800px;
     z-index: 1;
+    @include position(absolute, 0 null null 0);
+    @include transform-origin(50% 100%);
+    @include transform(scale(.5,.5));
+    @include perspective(800px);
+    @include transform-style(preserve-3d);
+    @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 0ms);
+    @include backface-visibility(hidden);
     img {
       display: block;
-      height: 100%;
-      width: 100%;
+      @include size(100% 100%);
+    }
+    .back {
+      padding: 30px;
+      background-color: $white;
+      z-index: 1;
+      @include position(absolute, 0 null null 0);
+      @include size(100% 100%);
+      @include transform(rotateY(180deg));
+    }
+    .text {
+      @include position(relative, 50% null null null);
+      @include transform(translate3d(0,-50%,0));
+      padding: 0 30px;
+      strong {
+        display: block;
+        float: right;
+        margin-top: 20px;
+      }
     }
     &:nth-child(1) {
       top: -255px;
       left: -200px;
-      @include transition-delay(3s);
-      will-change: transform;
     }
     &:nth-child(2) {
       top: -255px;
       left: 130px;
-      @include transition-delay(3.5s);
-      will-change: transform;
     }
     &:nth-child(3) {
       top: -255px;
       left: 460px;
-      @include transition-delay(3.25s);
-      will-change: transform;
     }
     &:nth-child(4) {
       top: 120px;
       left: -200px;
-      @include transition-delay(3.7s);
-      will-change: transform;
     }
     &:nth-child(5) {
       top: 120px;
       left: 130px;
-      @include transition-delay(3.1s);
-      will-change: transform;
     }
     &:nth-child(6) {
       top: 120px;
@@ -78,19 +74,71 @@
     }
   }
   .pic-state-3 {
-    transition: -webkit-transform 2000ms cubic-bezier(.19,1,.22,1) 500ms;
-    transition: transform 2000ms cubic-bezier(.19,1,.22,1) 500ms;
+    @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 500ms);
+     .back,
+     .borders {
+      @include transition(transform 0ms cubic-bezier(.19,1,.22,1) 500ms);
+      @include backface-visibility(hidden);
+    }
   }
   .borders {
-    border: 20px solid #FFF;
+    border: 20px solid $white;
     border-bottom-width: 90px;
-    height: 400px;
-    width: 400px;
     position: relative;
     z-index: 2;
-    transition: -webkit-transform 0ms cubic-bezier(.19,1,.22,1) 500ms;
-    transition: transform 0ms cubic-bezier(.19,1,.22,1) 500ms;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    @include size(400px 400px);
+    @include transition(transform 0ms cubic-bezier(.19,1,.22,1) 500ms);
+    @include backface-visibility(hidden);
+  }
+  //state  of pics on screen-two
+  &.state-one {
+    @include transform(translate3d(0,50%,0));
+    .pic {
+      &:nth-child(1) {
+        @include transform(translate3d(185px,105px,0) rotate(-20deg) scale(1,1));
+      }
+      &:nth-child(2) {
+        @include transform( translate3d(-25px,35px,0) rotate(15deg) scale(1,1));
+      }
+      &:nth-child(3) {
+        @include transform(translate3d(-195px,115px,0) rotate(35deg) scale(1,1));
+      }
+      &:nth-child(4) {
+        @include transform(translate3d(315px,-200px,0) rotate(-15deg) scale(1,1));
+      }
+      &:nth-child(5) {
+        @include transform(translate3d(-5px,-70px,0) rotate(-20deg) scale(1,1));
+      }
+      &:nth-child(6) {
+        @include transform(translate3d(-215px,-20px,0) rotate(18deg) scale(1,1));
+      }
+    }
+  }
+  //state of pics on screen three
+  &.state-two {
+    padding-top: 150px;
+    @include transform(translate3d(0,0,0));
+     .pic {
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5),
+      &:nth-child(6) {
+        @include transform(translate3d(0,0,0) rotate(0) scale(.7,.7));
+      }
+      &:nth-child(6) {
+        .back {
+          @include transform(rotateY(0deg));
+        }
+        .borders {
+          @include transform(rotateY(-180deg));
+        }
+        .back,
+        .borders {
+          @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 1500ms);
+        }
+      }
+    }
   }
 }

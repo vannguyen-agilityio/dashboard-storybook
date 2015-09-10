@@ -30,6 +30,11 @@ p {
   font-size: em(13px);
 }
 
+img {
+  margin-top: 0;
+  max-width: initial;
+}
+
 .container {
   height: 100%;
   @include outer-container(100%);
@@ -67,7 +72,9 @@ p {
   background: black;
   opacity: 0.7;
   border-radius: 50%;
-  @include animation (moveBubble 2.5s 0s infinite);
+  @include transition-delay(0ms);
+  @include transition-duration(2000s);
+  @include animation-iteration-count(infinite);
 }
 @for $i from 1 through 20 {
   .bubble:nth-child(#{$i}){
@@ -81,33 +88,48 @@ p {
 
 @for $i from 1 through 10 {
   .bubble:nth-child(#{$i}){
-    @include transform(translate( (random(10000) * 1px),  (random(1000) * 1px)));
+    @include transform(translate( (random(100) * 1px),  (random(500) * 1px)));
   }
 }
 @for $i from 11 through 20 {
   .bubble:nth-child(#{$i}){
-    @include transform(translate( (random(10000) * -1px),  (random(1000) * 1px)));
+    @include transform(translate( (random(100) * -1px),  (random(500) * 1px)));
   }
 }
 
-.swiper-pagination {
-  position: absolute;
-  text-align: center;
-  -webkit-transition: 300ms;
-  -moz-transition: 300ms;
-  -o-transition: 300ms;
-  transition: 300ms;
-  -webkit-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  z-index: 10;
+// Style Pagination -->
+.swiper {
+  &-pagination {
+    text-align: center;
+    @include position(absolute, 50% 13px null null);
+    @include transition(300ms);
+    @include transform(translate3d(0, 0, 0));
+    &-bullet {
+      @include size(12px 12px);
+      border-radius: 100%;
+      border: 2px solid $white;
+      background: transparent;
+      display: block;
+      margin-bottom: em(8);
+      opacity: 1;
+      &-active {
+        background-color: $white;
+      }
+    }
+  }
 }
-.swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  display: inline-block;
-  border-radius: 100%;
-  background: #000;
-  opacity: 0.2;
+
+.screen {
+  height: 100%;
+  padding-top: 128px;
+  &-one,
+  &-four {
+    background-color: $blue;
+  }
+  &-two {
+    background-color: #293039;
+  }
+  &-three {
+    background-color: pink;
+  }
 }

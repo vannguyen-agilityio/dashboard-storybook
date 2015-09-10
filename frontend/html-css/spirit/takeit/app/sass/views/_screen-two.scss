@@ -24,11 +24,10 @@
   }
   &-iphone {
     margin-left: -195px;
-    z-index: 4;
-    opacity: 0;
+    z-index: 2;
     @include position(absolute, null null -130px 50%);
-    @include transform(translateY(1000px));
-    will-change: transform;
+    @include transform(translate3d(0,100%,0));
+    @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 1000ms);
     video {
       z-index: 4;
       background-color: $blue;
@@ -39,7 +38,6 @@
   &-clouds {
     width: 100%;
     z-index: 1;
-    opacity: 0;
     @include position(absolute, null null 0 0);
     /*Time to finalise the cloud shape*/
     .cloud {
@@ -112,8 +110,7 @@
     @include size(1200px 100px);
     span {
       display: block;
-      height: 1px;
-      width: 1px;
+      @include size(1px 1px);
       background: $white;
       position: absolute;
       opacity: .5;
@@ -124,35 +121,7 @@
 .screen {
   &.active {
     .screen-two-iphone {
-      @include animation(fadeInUp 2s 0.8s forwards);
-    }
-    .pics-container {
-      &.state-1 {
-        @include animation(fadeInUpPic 2s 0.5s forwards);
-        .pic {
-          &:nth-child(1) {
-            @include transform(translate3d(185px,105px,0) rotate(-20deg) scale(1,1));
-          }
-          &:nth-child(2) {
-            @include transform( translate3d(-25px,35px,0) rotate(15deg) scale(1,1));
-          }
-          &:nth-child(3) {
-            @include transform(translate3d(-195px,115px,0) rotate(35deg) scale(1,1));
-          }
-          &:nth-child(4) {
-            @include transform(translate3d(315px,-200px,0) rotate(-15deg) scale(1,1));
-          }
-          &:nth-child(5) {
-            @include transform(translate3d(-5px,-70px,0) rotate(-20deg) scale(1,1));
-          }
-          &:nth-child(6) {
-            @include transform(translate3d(-215px,-20px,0) rotate(18deg) scale(1,1));
-          }
-        }
-      }
+      @include transform(translate3d(0,0,0));
     }
   }
 }
-
-
-
