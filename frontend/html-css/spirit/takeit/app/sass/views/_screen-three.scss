@@ -1,12 +1,11 @@
 .screen-three {
-  h3,h4 {
-    color: $white;
-  }
   h3 {
+    color: $white;
     font-size: em(30);
+    font-weight: 500;
   }
   h4 {
-    font-size: em(18);
+    font-size: em(16);
   }
   .content {
     z-index: 10;

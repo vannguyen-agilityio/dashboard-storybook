@@ -1,5 +1,6 @@
 .pics-container {
     z-index: 1;
+    opacity: 0;
     @include position(absolute, 0 null null 0);
     @include size(100% 100%);
     @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 0ms);
@@ -92,6 +93,7 @@
   }
   //state  of pics on screen-two
   &.state-one {
+    opacity: 1;
     @include transform(translate3d(0,50%,0));
     .pic {
       &:nth-child(1) {
@@ -116,6 +118,7 @@
   }
   //state of pics on screen three
   &.state-two {
+    opacity: 1;
     padding-top: 150px;
     @include transform(translate3d(0,0,0));
      .pic {
@@ -137,6 +140,51 @@
         .back,
         .borders {
           @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 1500ms);
+        }
+      }
+    }
+  }
+  &.state-three {
+    opacity: 1;
+    @include transform(translate3d(0,-100%,0));
+    .state-3-translate {
+      @include transform(translate3d(0,150%,0));
+    }
+    .pic {
+      &:nth-child(1) {
+        @include transform(translate3d(185px,105px,0) rotate(-20deg) scale(1,1));
+        .pic-state-3 {
+          @include transform(rotate(20deg) translate3d(220px,60px,0) scale(1,1));
+        }
+      }
+      &:nth-child(2) {
+        @include transform(translate3d(-20px,35px,0) rotate(15deg) scale(1,1));
+        .pic-state-3 {
+          @include transform(rotate(-15deg) translate3d(-45px,140px,0) scale(1,1));
+        }
+      }
+      &:nth-child(3) {
+        @include transform(translate3d(-219px,115px,0) rotate(-45deg) scale(1,1));
+        .pic-state-3 {
+          @include transform(rotate(45deg) translate3d(50px, 0, 0) scale(1, 1));
+        }
+      }
+      &:nth-child(4) {
+        @include transform(translate3d(315px,-200px,0) rotate(-15deg) scale(1,1));
+        .pic-state-3 {
+          @include transform(rotate(15deg) translate3d(70px,10px,0) scale(1,1));
+        }
+      }
+      &:nth-child(5) {
+        @include transform(translate3d(-5px,-70px,0) rotate(-20deg) scale(1,1));
+        .pic-state-3 {
+          @include transform(rotate(20deg) translate3d(90px,-120px,0) scale(1,1));
+        }
+      }
+      &:nth-child(6) {
+        @include transform(translate3d(-115px,-120px,0) rotate(18deg) scale(1,1));
+        .pic-state-3 {
+          @include transform(rotate(-18deg) translate3d(-300px,-70px,0) scale(1,1));
         }
       }
     }

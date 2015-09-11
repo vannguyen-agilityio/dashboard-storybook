@@ -1,25 +1,18 @@
 .screen-two {
   &-title {
-    position: absolute;
     width: 100%;
     padding: 0 100px;
-    box-sizing: border-box;
-    left: 50%;
     max-width: 800px;
     padding: 0 50px;
-    top: 28%;
     z-index: 11;
     text-align: center;
-    -webkit-transform: translate3d(-50%,-50%,0);
-    transform: translate3d(-50%,-50%,0);
+    @include position(absolute, 28% null null 50%);
+    @include transform(translate3d(-50%,-50%,0));
     h3 {
       color: #d1f2fd;
       font-size: em(38);
       font-weight: 600;
       margin: 0;
-    }
-    h4 {
-      color: $white;
     }
   }
   &-iphone {
@@ -33,74 +26,6 @@
       background-color: $blue;
       @include position(absolute, 99px null null 63px);
       @include size(262px 465px);
-    }
-  }
-  &-clouds {
-    width: 100%;
-    z-index: 1;
-    @include position(absolute, null null 0 0);
-    /*Time to finalise the cloud shape*/
-    .cloud {
-      @include size(200px 60px);
-      background: #1c2128;
-      border-radius: 200px;
-      position: relative;
-    }
-
-    .cloud:before,
-    .cloud:after {
-      content: '';
-      background: #1c2128;
-      @include size(100px 80px);
-      @include position(absolute, -15px null null 10px);
-      border-radius: 100px;
-      @include transform(rotate(30deg));
-      fill: #1c2128;
-    }
-
-    .cloud:after {
-      @include size(120px 120px);
-      top: -55px;
-      left: auto;
-      right: 15px;
-    }
-
-    /*Time to animate*/
-    .cloud1 {
-      @include animation(moveClouds 15s linear infinite);
-    }
-
-    /*variable speed, opacity, and position of clouds for realistic effect*/
-    .cloud2 {
-      left: 200px;
-
-      @include transform(scale(0.6));
-      opacity: 0.6;
-      @include animation(moveClouds 25s linear infinite);
-    }
-
-    .cloud3 {
-      left: -250px;
-      top: -200px;
-      @include transform(scale(0.8));
-      opacity: 0.8;
-      @include animation(moveClouds 20s linear infinite);
-    }
-
-    .cloud4 {
-      left: 470px;
-      top: -250px;
-      @include transform(scale(0.75));
-      opacity: 0.75;
-      @include animation(moveClouds 18s linear infinite);
-    }
-
-    .cloud5 {
-      left: -150px;
-      top: -150px;
-      @include transform(scale(0.8));
-      opacity: 0.8;
-      @include animation(moveClouds 20s linear infinite);
     }
   }
   &-stars {

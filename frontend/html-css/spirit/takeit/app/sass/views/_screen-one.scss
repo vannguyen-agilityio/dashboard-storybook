@@ -23,6 +23,7 @@
 }
 
 .content {
+  color: $white;
   text-align: center;
   max-width: 800px;
   padding: 0 50px;
@@ -112,6 +113,8 @@ h2 {
   h2 {
     max-width: 500px;
     margin: 0 auto;
+    font-weight: 600;
+    color: $white;
   }
   &.active {
     h2 {

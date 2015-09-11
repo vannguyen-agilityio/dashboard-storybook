@@ -1,0 +1,52 @@
+.letter-box {
+    background: #ddd;
+    margin-left: -272px;
+    z-index: auto;
+    @include size(530px 365px);
+    @include position(absolute, null null -3px 50%);
+    @include transform(translate3d(0,100%,0));
+    @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 1000ms);
+    &-left {
+        position: absolute;
+        border-bottom: 400px solid $white;
+        border-right: 530px solid transparent;
+        left: 0;
+        z-index: 1;
+        @include size(0 0);
+    }
+    &-right {
+        border-bottom: 400px solid $white;
+        border-left: 530px solid transparent;
+        z-index: 1;
+        @include position(absolute, null 0 null null);
+        @include size(0 0);
+    }
+    &-top {
+        border-left: 265px solid transparent;
+        border-right: 265px solid transparent;
+        border-bottom: 200px solid $white;
+        z-index: 2;
+        @include size(0 0);
+        @include position(absolute, -201px null null 0);
+        @include transform(rotateX(0deg));
+        @include transform-origin(50% 100%);
+        @include transition(transform 0ms cubic-bezier(.19,1,.22,1) 500ms);
+    }
+    &-backside {
+        border: 121px solid #ddd;
+        z-index: 0;
+        @include size(100% 0);
+        @include position(absolute, -2px null null 0);
+    }
+}
+.screen {
+  &.active {
+    .letter-box {
+      @include transform(translate3d(0,0,0));
+      &-top {
+        @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 1900ms);
+        @include transform(rotateX(180deg));
+      }
+    }
+  }
+}
