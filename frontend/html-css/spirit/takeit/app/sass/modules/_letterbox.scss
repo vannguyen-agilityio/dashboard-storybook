@@ -1,5 +1,7 @@
+$bg-inside-box: #ddd;
+
 .letter-box {
-    background: #ddd;
+    background: $bg-inside-box;
     margin-left: -272px;
     z-index: auto;
     @include size(530px 365px);
@@ -33,7 +35,7 @@
         @include transition(transform 0ms cubic-bezier(.19,1,.22,1) 500ms);
     }
     &-backside {
-        border: 121px solid #ddd;
+        border: 121px solid $bg-inside-box;
         z-index: 0;
         @include size(100% 0);
         @include position(absolute, -2px null null 0);

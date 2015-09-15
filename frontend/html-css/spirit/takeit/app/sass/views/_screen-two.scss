@@ -27,6 +27,10 @@
       @include position(absolute, 99px null null 63px);
       @include size(262px 465px);
     }
+    img {
+      margin-top: 0;
+      max-width: initial;
+    }
   }
   &-stars {
     margin-left: -600px;

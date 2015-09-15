@@ -5,46 +5,43 @@
   /*Time to finalise the cloud shape*/
   .cloud {
     @include size(200px 60px);
-    border-radius: 200px;
     position: relative;
-  }
+    &:before,
+    &:after {
+      content: '';
+      border-radius: 100px;
+    }
+    &:before {
+      @include size(100px 80px);
+      @include transform(rotate(30deg));
+      @include position(absolute, -15px null null 10px);
+    }
+    &:after {
+      @include size(120px 120px);
+      @include position(absolute, -55px 15px null auto);
+    }
 
-  .cloud:before,
-  .cloud:after {
-    content: '';
-    @include size(100px 80px);
-    @include position(absolute, -15px null null 10px);
-    border-radius: 100px;
-    @include transform(rotate(30deg));
-    fill: #1c2128;
-  }
-
-  .cloud:after {
-    @include size(120px 120px);
-    top: -55px;
-    left: auto;
-    right: 15px;
   }
 
   /*Time to animate*/
   .cloud1 {
     @include animation(moveClouds 15s linear infinite);
+    opacity: 0.9;
   }
 
   /*variable speed, opacity, and position of clouds for realistic effect*/
   .cloud2 {
     left: 200px;
-
-    @include transform(scale(0.6));
     opacity: 0.6;
+    @include transform(scale(0.6));
     @include animation(moveClouds 25s linear infinite);
   }
 
   .cloud3 {
     left: -250px;
     top: -200px;
-    @include transform(scale(0.8));
     opacity: 0.8;
+    @include transform(scale(0.8));
     @include animation(moveClouds 20s linear infinite);
   }
 
@@ -59,21 +56,25 @@
   .cloud5 {
     left: -150px;
     top: -150px;
-    @include transform(scale(0.8));
     opacity: 0.8;
+    @include transform(scale(0.8));
     @include animation(moveClouds 20s linear infinite);
   }
 }
 
 .screen-two-clouds {
-  .cloud:before,
-  .cloud:after {
-    background: #1c2128;
+  .cloud {
+    &:before,
+    &:after {
+      background: #1c2128;
+    }
   }
 }
 .screen-three-clouds {
-  .cloud:before,
-  .cloud:after {
-    background: $white;
+  .cloud {
+    &:before,
+    &:after {
+      background: $white;
+    }
   }
 }

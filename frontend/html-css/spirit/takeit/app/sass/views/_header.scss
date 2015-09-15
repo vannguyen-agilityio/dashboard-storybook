@@ -10,6 +10,18 @@ $bg-nav-color: #c42846;
   min-height: $navigation-height;
   width: 100%;
   z-index: 999;
+  @include media($mobile) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    -webkit-transform: none;
+    transform: none;
+    box-shadow: 0 0 10px rgba(0,0,0,.5);
+    background: #c42846;
+    padding: 10px 8px 10px 20px;
+    height: 71px;
+  }
   &-wrapper {
     @include clearfix;
     @include outer-container(60%);
@@ -17,7 +29,7 @@ $bg-nav-color: #c42846;
       @include outer-container(93%);
     }
     position: relative;
-    z-index: 2;
+    z-index: 5;
   }
   &-menu {
     margin-top: em(300);
@@ -30,6 +42,9 @@ $bg-nav-color: #c42846;
   right: 0;
   z-index: 3;
   min-width: 500px;
+  @include media($mobile) {
+    min-width: 320px;
+  }
   height: 100%;
   background-color: $bg-nav-color;
   li {
@@ -72,7 +87,10 @@ a.logo {
   display: inline-block;
   color: $white;
   font-size: 2.5em;
-  line-height: 4.5em;
+  line-height: 5em;
+  @include media($mobile) {
+    line-height: 2em;
+  }
   font-weight: 600;
   &:hover,
   &:focus,
@@ -84,20 +102,23 @@ a.logo {
 .menu-button {
   float: right;
   margin-top: em(68);
+  @include media($mobile) {
+    margin-top: 0;
+  }
   position: relative;
   cursor: pointer;
-  padding: em(12);
+  padding: 12px;
 
   i {
     display: block;
     @include size(30px 3px);
     background-color: $white;
-    margin-bottom: em(5);
+    margin-bottom: 5px;
     opacity: 1;
     @include transition(opacity 1s cubic-bezier(0.19,1,0.22,1) 0);
     &:nth-child(3) {
       position: absolute;
-      top: em(20);
+      top: 20px;
     }
     &:nth-child(1),
     &:nth-child(4) {

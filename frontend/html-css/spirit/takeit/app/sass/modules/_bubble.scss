@@ -1,0 +1,36 @@
+.bubble-container {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  @include transform-style(preserve-3d);
+}
+.bubble-wrap {
+  margin: 0 auto;
+  @include size(500px 500px);
+  @include transform-style(preserve-3d);
+  @include perspective(600px);
+}
+.bubble {
+  position: absolute;
+  background: $white;
+  opacity: 0.7;
+  border-radius: 50%;
+  // @include animation(moveBubble, 3s infinite);
+}
+
+@for $i from 1 through 20 {
+  .bubble:nth-child(#{$i}){
+     $size: random(30)+px;
+     height: $size;
+     width: $size;
+     @include animation-delay(-$i * .2s);
+     transform: translate3d( (random(100) * 1px),  (random(100) * 1px), (random(200) * 1px));
+     background: hsl(random(360) , 70%, 50%);
+  }
+}
+
+// @include keyframes(moveBubble) {
+//   0% {
+//     transform: translate(100px, 100px);
+//   }
+// }

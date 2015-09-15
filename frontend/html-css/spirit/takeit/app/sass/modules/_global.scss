@@ -1,10 +1,10 @@
 html,
 body {
   color: $color-base;
-  @include size(100% 100%);
   font-family: $base-font-family;
   font-size: $font-base-destop;
   overflow: hidden;
+  @include size(100% 100%);
 }
 
 @include media($tablet) {
@@ -31,19 +31,68 @@ p {
   font-size: em(13px);
 }
 
-img {
-  margin-top: 0;
-  max-width: initial;
-}
-
 .container {
   height: 100%;
   @include outer-container(100%);
 }
+
 .text-center {
   text-align: center;
 }
 
+// Style Screen
+.screen {
+  height: 100%;
+  padding-top: 168px;
+  z-index: auto;
+  @include size(100% 100%);
+   @include position(absolute, 0 null null 0);
+  @include transition(transform 1000ms cubic-bezier(.23,1,.32,1) 0ms);
+  &-container {
+    overflow: hidden;
+    position: relative;
+    will-change: transform;
+    @include size(100% 100%);
+    @include transition(transform 2000ms cubic-bezier(.23,1,.32,1) 0ms);
+  }
+  &.top {
+    @include transform(translate3d(0,-100%,0));
+  }
+  &.bottom {
+    @include transform(translate3d(0,100%,0));
+  }
+  &.active {
+    // @include transform(translate3d(0,0,0));
+  }
+  &-one,
+  &-four {
+    background-color: $blue;
+  }
+  &-two {
+    background-color: #293039;
+  }
+  &-three {
+    background-color: pink;
+  }
+}
+
+.content {
+  color: $white;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 50px;
+  width: 100%;
+  padding: 0 125px;
+  @include media($mobile) {
+    padding: 200px 30px;
+  }
+  box-sizing: border-box;
+  z-index: 4;
+  @include position(absolute, 25% null null 50%);
+  @include transform(translate3d(-50%,-50%,0));
+}
+
+//Style overlay
 .nav-overlay {
   @include position(fixed, 0 null null 0);
   @include size(100% 100%);
@@ -55,46 +104,6 @@ img {
   &.displayed {
     display: block;
     opacity: 1;
-  }
-}
-
-.bubble-container {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  min-height: 100%;
-}
-.bubble-wrap {
-  margin: 0 auto;
-  @include size(500px 500px);
-}
-.bubble {
-  position: absolute;
-  background: black;
-  opacity: 0.7;
-  border-radius: 50%;
-  @include transition-delay(0ms);
-  @include transition-duration(2000s);
-  @include animation-iteration-count(infinite);
-}
-@for $i from 1 through 20 {
-  .bubble:nth-child(#{$i}){
-     $size: random(30)+px;
-     width: $size;
-     height: $size;
-     @include animation-delay(-$i * .5s);
-     background: hsl(random(360) , 70%, 50%);
-  }
-}
-
-@for $i from 1 through 10 {
-  .bubble:nth-child(#{$i}){
-    @include transform(translate( (random(100) * 1px),  (random(500) * 1px)));
-  }
-}
-@for $i from 11 through 20 {
-  .bubble:nth-child(#{$i}){
-    @include transform(translate( (random(100) * -1px),  (random(500) * 1px)));
   }
 }
 
@@ -114,24 +123,17 @@ img {
       display: block;
       margin-bottom: em(8);
       opacity: 1;
-      &-active {
+      &.active {
         background-color: $white;
+      }
+      &:hover {
+        background-color: $white;
+        opacity: 0.5;
+        @include transform(scale(1.3,1.3));
+        @include transition(transform 1200ms cubic-bezier(.19,1,.22,1) 500ms);
+        @include transition(opacity 1000ms cubic-bezier(0.19,1,0.22,1) 100ms);
       }
     }
   }
 }
 
-.screen {
-  height: 100%;
-  padding-top: 128px;
-  &-one,
-  &-four {
-    background-color: $blue;
-  }
-  &-two {
-    background-color: #293039;
-  }
-  &-three {
-    background-color: pink;
-  }
-}
