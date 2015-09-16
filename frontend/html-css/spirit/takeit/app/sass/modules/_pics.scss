@@ -11,6 +11,15 @@
     @include size(700px 530px);
     margin: -150px 0 0 -350px;
   }
+  .pic-state-3,
+  .state-3-translate {
+    @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 500ms);
+  }
+  .state-3-translate {
+    position: relative;
+    will-change: transform;
+    @include size(100% 100%);
+  }
   .pic {
     z-index: 1;
     @include position(absolute, 0 null null 0);
@@ -134,7 +143,7 @@
     opacity: 1;
     @include transform(translate3d(0,-100%,0));
     .pic-state-3 {
-      @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 500ms);
+        @include transform(rotate(45deg) translate3d(50px,0,0) scale(1,1));
        .back,
        .borders {
         @include transition(transform 0ms cubic-bezier(.19,1,.22,1) 500ms);
@@ -143,10 +152,6 @@
     }
     .state-3-translate {
       @include transform(translate3d(0,150%,0));
-      position: relative;
-      @include size(100% 100%);
-      @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 500ms);
-      will-change: transform;
     }
     .pic {
       &:nth-child(1) {

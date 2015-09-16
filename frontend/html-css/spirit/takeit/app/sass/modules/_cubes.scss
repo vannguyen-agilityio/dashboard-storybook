@@ -1,0 +1,96 @@
+
+$totalCubes: 30;
+
+@function posOrNeg(){
+  $n:();
+  $r: random(100);
+  @if($r>50){
+    $n: 1;
+  } @else {
+    $n: -1;
+  }
+  @return $n;
+}
+
+.wrap {
+  min-height: 100%;
+  @include size(100% 100%);
+  @include position(absolute, 0 null null 0);
+}
+
+
+.outer {
+  @include transform-style(preserve-3d);
+  @include perspective(2000px);
+  position: relative;
+}
+.cube {
+  @include transform-style(preserve-3d);
+  @include position(absolute, 50vh null null 50%);
+}
+.side {
+  position: absolute;
+  @include size(inherit inherit);
+}
+
+
+@mixin cube($i) {
+  .outer:nth-child(#{$i}) .cube {
+    $hue: ($i - 1) * 360/$totalCubes;
+    $size: random(40) + 10;
+    $z: $size/2+px;
+    height: $size+px;
+    width: $size+px;
+    margin-top: -$z;
+    margin-left: -$z;
+    opacity: 0;
+    @include transform(translate3d((random(500) + 200) * posOrNeg()+px, (random(500) + 200) * posOrNeg()+px, 0) rotateX(360deg) rotateY(360deg));
+    @include animation(forward#{$i} 6s infinite);
+    @include animation-delay($i * -.2s);
+
+    .side:nth-child(1){
+      @include transform(rotateX(90deg) translateZ($z));
+    }
+    .side:nth-child(2){
+       @include transform(translateZ($z));
+    }
+    .side:nth-child(3){
+       @include transform(rotateY(180deg) translateZ($z));
+    }
+    .side:nth-child(4){
+       @include transform(rotateY(90deg) translateZ($z));
+    }
+    .side:nth-child(5){
+       @include transform(rotateY(-90deg) translateZ($z));
+    }
+    .side:nth-child(6){
+       @include transform(rotateX(-90deg) translateZ($z));
+    }
+
+    @for $i from 1 through 6 {
+      .side:nth-child(#{$i}){
+        background-color: hsla($hue + ($i * 3), 100%, 50%, .6);
+        border: 2px solid lighten(hsla($hue + ($i * 3), 100%, 50%, .6), 20%);
+      }
+    }
+  }
+  @include keyframess(forward#{$i}){
+    0% {
+      @include transform(translate3d(0, 0, 0) rotateX(0) rotateY(0));
+      opacity: 0;
+    }
+
+    30% {
+      opacity: 1;
+    }
+
+    80% {
+      opacity: 1;
+    }
+
+  }
+}
+
+@for $i from 1 through $totalCubes {
+  @include cube($i);
+}
