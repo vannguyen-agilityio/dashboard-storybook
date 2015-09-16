@@ -46,7 +46,7 @@ p {
   padding-top: 168px;
   z-index: auto;
   @include size(100% 100%);
-   @include position(absolute, 0 null null 0);
+  @include position(absolute, 0 null null 0);
   @include transition(transform 1000ms cubic-bezier(.23,1,.32,1) 0ms);
   &-container {
     overflow: hidden;
@@ -54,6 +54,9 @@ p {
     will-change: transform;
     @include size(100% 100%);
     @include transition(transform 2000ms cubic-bezier(.23,1,.32,1) 0ms);
+    &.up {
+      @include transform(translate3d(0px, -192px, 0px));
+    }
   }
   &.top {
     @include transform(translate3d(0,-100%,0));

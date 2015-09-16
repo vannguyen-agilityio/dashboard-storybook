@@ -199,7 +199,7 @@ Takeit = {
     if (src4 && (s.screenfour.position().top === 0)) {
       $.data(this, 'timer', setTimeout(function() {
         s.footer.addClass('footer-show');
-        s.scrwapper.css('transform','translate3d(0px, -192px, 0px)');
+        s.scrwapper.addClass('up');
       }, 500));
     }
 
@@ -246,7 +246,7 @@ Takeit = {
     if(footershow) {
       $.data(this, 'timer', setTimeout(function() {
         s.footer.removeClass('footer-show');
-        s.scrwapper.css('transform','translate3d(0px, 0px, 0px)');
+        s.scrwapper.removeClass('up');
       }, 500));
     }
   },

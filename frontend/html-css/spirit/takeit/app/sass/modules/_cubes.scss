@@ -17,8 +17,6 @@ $totalCubes: 30;
   @include size(100% 100%);
   @include position(absolute, 0 null null 0);
 }
-
-
 .outer {
   @include transform-style(preserve-3d);
   @include perspective(2000px);
@@ -74,7 +72,7 @@ $totalCubes: 30;
       }
     }
   }
-  @include keyframess(forward#{$i}){
+  @include keyframes(forward#{$i}){
     0% {
       @include transform(translate3d(0, 0, 0) rotateX(0) rotateY(0));
       opacity: 0;
