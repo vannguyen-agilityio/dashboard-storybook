@@ -137,6 +137,17 @@ p {
         @include transition(opacity 1000ms cubic-bezier(0.19,1,0.22,1) 100ms);
       }
     }
+    &.dark {
+      .swiper-pagination-bullet {
+        border: 2px solid #3c4651;
+        &.active {
+          background-color: #3c4651;
+        }
+        &:hover {
+          background-color: #3c4651;
+        }
+      }
+    }
   }
 }
 

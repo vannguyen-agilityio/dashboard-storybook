@@ -10,10 +10,10 @@
   opacity: 0;
 }
 .bubble1 {
-  @include animation(moveBubble1 3s linear infinite 1s);
+  @include animation(moveBubble1 2s linear infinite 1s);
 }
 .bubble2 {
-  @include animation(moveBubble2 3s linear infinite 1s);
+  @include animation(moveBubble2 2s linear infinite 1s);
 }
 
 @for $i from 1 through 20 {

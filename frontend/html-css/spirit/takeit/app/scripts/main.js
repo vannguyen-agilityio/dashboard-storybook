@@ -161,7 +161,7 @@ Takeit = {
   bindScrollDown: function(delta, src1, src2, src3, src4, pagBullet, footershow) {
     //scroll down
     delta = 0.2;
-    if (src1) {
+    if (src1 && (s.screenone.position().top === 0)) {
       $.data(this, 'timer', setTimeout(function() {
       s.screentwo.removeClass('bottom');
       s.screentwo.addClass('active');
@@ -169,38 +169,40 @@ Takeit = {
       s.screenone.removeClass('active');
       s.screenone.addClass('top');
       pagBullet.removeClass('active').next().addClass('active');
-      }, 500));
+      }, 100));
     }
 
-    if (src2) {
+    if (src2 && (s.screentwo.position().top === 0)) {
       $.data(this, 'timer', setTimeout(function() {
       s.screenthree.removeClass('bottom');
       s.screenthree.addClass('active');
-      pagBullet.removeClass('active').next().addClass('active');
+      pagBullet.removeClass('active').addClass('dark').next().addClass('active');
+      pagBullet.parent().addClass('dark');
       s.pics.addClass('state-two');
       s.screentwo.removeClass('active');
       s.pics.removeClass('state-one');
       s.screentwo.addClass('top');
-      }, 500));
+      }, 100));
     }
 
-    if (src3) {
+    if (src3 && (s.screenthree.position().top === 0)) {
       $.data(this, 'timer', setTimeout(function() {
       s.screenthree.removeClass('active');
+      pagBullet.parent().removeClass('dark');
       s.pics.removeClass('state-two');
       s.screenthree.addClass('top');
       s.screenfour.removeClass('bottom');
       s.screenfour.addClass('active');
       pagBullet.removeClass('active').next().addClass('active');
       s.pics.addClass('state-three');
-      }, 500));
+      }, 100));
     }
 
     if (src4 && (s.screenfour.position().top === 0)) {
       $.data(this, 'timer', setTimeout(function() {
         s.footer.addClass('footer-show');
         s.scrwapper.addClass('up');
-      }, 500));
+      }, 100));
     }
 
   },
@@ -208,7 +210,7 @@ Takeit = {
   bindScrollUp: function(delta, src1, src2, src3, src4, pagBullet, footershow) {
     //scroll up
     delta = 0;
-    if (src2) {
+    if (src2 && (s.screentwo.position().top === 0)) {
       $.data(this, 'timer', setTimeout(function() {
       s.screenone.removeClass('top');
       s.screenone.addClass('active');
@@ -216,43 +218,45 @@ Takeit = {
       s.screentwo.removeClass('active');
       s.pics.removeClass('state-one');
       s.screentwo.addClass('bottom');
-      }, 500));
+      }, 100));
     }
 
-    if (src3) {
+    if (src3 && (s.screenthree.position().top === 0)) {
       $.data(this, 'timer', setTimeout(function() {
       s.screentwo.removeClass('top');
       s.screentwo.addClass('active');
       pagBullet.removeClass('active').prev().addClass('active');
       s.pics.addClass('state-one');
       s.screenthree.removeClass('active');
+      pagBullet.parent().removeClass('dark');
       s.screenthree.addClass('bottom');
       s.pics.removeClass('state-two');
-      }, 500));
+      }, 100));
     }
 
     if (src4 & !footershow) {
       $.data(this, 'timer', setTimeout(function() {
       s.screenthree.removeClass('top');
       s.screenthree.addClass('active');
+      pagBullet.parent().addClass('dark');
       pagBullet.removeClass('active').prev().addClass('active');
       s.pics.addClass('state-two');
       s.screenfour.removeClass('active');
       s.screenfour.addClass('bottom');
       s.pics.removeClass('state-three');
-      }, 500));
+      }, 100));
     }
 
     if(footershow) {
       $.data(this, 'timer', setTimeout(function() {
         s.footer.removeClass('footer-show');
         s.scrwapper.removeClass('up');
-      }, 500));
+      }, 100));
     }
   },
 
   mousewheelScreen: function() {
-    $('#screen').bind('mousewheel DOMMouseScroll MozMousePixelScroll', function(e) {
+    $(window).bind('mousewheel DOMMouseScroll MozMousePixelScroll', function(e) {
       var src1 = s.screenone.hasClass('active'),
           src2 = s.screentwo.hasClass('active'),
           src3 = s.screenthree.hasClass('active'),

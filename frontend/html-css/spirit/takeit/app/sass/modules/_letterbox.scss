@@ -1,11 +1,6 @@
 $bg-inside-box: #ddd;
 
 .letter-box {
-    background: $bg-inside-box;
-    margin-left: -272px;
-    z-index: auto;
-    @include size(530px 365px);
-    @include position(absolute, null null -3px 50%);
     @include transform(translate3d(0,100%,0));
     @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 1000ms);
     &-left {
@@ -13,32 +8,45 @@ $bg-inside-box: #ddd;
         border-bottom: 400px solid $white;
         border-right: 530px solid transparent;
         left: 0;
-        z-index: 1;
+        z-index: 2;
+        margin-left: -270px;
         @include size(0 0);
+        @include position(absolute, null null 0 50%);
     }
     &-right {
         border-bottom: 400px solid $white;
         border-left: 530px solid transparent;
-        z-index: 1;
-        @include position(absolute, null 0 null null);
+        z-index: 2;
+        border-bottom: 400px solid #fff;
+        border-left: 530px solid transparent;
+        margin-left: -270px;
+        @include position(absolute, null 0 0 50%);
         @include size(0 0);
     }
-    &-top {
+    &-toprota{
+        opacity: 0;
+        border-bottom: 200px solid red;
+
+    }
+    &-top,
+    &-toprota {
         border-left: 265px solid transparent;
         border-right: 265px solid transparent;
         border-bottom: 200px solid $white;
         z-index: 2;
+        margin-left: -270px;
         @include size(0 0);
-        @include position(absolute, -201px null null 0);
+        @include position(absolute, null null 0 50%);
         @include transform(rotateX(0deg));
-        @include transform-origin(50% 100%);
+        @include transform-origin(0% 100%);
         @include transition(transform 0ms cubic-bezier(.19,1,.22,1) 500ms);
     }
     &-backside {
-        border: 121px solid $bg-inside-box;
+        background-color: $bg-inside-box;
         z-index: 0;
-        @include size(100% 0);
-        @include position(absolute, -2px null null 0);
+         margin-left: -270px;
+        @include size(530px 400px);
+        @include position(absolute, null null 0 50%);
     }
 }
 .screen {
@@ -46,8 +54,14 @@ $bg-inside-box: #ddd;
     .letter-box {
       @include transform(translate3d(0,0,0));
       &-top {
-        @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 1900ms);
-        @include transform(rotateX(180deg));
+        opacity: 0;
+        @include transform(translate3d(0,-400px,0));
+        @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 1090ms, opacity 1.0s ease-in 3000ms);
+      }
+      &-toprota {
+        opacity: 1;
+        @include transform(translate3d(0,-401px,0) rotateX(180deg));
+        @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 2000ms, opacity 1.0s ease-in 3000ms);
       }
     }
   }

@@ -9,7 +9,7 @@
   .pics {
     @include position(absolute, 50% null null 50%);
     @include size(700px 530px);
-    margin: -150px 0 0 -350px;
+    margin: -118px 0 0 -350px;
   }
   .pic-state-3,
   .state-3-translate {
@@ -114,7 +114,6 @@
   //state of pics on screen three
   &.state-two {
     opacity: 1;
-    padding-top: 150px;
     @include transform(translate3d(0,0,0));
      .pic {
       &:nth-child(1),
