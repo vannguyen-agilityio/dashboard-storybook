@@ -1,4 +1,7 @@
 .front-shapes {
+  // @include media($mobile) {
+  //   display: none;
+  // }
   opacity: 0;
   @include size(840px 420px);
   @include absolute-center();

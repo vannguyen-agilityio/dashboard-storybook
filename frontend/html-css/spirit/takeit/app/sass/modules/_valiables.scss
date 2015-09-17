@@ -21,9 +21,9 @@ $min-desktop-breakpoint: 1025px;
 
 $destop: new-breakpoint(min-width $min-desktop-breakpoint 12);
 $tablet-destop: new-breakpoint(min-width $min-tablet-breakpoint 12);
-$tablet: new-breakpoint(max-width $max-tablet-breakpoint min-width $min-tablet-breakpoint 8);
-$mobile-tablet: new-breakpoint(max-width $max-tablet-breakpoint 8);
-$mobile: new-breakpoint(max-width $max-mobile-breakpoint 4);
+$tablet: new-breakpoint(max-width $max-tablet-breakpoint min-width $min-tablet-breakpoint 12);
+$mobile-tablet: new-breakpoint(max-width $max-tablet-breakpoint 12);
+$mobile: new-breakpoint(max-width $max-mobile-breakpoint 12);
 
 /// Device Widths
 $phone-portrait: em(320);

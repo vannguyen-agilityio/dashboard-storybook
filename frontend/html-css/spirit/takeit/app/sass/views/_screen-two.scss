@@ -1,4 +1,7 @@
 .screen-two {
+  // @include media($mobile) {
+  //   display: none;
+  // }
   &-title {
     width: 100%;
     padding: 0 100px;

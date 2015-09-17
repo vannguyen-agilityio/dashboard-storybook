@@ -31,7 +31,6 @@ $totalCubes: 30;
   @include size(inherit inherit);
 }
 
-
 @mixin cube($i) {
   .outer:nth-child(#{$i}) .cube {
     $hue: ($i - 1) * 360/$totalCubes;
@@ -50,19 +49,19 @@ $totalCubes: 30;
       @include transform(rotateX(90deg) translateZ($z));
     }
     .side:nth-child(2){
-       @include transform(translateZ($z));
+      @include transform(translateZ($z));
     }
     .side:nth-child(3){
-       @include transform(rotateY(180deg) translateZ($z));
+      @include transform(rotateY(180deg) translateZ($z));
     }
     .side:nth-child(4){
-       @include transform(rotateY(90deg) translateZ($z));
+      @include transform(rotateY(90deg) translateZ($z));
     }
     .side:nth-child(5){
-       @include transform(rotateY(-90deg) translateZ($z));
+      @include transform(rotateY(-90deg) translateZ($z));
     }
     .side:nth-child(6){
-       @include transform(rotateX(-90deg) translateZ($z));
+      @include transform(rotateX(-90deg) translateZ($z));
     }
 
     @for $i from 1 through 6 {

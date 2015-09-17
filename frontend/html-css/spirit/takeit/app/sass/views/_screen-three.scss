@@ -1,4 +1,7 @@
 .screen-three {
+  // @include media($mobile) {
+  //   display: none;
+  // }
   h3 {
     color: $white;
     font-size: em(30);

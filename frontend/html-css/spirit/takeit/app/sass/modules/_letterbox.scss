@@ -2,7 +2,7 @@ $bg-inside-box: #ddd;
 
 .letter-box {
     @include transform(translate3d(0,100%,0));
-    @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 1000ms);
+    @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 500ms);
     &-left {
         position: absolute;
         border-bottom: 400px solid $white;
@@ -24,27 +24,32 @@ $bg-inside-box: #ddd;
         @include size(0 0);
     }
     &-toprota{
+        border-bottom: 200px solid $white;
         opacity: 0;
-        border-bottom: 200px solid red;
-
+        margin-left: -270px;
+        z-index: 2;
+        @include transform(translate3d(0,100%,0) rotateX(0deg));
+        @include position(absolute, null null 0 50%);
+    }
+    &-top {
+        border-bottom: 200px solid #ddd;
+        margin-left: -266px;
+        z-index: 1;
+        @include transform(rotateX(0deg));
+        @include position(absolute, null null 399px 50%);
     }
     &-top,
     &-toprota {
         border-left: 265px solid transparent;
         border-right: 265px solid transparent;
-        border-bottom: 200px solid $white;
-        z-index: 2;
-        margin-left: -270px;
         @include size(0 0);
-        @include position(absolute, null null 0 50%);
-        @include transform(rotateX(0deg));
         @include transform-origin(0% 100%);
         @include transition(transform 0ms cubic-bezier(.19,1,.22,1) 500ms);
     }
     &-backside {
         background-color: $bg-inside-box;
         z-index: 0;
-         margin-left: -270px;
+        margin-left: -270px;
         @include size(530px 400px);
         @include position(absolute, null null 0 50%);
     }
@@ -55,13 +60,12 @@ $bg-inside-box: #ddd;
       @include transform(translate3d(0,0,0));
       &-top {
         opacity: 0;
-        @include transform(translate3d(0,-400px,0));
-        @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 1090ms, opacity 1.0s ease-in 3000ms);
+        @include transition(opacity 1000ms ease-in 2000ms);
       }
       &-toprota {
         opacity: 1;
-        @include transform(translate3d(0,-401px,0) rotateX(180deg));
-        @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 2000ms, opacity 1.0s ease-in 3000ms);
+        @include transform(translate3d(0,-401px,0) rotateX(170deg));
+        @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 1500ms, opacity 1.0s ease-in 2500ms);
       }
     }
   }

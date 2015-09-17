@@ -3,6 +3,9 @@ body {
   color: $color-base;
   font-family: $base-font-family;
   font-size: $font-base-destop;
+  // @include media($tablet-destop) {
+  //   overflow: hidden;
+  // }
   overflow: hidden;
   @include size(100% 100%);
 }
@@ -49,6 +52,9 @@ p {
   @include position(absolute, 0 null null 0);
   @include transition(transform 1000ms cubic-bezier(.23,1,.32,1) 0ms);
   &-container {
+    // @include media($tablet-destop) {
+    //   overflow: hidden;
+    // }
     overflow: hidden;
     position: relative;
     will-change: transform;
@@ -87,7 +93,7 @@ p {
   width: 100%;
   padding: 0 125px;
   @include media($mobile) {
-    padding: 200px 30px;
+    padding: 0 30px;
   }
   box-sizing: border-box;
   z-index: 4;
@@ -111,7 +117,17 @@ p {
 }
 
 // Style Pagination -->
-.swiper {
+.nav-swiper {
+  @include clearfix;
+  @include outer-container(60%);
+  @include media($mobile-tablet) {
+    @include outer-container(93%);
+  }
+  // @include media($mobile) {
+  //   display: none;
+  // }
+  position: relative;
+  z-index: 5;
   &-pagination {
     text-align: center;
     @include position(absolute, 50% 13px null null);

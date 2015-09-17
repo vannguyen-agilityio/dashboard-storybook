@@ -1,4 +1,7 @@
 .footer {
+  // @include media($mobile) {
+  //   display: none;
+  // }
   background-color: #111;
   color: $white;
   padding: 60px 0;
@@ -13,7 +16,4 @@
   &-show {
     @include transform(translate3d(0,-100%,0));
   }
-  // @include media($mobile) {
-  //   display: none;
-  // }
 }
