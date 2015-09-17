@@ -41,9 +41,11 @@ $bg-nav-color: #c42846;
   position: absolute;
   right: 0;
   z-index: 3;
-  min-width: 500px;
+  @include media($tablet-destop) {
+    min-width: 500px;
+  }
   @include media($mobile) {
-    min-width: 320px;
+    width: 100%;
   }
   height: 100%;
   background-color: $bg-nav-color;
@@ -100,15 +102,16 @@ a.logo {
 }
 
 .menu-button {
+  display: block;
   float: right;
   margin-top: em(68);
-  @include media($mobile) {
-    margin-top: 0;
-  }
   position: relative;
   cursor: pointer;
   padding: 12px;
-
+  visibility: visible;
+  @include media($mobile) {
+    margin-top: 0;
+  }
   i {
     display: block;
     @include size(30px 3px);

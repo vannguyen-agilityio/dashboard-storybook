@@ -3,10 +3,10 @@ body {
   color: $color-base;
   font-family: $base-font-family;
   font-size: $font-base-destop;
-  // @include media($tablet-destop) {
-  //   overflow: hidden;
-  // }
-  overflow: hidden;
+  @include media($tablet-destop) {
+    overflow: hidden;
+  }
+  // overflow: hidden;
   @include size(100% 100%);
 }
 
@@ -52,10 +52,10 @@ p {
   @include position(absolute, 0 null null 0);
   @include transition(transform 1000ms cubic-bezier(.23,1,.32,1) 0ms);
   &-container {
-    // @include media($tablet-destop) {
-    //   overflow: hidden;
-    // }
-    overflow: hidden;
+    @include media($tablet-destop) {
+      overflow: hidden;
+    }
+    // overflow: hidden;
     position: relative;
     will-change: transform;
     @include size(100% 100%);
@@ -154,7 +154,7 @@ p {
       }
     }
     &.dark {
-      .swiper-pagination-bullet {
+      .nav-swiper-pagination-bullet {
         border: 2px solid #3c4651;
         &.active {
           background-color: #3c4651;

@@ -2,17 +2,18 @@ var s,
 Takeit = {
 
   settings: {
+    body: $('body'),
     menu: $("#menu"),
     nav: $("#nav"),
     scrwapper: $('#screen'),
-    footer: $('footer'),
+    footer: $('#footer'),
     overlay: $('#overlay'),
     pics: $('#pics'),
     scr: $('.screen'),
-    screenone: $('.screen-one'),
-    screentwo: $('.screen-two'),
-    screenthree: $('.screen-three'),
-    screenfour: $('.screen-four'),
+    screenone: $('#screen-one'),
+    screentwo: $('#screen-two'),
+    screenthree: $('#screen-three'),
+    screenfour: $('#screen-four'),
     pagination: $('#pag-bullet')
   },
 
@@ -24,10 +25,12 @@ Takeit = {
 
 
   bindMenuActions: function() {
-    s.menu.click( function () {
+    s.menu.click( function (e) {
+
       if(!$(this).hasClass('active')) {
         // open menu
         $(this).addClass('active');
+
         if (!s.nav.hasClass('displayed')) {
           s.nav.addClass('displayed');
           s.overlay.addClass('displayed');
@@ -321,7 +324,17 @@ Takeit.init();
 Takeit.bindMenuActions();
 Takeit.bindTouchStart();
 Takeit.bindPagBulletActions();
-Takeit.mousewheelScreen();
-// if(!isMobile.any() ) {
-//   Takeit.mousewheelScreen();
-// }
+// Takeit.mousewheelScreen();
+if(!isMobile.any() ) {
+  Takeit.mousewheelScreen();
+} else {
+  s.body.addClass('mobile');
+  s.screentwo.remove();
+  s.screenthree.remove();
+  s.screenfour.remove();
+  s.pics.remove();
+  s.pagination.remove();
+  s.footer.remove();
+  s.screenone.find('.bubble-container').remove();
+  s.screenone.find('.front-shapes').remove();
+}
