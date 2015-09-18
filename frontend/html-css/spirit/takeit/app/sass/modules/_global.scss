@@ -4,10 +4,11 @@ body {
   font-family: $base-font-family;
   font-size: $font-base-destop;
   @include media($tablet-destop) {
+    height: 100%;
     overflow: hidden;
   }
   // overflow: hidden;
-  @include size(100% 100%);
+  width: 100%;
 }
 
 @include media($tablet) {
@@ -45,20 +46,23 @@ p {
 
 // Style Screen
 .screen {
-  height: 100%;
+
+  @include media($tablet-destop) {
+    height: 100%;
+  }
   padding-top: 168px;
   z-index: auto;
-  @include size(100% 100%);
+  width: 100%;
   @include position(absolute, 0 null null 0);
   @include transition(transform 1000ms cubic-bezier(.23,1,.32,1) 0ms);
   &-container {
     @include media($tablet-destop) {
-      overflow: hidden;
+      height: 100%;
     }
-    // overflow: hidden;
+    overflow: hidden;
     position: relative;
     will-change: transform;
-    @include size(100% 100%);
+   width: 100%;
     @include transition(transform 2000ms cubic-bezier(.23,1,.32,1) 0ms);
     &.up {
       @include transform(translate3d(0px, -192px, 0px));
@@ -83,6 +87,9 @@ p {
   &-three {
     background-color: pink;
   }
+  &-five {
+    background-color: #c42846;
+  }
 }
 
 .content {
@@ -97,8 +104,10 @@ p {
   }
   box-sizing: border-box;
   z-index: 4;
-  @include position(absolute, 25% null null 50%);
-  @include transform(translate3d(-50%,-50%,0));
+  @include media($tablet-destop) {
+    @include position(absolute, 25% null null 50%);
+    @include transform(translate3d(-50%,-50%,0));
+  }
 }
 
 //Style overlay
@@ -166,4 +175,3 @@ p {
     }
   }
 }
-

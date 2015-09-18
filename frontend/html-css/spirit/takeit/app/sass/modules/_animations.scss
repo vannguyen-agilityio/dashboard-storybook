@@ -45,10 +45,22 @@
 
 //animation move bubble
 @include keyframes(moveBubble1) {
-  0% {left: 0; opacity: 1; @include transform(scale(0,0)); top: 30%;}
-  100% {left: 2000px; opacity: 1; @include transform(scale(1,1)); top: 50%;}
+  from {left: 100px; opacity: 1; @include transform(rotate(-55deg)); top: 30%;}
+  to {left: 1000px; opacity: 1; @include transform(rotate(-355deg)); top: 10%;}
 }
 @include keyframes(moveBubble2) {
-  0% {left: 0; opacity: 1; @include transform(scale(0,0)); top: 30%;}
-  100% {left: -2000px; opacity: 1; @include transform(scale(1,1)); top: 50%;}
+  from {left: -100px; opacity: 1; @include transform(rotate(-55deg)); top: 30%;}
+  to {left: -1000px; opacity: 1; @include transform(rotate(-255deg)); top: 80%;}
+}
+@include keyframes(moveBubble3) {
+  from {left: -100px; opacity: 1; @include transform(rotate(-55deg)); top: 50%;}
+  to {left: -1000px; opacity: 1; @include transform(rotate(-255deg)); top: 10%;}
+}
+@include keyframes(moveBubble4) {
+  from {left: -100px; opacity: 1; @include transform(rotate(-55deg)); top: 50%;}
+  to {left: -1000px; opacity: 1; @include transform(rotate(-255deg)); top: 10%;}
+}
+@include keyframes(moveBubble5) {
+  from {left: 100px; opacity: 1; @include transform(rotate(-55deg)); top: 40%;}
+  to {left: 1000px; opacity: 1; @include transform(rotate(-255deg)); top: 80%;}
 }

@@ -65,7 +65,8 @@ $tree-right-color: #5fb36b;
 }
 
 .screen-four,
-.screen-two {
+.screen-two,
+.screen-five {
     .ground,
     .tree .sides {
         @include transform(translate3d(0,105%,0));

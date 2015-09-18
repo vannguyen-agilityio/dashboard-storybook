@@ -6,32 +6,62 @@
   //   display: none;
   // }
   @include position(absolute, 0 null null 50%);
+  opacity: 0.5;
 }
 .bubble {
-  @include size(60px 60px);
   position: absolute;
   opacity: 0;
 }
 .bubble1 {
-  @include animation(moveBubble1 2s linear infinite 1s);
+  @include animation(moveBubble1 5000ms ease-out infinite 0ms);
+  @include size(60px 60px);
+  background-color: #fcfcfc;
+  opacity: 1;
 }
 .bubble2 {
-  @include animation(moveBubble2 2s linear infinite 1s);
+  @include animation(moveBubble2 4000ms ease-out infinite 0ms);
+  @include size(60px 60px);
+  border-width: 0 17px 23px 15px;
+  border-color: transparent transparent red;
+  opacity: 1;
+  border-radius: 50%;
+  background-color: rgb(255, 239, 239);
+}
+.bubble3 {
+  @include size(50px 50px);
+  @include animation(moveBubble3 3000ms ease-out infinite 0ms);
+  background-color: #fcfcfc;
+  opacity: 1;
+}
+.bubble4 {
+  @include size(0px 0px);
+  @include animation(moveBubble4 2000ms ease-out infinite 0ms);
+  border-bottom: 50px solid $white;
+  border-right: 50px solid transparent;
+  opacity: 1;
+}
+.bubble5 {
+  @include size(0px 0px);
+  @include animation(moveBubble5 2000ms ease-out infinite 0ms);
+  border-bottom: 50px solid $white;
+  border-right: 50px solid transparent;
+  opacity: 1;
 }
 
-@for $i from 1 through 20 {
-  .bubble:nth-child(#{$i}){
-     $size: random(60)+px;
-    &:after {
-      position: absolute;
-      content: '';
-      border-radius: 50%;
-      height: $size;
-      width: $size;
-      background-color: hsl(random(360), 70%, 50%);
-      @include animation-delay(-$i * .2s);
-      @include transform(translate3d( (random(1000) * 1px), (random(1000) * 1px), (random(2000) * 1px)));
-    }
 
-  }
-}
+// @for $i from 1 through 20 {
+//   .bubble:nth-child(#{$i}){
+//      $size: random(60)+px;
+//     &:after {
+//       position: absolute;
+//       content: '';
+//       border-radius: 50%;
+//       height: $size;
+//       width: $size;
+//       background-color: hsl(random(360), 70%, 50%);
+//       @include animation-delay(-$i * .2s);
+//       @include transform(translate3d( (random(1000) * 1px), (random(1000) * 1px), (random(2000) * 1px)));
+//     }
+
+//   }
+// }

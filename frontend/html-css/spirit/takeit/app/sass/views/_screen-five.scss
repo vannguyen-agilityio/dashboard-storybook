@@ -1,0 +1,17 @@
+.screen-five {
+  &-iphone {
+    position: absolute;
+    bottom: -175px;
+    left: 50%;
+    margin-left: -195px;
+    z-index: 4;
+    video {
+      width: 261px;
+      left: 64px;
+      top: 88px;
+    }
+  }
+  h5  {
+    color: $white;
+  }
+}

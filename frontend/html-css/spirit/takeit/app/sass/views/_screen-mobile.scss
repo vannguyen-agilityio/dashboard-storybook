@@ -1,0 +1,63 @@
+.mobile {
+  &-screen {
+    background-color: $blue;
+  }
+  .content {
+    padding: 200px 30px;
+    box-sizing: border-box;
+    width: 100%;
+    color: #FFF;
+    position: relative;
+    z-index: 5;
+    top: 0;
+  }
+
+  .landscape {
+    @include position(absolute, null null 0 0);
+    @include size(100% 70px);
+    background-color: $white;
+  }
+  .trees {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 400px;
+    height: 100%;
+    margin-left: -200px;
+    z-index: auto;
+    .tree {
+      &:nth-child(1) {
+        top: -6px;
+        left: 50px;
+        width: 46px;
+        height: 62px;
+        z-index: 5;
+      }
+      &:nth-child(2) {
+        top: -27px;
+        left: 88px;
+        width: 34px;
+        height: 40px;
+      }
+      &:nth-child(3) {
+        top: -53px;
+        left: 246px;
+        height: 63px;
+        width: 52px;
+      }
+      &:nth-child(4) {
+        top: 6px;
+        left: 180px;
+        height: 63px;
+        width: 50px;
+        z-index: 5;
+      }
+      &:nth-child(5) {
+        top: 10px;
+        left: 290px;
+        height: 63px;
+        width: 50px;
+      }
+    }
+  }
+}
