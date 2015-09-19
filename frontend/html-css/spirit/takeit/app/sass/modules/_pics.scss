@@ -120,7 +120,7 @@
     @include transform(translate3d(0,0,0));
     .pics {
         @include media($max-tablet) {
-        margin-top: -162px;
+        margin-top: -150px;
       }
     }
     .pic {

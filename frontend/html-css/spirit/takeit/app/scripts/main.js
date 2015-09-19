@@ -332,7 +332,6 @@ Takeit = {
     }
 
     if(footershow) {
-      console.log('sdfdsvdvgdf', s.footer.offset().top);
       $.data(this, 'timer', setTimeout(function() {
         s.footer.removeClass('footer-show');
         s.scrwapper.removeClass('up');
