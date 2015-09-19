@@ -320,7 +320,7 @@ Takeit = {
       }, 100));
     }
 
-    if (src5 & !footershow) {
+    if (src5 && (s.screenfive.position().top === 0) && !footershow) {
       $.data(this, 'timer', setTimeout(function() {
       s.screenfour.removeClass('top');
       s.screenfour.addClass('active');
@@ -332,10 +332,11 @@ Takeit = {
     }
 
     if(footershow) {
+      console.log('sdfdsvdvgdf', s.footer.offset().top);
       $.data(this, 'timer', setTimeout(function() {
         s.footer.removeClass('footer-show');
         s.scrwapper.removeClass('up');
-      }, 100));
+      }, 500));
     }
   },
 
