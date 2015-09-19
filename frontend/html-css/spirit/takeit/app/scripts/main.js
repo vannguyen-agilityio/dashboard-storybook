@@ -389,6 +389,9 @@ var isMobile = {
   iOS: function() {
       return navigator.userAgent.match(/iPhone|iPad|iPod/i);
   },
+  iPhone: function() {
+      return navigator.userAgent.match(/iPhone/i);
+  },
   Opera: function() {
       return navigator.userAgent.match(/Opera Mini/i);
   },
@@ -406,7 +409,7 @@ Takeit.bindMenuActions();
 Takeit.bindTouchStart();
 Takeit.bindPagBulletActions();
 // Takeit.mousewheelScreen();
-if(!isMobile.any() ) {
+if(!isMobile.iPhone() ) {
   Takeit.mousewheelScreen();
   s.screenmobile.remove();
 } else {

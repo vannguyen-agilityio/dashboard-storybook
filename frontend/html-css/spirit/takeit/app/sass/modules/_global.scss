@@ -22,6 +22,7 @@ body {
   html,
   body {
     font-size: $font-base-mobile;
+    height: 100%;
   }
 }
 
@@ -56,9 +57,7 @@ p {
   @include position(absolute, 0 null null 0);
   @include transition(transform 1000ms cubic-bezier(.23,1,.32,1) 0ms);
   &-container {
-    @include media($tablet-destop) {
-      height: 100%;
-    }
+    height: 100%;
     overflow: hidden;
     position: relative;
     will-change: transform;
@@ -66,7 +65,7 @@ p {
     @include transition(transform 2000ms cubic-bezier(.23,1,.32,1) 0ms);
     &.up {
       @include transition(transform 2000ms cubic-bezier(.23,1,.32,1) 500ms);
-      @include transform(translate3d(0px, -205px, 0px));
+      @include transform(translate3d(0px, -195px, 0px));
     }
   }
   &.top {
@@ -172,4 +171,13 @@ p {
       }
     }
   }
+}
+
+// style ground
+.ground {
+  background-color: $green;
+  border-radius: 100%;
+  z-index: 4;
+  @include size(100% 70px);
+  @include position(absolute, null null -35px 0);
 }

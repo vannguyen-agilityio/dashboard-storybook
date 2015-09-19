@@ -1,15 +1,15 @@
 .mobile {
   &-screen {
     background-color: $blue;
+    height: 100%;
   }
   .content {
-    padding: 200px 30px;
+    padding: 150px 30px;
     box-sizing: border-box;
-    width: 100%;
-    color: #FFF;
-    position: relative;
+    color: $white;
     z-index: 5;
-    top: 0;
+    @include size(100% 100%);
+    @include position(relative, 0 null null null);
   }
 
   .landscape {
@@ -18,45 +18,37 @@
     background-color: $white;
   }
   .trees {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 400px;
-    height: 100%;
     margin-left: -200px;
     z-index: auto;
+    @include position(absolute, 0 null null 50%);
+    @include size(400px 100%);
     .tree {
       &:nth-child(1) {
         top: -6px;
-        left: 50px;
-        width: 46px;
-        height: 62px;
+        left: 60px;
         z-index: 5;
+        @include size(46px 62px);
       }
       &:nth-child(2) {
-        top: -27px;
+        top: -40px;
         left: 88px;
-        width: 34px;
-        height: 40px;
+        @include size(34px 40px);
       }
       &:nth-child(3) {
-        top: -53px;
+        top: -63px;
         left: 246px;
-        height: 63px;
-        width: 52px;
+        @include size(52px 63px);
       }
       &:nth-child(4) {
         top: 6px;
         left: 180px;
-        height: 63px;
-        width: 50px;
         z-index: 5;
+        @include size(50px 63px);
       }
       &:nth-child(5) {
         top: 10px;
         left: 290px;
-        height: 63px;
-        width: 50px;
+        @include size(50px 63px);
       }
     }
   }

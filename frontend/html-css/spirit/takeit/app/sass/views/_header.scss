@@ -11,16 +11,12 @@ $bg-nav-color: #c42846;
   width: 100%;
   z-index: 999;
   @include media($mobile) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    -webkit-transform: none;
-    transform: none;
     box-shadow: 0 0 10px rgba(0,0,0,.5);
-    background: #c42846;
+    background-color: $bg-nav-color;
     padding: 10px 8px 10px 20px;
-    height: 71px;
+    @include transform(none);
+    @include size(100% 71px);
+    @include position(fixed, 0 null null 0);
   }
   &-wrapper {
     @include clearfix;
@@ -38,9 +34,8 @@ $bg-nav-color: #c42846;
 }
 .nav {
   display: none;
-  position: absolute;
-  right: 0;
   z-index: 998;
+  @include position(absolute, null 0 null null);
   @include media($tablet-destop) {
     min-width: 500px;
   }
