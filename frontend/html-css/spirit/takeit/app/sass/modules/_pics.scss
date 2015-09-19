@@ -118,7 +118,12 @@
   &.state-two {
     opacity: 1;
     @include transform(translate3d(0,0,0));
-     .pic {
+    .pics {
+        @include media($max-tablet) {
+        margin-top: -162px;
+      }
+    }
+    .pic {
       &:nth-child(1),
       &:nth-child(2),
       &:nth-child(3),

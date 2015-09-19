@@ -1,10 +1,12 @@
 .screen-four {
-  // @include media($mobile) {
-  //   display: none;
-  // }
   h3 {
     font-size: em(40);
     font-weight: 500;
+  }
+  @include media($max-tablet) {
+    h3 {
+      font-size: em(30);
+    }
   }
   h4 {
     font-size: em(16);

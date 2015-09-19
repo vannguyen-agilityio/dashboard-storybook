@@ -24,10 +24,10 @@ $bg-nav-color: #c42846;
   }
   &-wrapper {
     @include clearfix;
-    @include outer-container(60%);
-    @include media($mobile-tablet) {
+    @include media($max-tablet) {
       @include outer-container(93%);
     }
+    @include outer-container(60%);
     position: relative;
     z-index: 5;
   }
@@ -40,11 +40,12 @@ $bg-nav-color: #c42846;
   display: none;
   position: absolute;
   right: 0;
-  z-index: 3;
+  z-index: 998;
   @include media($tablet-destop) {
     min-width: 500px;
   }
   @include media($mobile) {
+    position: fixed;
     width: 100%;
   }
   height: 100%;
@@ -65,20 +66,20 @@ $bg-nav-color: #c42846;
   }
   &.displayed {
     display: block;
-    @include animation(fadeInDown 1s 0s forwards);
+    @include animation(fadeInDown 0.5s 0s forwards);
     li {
 
       &:nth-child(1) {
-        @include animation(fadeInDown 1s 1s forwards);
+        @include animation(fadeInDown 0.5s 0.5s forwards);
       }
       &:nth-child(2) {
-       @include animation(fadeInDown 1.5s 1.5s forwards);
+       @include animation(fadeInDown 0.5s 0.7s forwards);
       }
       &:nth-child(3) {
-        @include animation(fadeInDown 2s 2s forwards);
+        @include animation(fadeInDown 0.5s 0.8s forwards);
       }
       &:nth-child(4) {
-        @include animation(fadeInDown 2.5s 2.5s forwards);
+        @include animation(fadeInDown 0.5s 1s forwards);
       }
     }
 
@@ -90,6 +91,9 @@ a.logo {
   color: $white;
   font-size: 2.5em;
   line-height: 5em;
+  @include media($max-tablet) {
+    line-height: 3em;
+  }
   @include media($mobile) {
     line-height: 2em;
   }
@@ -109,6 +113,9 @@ a.logo {
   cursor: pointer;
   padding: 12px;
   visibility: visible;
+  @include media($max-tablet) {
+     margin-top: em(38);
+  }
   @include media($mobile) {
     margin-top: 0;
   }

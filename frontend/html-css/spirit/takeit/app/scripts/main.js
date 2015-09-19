@@ -410,7 +410,6 @@ if(!isMobile.any() ) {
   Takeit.mousewheelScreen();
   s.screenmobile.remove();
 } else {
-  //var truct = $('#truck');
   s.body.addClass('mobile');
   s.screenone.remove();
   s.screentwo.remove();
@@ -418,12 +417,10 @@ if(!isMobile.any() ) {
   s.screenfour.remove();
   s.screenfive.remove();
   s.pics.remove();
-  s.pagination.remove();
+  s.pagination.parent().remove();
   s.footer.remove();
-  s.screenone.find('.bubble-container').remove();
-  s.screenone.find('.front-shapes').remove();
   var $truct = $('#truck');
-
+  // move truct
   setInterval(function(){
     if ($truct.hasClass('no-transition')) {
       $truct.removeClass('no-transition');
@@ -440,5 +437,4 @@ if(!isMobile.any() ) {
       }
     }
   },2000);
-
 }

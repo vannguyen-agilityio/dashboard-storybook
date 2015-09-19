@@ -62,10 +62,11 @@ p {
     overflow: hidden;
     position: relative;
     will-change: transform;
-   width: 100%;
+    width: 100%;
     @include transition(transform 2000ms cubic-bezier(.23,1,.32,1) 0ms);
     &.up {
-      @include transform(translate3d(0px, -192px, 0px));
+      @include transition(transform 2000ms cubic-bezier(.23,1,.32,1) 500ms);
+      @include transform(translate3d(0px, -205px, 0px));
     }
   }
   &.top {
@@ -129,12 +130,9 @@ p {
 .nav-swiper {
   @include clearfix;
   @include outer-container(60%);
-  @include media($mobile-tablet) {
+  @include media($max-tablet) {
     @include outer-container(93%);
   }
-  // @include media($mobile) {
-  //   display: none;
-  // }
   position: relative;
   z-index: 5;
   &-pagination {

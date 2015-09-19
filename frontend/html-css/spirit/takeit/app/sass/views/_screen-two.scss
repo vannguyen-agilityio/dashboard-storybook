@@ -9,7 +9,7 @@
     padding: 0 50px;
     z-index: 11;
     text-align: center;
-    @include position(absolute, 28% null null 50%);
+    @include position(absolute, 23% null null 50%);
     @include transform(translate3d(-50%,-50%,0));
     h3 {
       color: #d1f2fd;
@@ -21,7 +21,7 @@
   &-iphone {
     margin-left: -195px;
     z-index: 2;
-    @include position(absolute, null null -130px 50%);
+    @include position(absolute, null null -190px 50%);
     @include transform(translate3d(0,100%,0));
     @include transition(transform 2000ms cubic-bezier(.19,1,.22,1) 1000ms);
     video {
