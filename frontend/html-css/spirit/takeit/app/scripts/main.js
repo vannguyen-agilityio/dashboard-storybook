@@ -206,7 +206,8 @@ Takeit = {
         s.screenfive.removeClass('active');
         s.screenfive.addClass('bottom');
       }
-
+      s.footer.removeClass('footer-show');
+      s.scrwapper.removeClass('up');
       $(e.target).addClass('active');
       return false;
     });
