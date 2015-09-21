@@ -47,22 +47,6 @@
   vertical-align: $vertical;
 }
 
-// background-size: cover
-@mixin background-size($size: cover) {
-  -webkit-background-size: $size;
-  -moz-background-size: $size;
-  -o-background-size: $size;
-  background-size: $size;
-}
-
-// background-images: cover
-@mixin background-cover($size: cover) {
-  background-position: center center;
-  background-repeat: no-repeat;
-  @include background-size($size);
-}
-
-
 // Convert pixels to ems
 // eg. for a relational value of 12px write em(12) when the parent is 16px
 // if the parent is another value say 24px write em(12, 24)
@@ -79,7 +63,6 @@ $em-base: 16;
   @return ($pxval / $base) * 1em;
 }
 
-
 //valiables
 $bg-color: #efefef;
 $bg-color-photo: #d7d7d7;
@@ -93,6 +76,17 @@ $color-hover-menu: #58c3cb;
 $font-base: 16px;
 $font-family: 'Open Sans', sans-serif;
 
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 500ms;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+}
+
 //style for comments
 .comment {
   font-family: $font-family;
@@ -100,13 +94,12 @@ $font-family: 'Open Sans', sans-serif;
   font-size: $font-base;
   font-style: normal;
   min-width: 320px;
-  a {
-    text-decoration: none;
-  }
   &-icon  {
     background: url('../images/icon.png') no-repeat;
     display: inline-block;
-    overflow: hidden; text-indent: -9999px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
     text-align: left;
   }
 
@@ -142,11 +135,15 @@ $font-family: 'Open Sans', sans-serif;
     font-size: em(14, $em-base);
     font-weight: 400;
     color: $color-black-med;
+
+    a {
+      font-weight: 600;
+    }
+
   }
 
   &-item {
     border-bottom: 1px solid $boder-bottom-list;
-    display: table;
     min-height: em(70, $em-base);
     padding: em(15, $em-base) em(20, $em-base);
     position: relative;
@@ -198,8 +195,9 @@ $font-family: 'Open Sans', sans-serif;
           @include vertical-center();
           text-align: left;
           display: inline-block;
+          text-indent: 100%;
+          white-space: nowrap;
           overflow: hidden;
-          text-indent: -9999px;
         }
       }
       a {
@@ -292,14 +290,14 @@ $font-family: 'Open Sans', sans-serif;
   }
 
   &-detail {
-    padding-left: em(10, $em-base);
-    @include display-cell();
+    padding-left: em(50, $em-base);
+    width: 100%;
   }
 
   &-photo {
     height: 40px;
     width: 40px;
-    @include display-cell(top);
+    position: absolute;
     &-layout {
       background-color: $bg-color-photo;
       border-radius: 50%;
@@ -370,9 +368,9 @@ $font-family: 'Open Sans', sans-serif;
     border-radius: em(5, $em-base);
     padding: em(14, $em-base) em(12, $em-base);
     min-height: em(42, $em-base);
-    margin-left: em(10, $em-base);
+    margin-left: em(57, $em-base);
     height: auto;
-    font-size: em(12, $em-base);
+    font-size: em(14, $em-base);
     word-break: break-word;
     word-wrap: break-word;
     //placeholder
@@ -452,6 +450,11 @@ $font-family: 'Open Sans', sans-serif;
       height: 20px;
     }
   }
+}
+
+.video-iframe {
+  height: 270px;
+  width: 480px;
 }
 
 @media screen and (max-width: 768px) {

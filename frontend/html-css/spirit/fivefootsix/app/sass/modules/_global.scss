@@ -1,0 +1,235 @@
+html,
+body {
+  color: $color-base;
+  font-family: $base-font-family;
+  font-size: $font-base-destop;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+@include media($tablet) {
+  html,
+  body {
+    font-size: $font-base-tablet;
+  }
+}
+
+@include media($mobile) {
+  html,
+  body {
+    font-size: $font-base-mobile;
+    height: 100%;
+  }
+}
+
+figure {
+  display: block;
+  background: #eee;
+  padding: 10px;
+}
+
+h2,
+h3,
+h4 {
+  font-weight: 300;
+}
+
+p {
+  font-size: em(13px);
+}
+
+.container {
+  height: 100%;
+  @include outer-container(100%);
+}
+
+.text-center {
+  text-align: center;
+}
+
+// Style Screen
+.screen {
+  height: 100%;
+  // padding-top: 168px;
+  z-index: auto;
+  width: 100%;
+  @include position(absolute, 0 null null 0);
+  @include transition(transform 1000ms cubic-bezier(.23,1,.32,1) 0ms);
+  &-container {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    will-change: transform;
+    width: 100%;
+    @include transition(transform 2000ms cubic-bezier(.23,1,.32,1) 0ms);
+    &.up {
+      @include transition(transform 2000ms cubic-bezier(.23,1,.32,1) 500ms);
+      @include transform(translate3d(0px, -195px, 0px));
+      @include media($destop) {
+        @include transform(translate3d(0px, -205px, 0px));
+      }
+    }
+  }
+  &.top {
+    @include transform(translate3d(0,-100%,0));
+  }
+  &.bottom {
+    @include transform(translate3d(0,100%,0));
+  }
+  &.active {
+    // @include transform(translate3d(0,0,0));
+  }
+  // &-one,
+  // &-four {
+  //   background-color: $blue;
+  // }
+  &-two {
+    background-color: #293039;
+  }
+  &-three {
+    background-color: pink;
+  }
+  &-five {
+    background-color: #c42846;
+  }
+}
+
+.content {
+  color: $white;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 50px;
+  width: 100%;
+  padding: 0 125px;
+  @include media($mobile) {
+    padding: 0 30px;
+  }
+  box-sizing: border-box;
+  z-index: 4;
+  @include media($tablet-destop) {
+    @include position(absolute, 25% null null 50%);
+    @include transform(translate3d(-50%,-50%,0));
+  }
+}
+
+//Style overlay
+.nav-overlay {
+  @include position(fixed, 0 null null 0);
+  @include size(100% 100%);
+  background: rgba(0,0,0,0.5);
+  z-index: 2;
+  display: none;
+  opacity: 0;
+  @include transition(opacity 1s cubic-bezier(0.19,1,0.22,1) 0);
+  &.displayed {
+    display: block;
+    opacity: 1;
+  }
+}
+
+// Style Pagination -->
+.nav-swiper {
+  @include clearfix;
+  @include outer-container(60%);
+  @include media($max-tablet) {
+    @include outer-container(100%);
+  }
+  position: relative;
+  z-index: 5;
+  &-pagination {
+    text-align: center;
+    @include transition(300ms);
+    @include transform(translate3d(0, 0, 0));
+    @include position(absolute, 50% 10px null null);
+    @include media($mobile) {
+      right: 0;
+    }
+    @include transform(translate(0%, -50%));
+    &-bullet {
+      cursor: pointer;
+      color: $white;
+      display: block;
+      margin-bottom: em(10);
+      opacity: 1;
+      position: relative;
+      strong {
+        opacity: 0;
+      }
+      span {
+        opacity: 1;
+        right: 10px;
+        position: absolute;
+        top: 0;
+        &:after {
+          display: none;
+          content: '';
+          @include size(8px 8px);
+          border-radius: 50%;
+          background-color: $white;
+          display: none;
+        }
+      }
+      @include media($mobile) {
+        strong {
+          opacity: 0;
+        }
+        span {
+          text-indent: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          font-size: 0;
+          &:after {
+            display: block;
+          }
+        }
+      }
+      &.active {
+        strong {
+          opacity: 1;
+        }
+        span {
+          opacity: 0;
+          &:after {
+            background-color: #111;
+          }
+        }
+        @include media($mobile) {
+          strong {
+            opacity: 0;
+          }
+          span {
+            opacity: 1;
+          }
+        }
+      }
+      &:hover {
+        // background-color: $white;
+        opacity: 0.5;
+        @include transform(scale(1.3,1.3));
+        @include transition(transform 1200ms cubic-bezier(.19,1,.22,1) 500ms);
+        @include transition(opacity 1000ms cubic-bezier(0.19,1,0.22,1) 100ms);
+      }
+    }
+    &.dark {
+      .nav-swiper-pagination-bullet {
+        border: 2px solid #3c4651;
+        &.active {
+          background-color: #3c4651;
+        }
+        &:hover {
+          background-color: #3c4651;
+        }
+      }
+    }
+  }
+}
+
+// style ground
+.ground {
+  background-color: $green;
+  border-radius: 100%;
+  z-index: 4;
+  @include size(100% 70px);
+  @include position(absolute, null null -35px 0);
+}
