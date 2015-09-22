@@ -1,3 +1,10 @@
 .screen-two {
-
+  .bg-image {
+    @include position(absolute, 50% 0 0 0);
+    @include transform(translateY(-50%));
+    @include size(100% 100%);
+    background-position: center center;
+    background-size: cover;
+    background-image: url(http://www.fivefootsix.co.uk/wp-content/uploads/2015/01/XYZ_Home_Slide_2.jpg);
+  }
 }
