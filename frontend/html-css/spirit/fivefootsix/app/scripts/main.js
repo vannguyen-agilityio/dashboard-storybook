@@ -1,3 +1,28 @@
+var isMobile = {
+  Android: function() {
+      return navigator.userAgent.match(/Android/i);
+  },
+  BlackBerry: function() {
+      return navigator.userAgent.match(/BlackBerry/i);
+  },
+  iOS: function() {
+      return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+  },
+  iPhone: function() {
+      return navigator.userAgent.match(/iPhone/i);
+  },
+  Opera: function() {
+      return navigator.userAgent.match(/Opera Mini/i);
+  },
+  Windows: function() {
+      return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+  },
+  any: function() {
+      return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+  }
+};
+
+
 var s,
 Fivefootsix = {
 
@@ -22,7 +47,6 @@ Fivefootsix = {
     s.screenone.addClass('active');
   },
 
-
   bindMenuActions: function() {
     s.menu.click( function (e) {
 
@@ -44,6 +68,48 @@ Fivefootsix = {
       return false;
     });
   },
+
+  /**
+     * Load video.
+     */
+    loadVideo: function() {
+
+      // don't show video mobile/tablet
+      if (isMobile.iPhone()) {
+        return;
+      }
+
+      var
+
+        video = $(document).find('iframe'),
+        height = $(document).height(),
+        width = $(document).width(),
+        expWidth = width,
+        expHeight = height,
+        marginLeft = 0,
+        marginTop = 0,
+        ratio = video.data('width') / video.data('height'),
+        expRatio = expWidth / expHeight;
+        console.log('$(document).height()',height, width);
+      if (expRatio > ratio) {
+        expHeight = Math.ceil(expWidth / ratio) + 1;
+        marginLeft = Math.ceil((expWidth + width) / 4);
+        marginTop = Math.ceil((expWidth + width) / 7);
+        console.log(' marginLeft marginTop expRatio > ratio111',expHeight ,  marginLeft,  marginTop);
+      } else {
+        expWidth = Math.ceil(expHeight * ratio) + 200;
+        marginLeft = Math.ceil((expWidth - height));
+        marginTop = Math.ceil((expWidth - height)/2);
+        console.log(' marginLeft marginTop expRatio <= ratio2222', expWidth, width, marginLeft,  marginTop);
+      }
+
+      video.css({
+        'width': expWidth,
+        'height': expHeight,
+        'margin-left': -marginLeft,
+        'margin-top': -marginTop
+      });
+    },
 
   bindPagBulletActions: function() {
     var activeScr1 = $('#pag-bullet span:nth-child(1)'),
@@ -195,30 +261,6 @@ Fivefootsix = {
 
 };
 
-var isMobile = {
-  Android: function() {
-      return navigator.userAgent.match(/Android/i);
-  },
-  BlackBerry: function() {
-      return navigator.userAgent.match(/BlackBerry/i);
-  },
-  iOS: function() {
-      return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-  },
-  iPhone: function() {
-      return navigator.userAgent.match(/iPhone/i);
-  },
-  Opera: function() {
-      return navigator.userAgent.match(/Opera Mini/i);
-  },
-  Windows: function() {
-      return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
-  },
-  any: function() {
-      return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-  }
-};
-
 
 Fivefootsix.init();
 Fivefootsix.bindMenuActions();
@@ -228,3 +270,7 @@ Fivefootsix.mousewheelScreen();
 if(isMobile.iPhone() ) {
   s.video.remove();
 }
+
+$(window).resize(function() {
+  Fivefootsix.loadVideo();
+}).trigger('resize');
