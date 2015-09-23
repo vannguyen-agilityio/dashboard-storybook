@@ -52,7 +52,6 @@ a {
 // Style Screen
 .screen {
   height: 100%;
-  // padding-top: 168px;
   z-index: auto;
   width: 100%;
   @include position(absolute, 0 null null 0);
@@ -81,18 +80,38 @@ a {
   &.active {
     // @include transform(translate3d(0,0,0));
   }
-  // &-one,
-  // &-four {
-  //   background-color: $blue;
+  &-wap {
+    background-color: transparent;
+    z-index: 2;
+    @include position(absolute, 0 null null 0);
+    @include size(100% 100%);
+  }
+  // &-two {
+  //   background-color: #293039;
   // }
-  &-two {
-    background-color: #293039;
-  }
   &-three {
-    background-color: pink;
+    background-color: $gray;
   }
-  &-five {
-    background-color: #c42846;
+  .bg-image {
+    background-repeat: no-repeat;
+    @include position(absolute, 50% 0 0 0);
+    @include transform(translateY(-50%));
+  }
+  .bg-image-cover {
+    background-position: center center;
+    background-size: cover;
+    @include size(100% 100%);
+  }
+  .bg-image-contain {
+    background-size: contain;
+    background-position: center center;
+  }
+  .wapper {
+    position: relative;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0 auto;
   }
 }
 
@@ -102,16 +121,12 @@ a {
   max-width: 800px;
   padding: 0 50px;
   width: 100%;
-  padding: 0 125px;
-  @include media($mobile) {
+  padding: 0 15px;
+  @include media($mobile-tablet) {
     padding: 0 30px;
   }
   box-sizing: border-box;
   z-index: 4;
-  @include media($tablet-destop) {
-    @include position(absolute, 25% null null 50%);
-    @include transform(translate3d(-50%,-50%,0));
-  }
 }
 
 //Style overlay
@@ -143,7 +158,7 @@ a {
     @include transition(300ms);
     @include transform(translate3d(0, 0, 0));
     @include position(absolute, 50% 10px null null);
-    @include media($mobile) {
+    @include media($mobile-tablet) {
       right: 0;
     }
     @include transform(translate(0%, -50%));
@@ -171,7 +186,7 @@ a {
           display: none;
         }
       }
-      @include media($mobile) {
+      @include media($mobile-tablet) {
         strong {
           opacity: 0;
         }
@@ -195,7 +210,7 @@ a {
             background-color: #111;
           }
         }
-        @include media($mobile) {
+        @include media($mobile-tablet) {
           strong {
             opacity: 0;
           }
@@ -205,40 +220,82 @@ a {
         }
       }
       &:hover {
-        // background-color: $white;
         opacity: 0.5;
         @include transform(scale(1.3,1.3));
         @include transition(transform 1200ms cubic-bezier(.19,1,.22,1) 500ms);
         @include transition(opacity 1000ms cubic-bezier(0.19,1,0.22,1) 100ms);
       }
     }
-    // &.dark {
-    //   .nav-swiper-pagination-bullet {
-    //     border: 2px solid #3c4651;
-    //     &.active {
-    //       background-color: #3c4651;
-    //     }
-    //     &:hover {
-    //       background-color: #3c4651;
-    //     }
-    //   }
-    // }
   }
 }
 
+
+//Style video
 .video-container {
-  position: absolute;
-  top: 50%;
-    left: 50%;
-  //   transform: translate(-50%, -50%);
-  //   -webkit-transform: translate(-50%, -50%);
-  //   margin-left: -525px;
-  //   margin-top: -490px;
+  @include position(absolute, 50% null null 50%);
   iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    @include size(100% 100%);
+    @include position(absolute, 0 null null 0);
+  }
+}
+
+//Style arrow bar
+.arrow-bar {
+  cursor: pointer;
+  text-align: center;
+  z-index: 60;
+  margin: 0;
+  color: $white;
+  @include position(absolute, null null 0 null);
+  @include size(100% 50px)  ;
+  @include transition(color 500ms ease-in-out, background-color 500ms ease-in-out);
+  &:hover {
+    color: $red;
+    background-color: $white;
+  }
+  .text-hover {
+    opacity: 0;
+    color: #f8f8f8;
+    line-height: 50px;
+    text-align: center;
+    @include position(absolute, 0 0 0 0);
+    @include transition(all 500ms ease-in-out);
+  }
+  span {
+    line-height: 50px;
+    font-size: 22px;
+    text-align: center;
+    @include position(absolute, 0 0 0 0);
+    @include transition(all 500ms ease-in-out);
+    &:before {
+      content: '\f063';
+      @extend .font-awesome;
+    }
+  }
+}
+
+.dark {
+  .nav-swiper-pagination-bullet,
+  .navigation .navigation-wrapper a,
+  .nav li a {
+    color: $red;
+    &:hover {
+      color: $red;
+      opacity: 1;
+    }
+  }
+  .arrow-bar {
+    color: $white;
+    background-color: $red;
+    &:hover {
+      background-color: $red;
+      .text-hover {
+        @include transform(translateX(-20px));
+        opacity: 1;
+      }
+      span {
+        @include transform(translateX(20px));
+      }
+    }
   }
 }

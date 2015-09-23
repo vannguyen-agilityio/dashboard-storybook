@@ -10,7 +10,7 @@ $bg-nav-color: #e94740;
   min-height: $navigation-height;
   width: 100%;
   z-index: 999;
-  @include media($mobile) {
+  @include media($mobile-tablet) {
     padding: 10px 10px 8px;
     @include transform(none);
     @include size(100% 71px);
@@ -27,7 +27,7 @@ $bg-nav-color: #e94740;
   }
   &-menu {
     display: inline-block;
-    @include media($mobile) {
+    @include media($mobile-tablet) {
       margin-top: em(300);
       padding: 0 em(70);
     }
@@ -37,17 +37,14 @@ $bg-nav-color: #e94740;
 .nav {
   opacity: 1;
   text-align: center;
-  @include media($tablet-destop) {
+  @include media($destop) {
     z-index: 999;
     @include position(absolute, 40px 300px null null);
   }
-  @include media($mobile) {
+  @include media($mobile-tablet) {
     @include position(absolute, null 0 null null);
     @include transition(transform 1000ms cubic-bezier(.19,1,.22,1) 1000ms);
     @include transform(translate3d(0,-100%,0));
-    // @include media($tablet-destop) {
-    //   min-width: 500px;
-    // }
     z-index: 998;
     position: fixed;
     width: 100%;
@@ -58,7 +55,7 @@ $bg-nav-color: #e94740;
     opacity: 1;
     float: left;
     margin-right: 15px;
-    @include media($mobile) {
+    @include media($mobile-tablet) {
       margin-bottom: 15px;
       margin-right: 0;
       float:  none;
@@ -69,7 +66,7 @@ $bg-nav-color: #e94740;
       font-size: 1em;
       font-weight: 300;
       cursor: pointer;
-      @include media($tablet-destop) {
+      @include media($destop) {
         text-transform: capitalize;
         opacity: 0.5;
         @include transition(opacity 0.3s ease-in-out, color 0.3s ease-in-out);
@@ -78,7 +75,7 @@ $bg-nav-color: #e94740;
           opacity: 1;
         }
       }
-      @include media($mobile) {
+      @include media($mobile-tablet) {
         color: $white;
         font-size: em(28);
         font-weight: 600;
@@ -91,7 +88,7 @@ $bg-nav-color: #e94740;
   }
 
   &.displayed {
-    @include media($mobile) {
+    @include media($mobile-tablet) {
       @include animation(fadeInDown 0.5s 0s forwards);
       li {
         &:nth-child(1) {
@@ -120,7 +117,7 @@ a.logo {
   @include media($max-tablet) {
     line-height: 3em;
   }
-  @include media($mobile) {
+  @include media($mobile-tablet) {
     line-height: 2em;
   }
   font-weight: 600;
@@ -144,7 +141,7 @@ a.logo {
     //margin-top: em(38);
 
   }
-  @include media($mobile) {
+  @include media($mobile-tablet) {
     margin-top: 0;
     display: block;
   }

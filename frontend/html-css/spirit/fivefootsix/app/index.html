@@ -10,7 +10,8 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
+    <!-- font awesome -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <!-- endbower -->
@@ -59,28 +60,45 @@
     <div id="screen" class="screen-container">
         <!-- Start Screen One -->
         <div id="screen-one" class="screen screen-one">
-
-           <!--  <iframe frameborder="0" height="100%" width="100%" src="https://player.vimeo.com/video/130314568?autoplay=1&amp;loop=1&amp;controls=0&amp;showinfo=0&amp;autohide=0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
-            </iframe>
-            -->
+            <div class="bg-image bg-image-cover"></div>
             <div id="full-video" class="video-container">
-                <center>
-                    <iframe data-width="1365" data-height="768" src="https://player.vimeo.com/video/130314568?autoplay=1&amp;loop=1&amp;controls=0&amp;showinfo=0&amp;autohide=0" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-                </center>
+                <iframe id="videoVimeo" data-width="1365" data-height="768" src="https://player.vimeo.com/video/130314568?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;player_id=videoVimeo&amp;api=1&amp;autoplay=1&amp;loop=1&amp;showinfo=0&amp;autohide=1&amp;fullscreen=1" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
             </div>
+            <div class="screen-wap"></div>
         </div>
 
         <!-- Start Screen Two -->
 
         <div id="screen-two" class="screen screen-two bottom">
-            <div class="bg-image"></div>
+            <div class="wapper">
+                <div class="bg-image bg-image-cover"></div>
+                <div class="content">
+                    <p>Project stories</p>
+                        <h1>
+                            <a href="http://www.fivefootsix.co.uk/works/xyz/" class="transition">Taking your senses for a spin</a>
+                        </h1>
+                    <p class="more" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);"><a href="http://www.fivefootsix.co.uk/works/xyz/" class="transition">View</a></p>
+                </div>
+            </div>
         </div>
 
         <!-- Start Screen Three -->
 
         <div id="screen-three" class="screen screen-three bottom">
-
+            <div class="wapper">
+                <div class="bg-image bg-image-contain"></div>
+                <div class="content">
+                    <h1><a href="http://www.fivefootsix.co.uk/2014/11/the-art-of-ping-pong-at-beach-gallery/" class="transition">The Art of Ping Pong hits the Beach</a></h1>
+                    <p class="author">Posted by Craig</p>
+                    <p class="date">06 Nov 2014</p>
+                    <p class="description"></p>
+                    <p class="description"></p><p><br>
+                    <strong>A collaborative Art Project with our lovely friends at Beach London.</strong></p><p></p>
+                    <p class="more"><a href="http://www.fivefootsix.co.uk/2014/11/the-art-of-ping-pong-at-beach-gallery/" class="transition">Read more</a></p>
+                </div>
+            </div>
         </div>
+
 
         <!-- Add Pagination -->
         <div class="nav-swiper" style="top: 50%">
@@ -101,7 +119,10 @@
         </div>
 
     </div>
-
+    <div id="arrow-bar" class="arrow-bar">
+        <div class="text-hover">About</div>
+        <span></span>
+    </div>
     <!-- Footer Starts -->
    <!--  <footer id="footer" class="footer">
     </footer> -->
