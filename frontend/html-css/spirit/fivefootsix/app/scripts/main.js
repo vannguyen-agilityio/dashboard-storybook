@@ -31,7 +31,6 @@ Fivefootsix = {
     menu: $("#menu"),
     nav: $("#nav"),
     scrwapper: $('#screen'),
-    footer: $('#footer'),
     overlay: $('#overlay'),
     video: $('#full-video'),
     scr: $('.screen'),
@@ -190,8 +189,6 @@ Fivefootsix = {
         s.screenthree.addClass('bottom');
         s.body.removeClass('dark');
       }
-      // s.footer.removeClass('footer-show');
-      // s.scrwapper.removeClass('up');
       target.addClass('active');
       return false;
     });
@@ -205,7 +202,7 @@ Fivefootsix = {
     });
   },
 
-  bindScrollDown: function(delta, src1, src2, src3, pagBullet, footershow) {
+  bindScrollDown: function(delta, src1, src2, src3, pagBullet) {
     //scroll down
     delta = 0.2;
     if (src1 && (s.screenone.position().top === 0)) {
@@ -230,7 +227,7 @@ Fivefootsix = {
     }
   },
 
-  bindScrollUp: function(delta, src1, src2, src3, pagBullet, footershow) {
+  bindScrollUp: function(delta, src1, src2, src3, pagBullet) {
     //scroll up
     delta = 0;
     if (src2 && (s.screentwo.position().top === 0)) {
@@ -260,7 +257,6 @@ Fivefootsix = {
       var src1 = s.screenone.hasClass('active'),
           src2 = s.screentwo.hasClass('active'),
           src3 = s.screenthree.hasClass('active'),
-          footershow = s.footer.hasClass('footer-show'),
           pagBullet = s.pagination.find('a.active');
 
       clearTimeout($.data(this, 'timer'));
@@ -271,19 +267,19 @@ Fivefootsix = {
       if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
         if (e.originalEvent.detail > 0) {
           //scroll down
-          Fivefootsix.bindScrollDown(delta, src1, src2, src3, pagBullet, footershow);
+          Fivefootsix.bindScrollDown(delta, src1, src2, src3, pagBullet);
         } else {
           //scroll up
-          Fivefootsix.bindScrollUp(delta, src1, src2, src3, pagBullet, footershow);
+          Fivefootsix.bindScrollUp(delta, src1, src2, src3, pagBullet);
         }
       } else {
        //For Chrome, IE
         if (e.originalEvent.wheelDelta < 0) {
           //scroll down
-          Fivefootsix.bindScrollDown(delta, src1, src2, src3, pagBullet, footershow);
+          Fivefootsix.bindScrollDown(delta, src1, src2, src3, pagBullet);
         } else {
           //scroll up
-          Fivefootsix.bindScrollUp(delta, src1, src2, src3, pagBullet, footershow);
+          Fivefootsix.bindScrollUp(delta, src1, src2, src3, pagBullet);
         }
       }
       e.stopPropagation();

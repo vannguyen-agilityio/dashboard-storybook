@@ -6,6 +6,8 @@ body {
   height: 100%;
   overflow: hidden;
   width: 100%;
+  // fix error font text on ie
+  @include prefixer(font-feature-settings, normal, webkit moz ms o spec);
 }
 
 @include media($tablet) {
@@ -159,7 +161,7 @@ a {
   .more {
     position: absolute;
     width: 100%;
-    top:calc(75% + 20em);
+    @include calc(top, "75% + 20em");
     @include transition(top 1000ms ease-in-out);
     a {
       padding: 0 35px 0 0;
@@ -277,7 +279,6 @@ a {
     }
   }
 }
-
 
 //Style video
 .video-container {

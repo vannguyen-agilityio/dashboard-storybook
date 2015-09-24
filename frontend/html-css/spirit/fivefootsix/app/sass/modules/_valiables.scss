@@ -1,6 +1,6 @@
 // base font size
 $font-base-desktop: 18px;
-$font-base-tablet: 12px;
+$font-base-tablet: 15px;
 $font-base-mobile: 10px;
 
 // color
@@ -31,6 +31,8 @@ $mobile-tablet: new-breakpoint(max-width $max-tablet-breakpoint);
 $mobile: new-breakpoint(max-width $max-mobile-breakpoint);
 $max-tablet: new-breakpoint(max-width $max-tablet);
 $min-tablet: new-breakpoint(min-width $min-tablet);
+
+
 /// Device Widths
 $phone-portrait: em(320);
 $phone-landscape: em(568);

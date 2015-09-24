@@ -45,7 +45,7 @@
   }
   &.active {
     .more {
-      top:calc(75% + 7em);
+      @include calc(top, "75% + 7em");
     }
   }
 }

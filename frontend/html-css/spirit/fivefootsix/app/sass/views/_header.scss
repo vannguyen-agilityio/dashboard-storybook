@@ -46,8 +46,8 @@ $bg-nav-color: #e94740;
   }
   @include media($mobile-tablet) {
     @include position(absolute, null 0 null null);
-    @include transition(transform 1000ms cubic-bezier(.19,1,.22,1) 1000ms);
     @include transform(translate3d(0,-100%,0));
+    @include transition(2000ms cubic-bezier(.19,1,.22,1) 1000ms);
     z-index: 998;
     position: fixed;
     width: 100%;
@@ -62,7 +62,6 @@ $bg-nav-color: #e94740;
       margin-bottom: 15px;
       margin-right: 0;
       float:  none;
-      opacity: 0;
     }
     a {
       color: $white;
@@ -92,19 +91,21 @@ $bg-nav-color: #e94740;
 
   &.displayed {
     @include media($mobile-tablet) {
-      @include animation(fadeInDown 0.5s 0s forwards);
+      opacity: 0.8;
+      @include transform(translate3d(0,0,0));
       li {
+        opacity: 0;
         &:nth-child(1) {
-          @include animation(fadeInDown 0.5s 0.5s forwards);
+          @include animation(fadeInDown 0.5s 2s forwards);
         }
         &:nth-child(2) {
-         @include animation(fadeInDown 0.5s 0.7s forwards);
+         @include animation(fadeInDown 0.5s 2.4s forwards);
         }
         &:nth-child(3) {
-          @include animation(fadeInDown 0.5s 0.8s forwards);
+          @include animation(fadeInDown 0.5s 2.8s forwards);
         }
         &:nth-child(4) {
-          @include animation(fadeInDown 0.5s 1s forwards);
+          @include animation(fadeInDown 0.5s 3s forwards);
         }
       }
     }
