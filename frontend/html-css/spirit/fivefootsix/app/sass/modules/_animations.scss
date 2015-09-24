@@ -1,29 +1,5 @@
 //animation
 
-@include keyframes(turning) {
-  0% { @include transform(scale(0,0)); opacity: 0; }
-    50% { @include transform(scale(0,0.1)); opacity: 0.5;}
-      100% { @include transform(scale(1,1)); opacity: 1;}
-}
-
-
-@include keyframes(fadeInUp) {
-  0% {
-    opacity: 1;
-    @include transform(translateY(2000px));
-  }
-
-  50% {
-    opacity: 0.5;
-    @include transform(translateY(100px));
-  }
-
-  100% {
-    opacity: 0;
-    @include transform(translateY(0));
-  }
-}
-
 @include keyframes(fadeInDown) {
   from {
     opacity: 0;
@@ -34,33 +10,4 @@
     opacity: 0.8;
     @include transform(none);
   }
-}
-
-//animation move clouds
-@include keyframes(moveClouds) {
-  0% {margin-left: 1000px;}
-  100% {margin-left: -1000px;}
-}
-
-
-//animation move bubble
-@include keyframes(moveBubble1) {
-  from {left: 100px; opacity: 1; @include transform(rotate(-55deg)); top: 30%;}
-  to {left: 1000px; opacity: 1; @include transform(rotate(-355deg)); top: 10%;}
-}
-@include keyframes(moveBubble2) {
-  from {left: -100px; opacity: 1; @include transform(rotate(-55deg)); top: 30%;}
-  to {left: -1000px; opacity: 1; @include transform(rotate(-255deg)); top: 80%;}
-}
-@include keyframes(moveBubble3) {
-  from {left: -100px; opacity: 1; @include transform(rotate(-55deg)); top: 50%;}
-  to {left: -1000px; opacity: 1; @include transform(rotate(-255deg)); top: 10%;}
-}
-@include keyframes(moveBubble4) {
-  from {left: -100px; opacity: 1; @include transform(rotate(-55deg)); top: 50%;}
-  to {left: -1000px; opacity: 1; @include transform(rotate(-255deg)); top: 10%;}
-}
-@include keyframes(moveBubble5) {
-  from {left: 100px; opacity: 1; @include transform(rotate(-55deg)); top: 40%;}
-  to {left: 1000px; opacity: 1; @include transform(rotate(-255deg)); top: 80%;}
 }

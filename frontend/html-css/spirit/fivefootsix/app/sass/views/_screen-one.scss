@@ -1,8 +1,10 @@
 
 // Style Screen-one
-
 .screen-one {
   @include media($mobile-tablet) {
+    .video-container {
+      display: none;
+    }
     .bg-image {
       background-image: url(http://www.fivefootsix.co.uk/wp-content/uploads/2015/02/FFS_Website_Illustration_Homepage_Final-Frame_1920x1080_Portrait_AW_RGB-540x960.jpg);
     }

@@ -2,7 +2,7 @@ html,
 body {
   color: $color-base;
   font-family: $base-font-family;
-  font-size: $font-base-destop;
+  font-size: $font-base-desktop;
   height: 100%;
   overflow: hidden;
   width: 100%;
@@ -54,6 +54,7 @@ a {
   height: 100%;
   z-index: auto;
   width: 100%;
+  overflow: hidden;
   @include position(absolute, 0 null null 0);
   @include transition(transform 1000ms cubic-bezier(.23,1,.32,1) 0ms);
   &-container {
@@ -66,7 +67,7 @@ a {
     &.up {
       @include transition(transform 2000ms cubic-bezier(.23,1,.32,1) 500ms);
       @include transform(translate3d(0px, -195px, 0px));
-      @include media($destop) {
+      @include media($desktop) {
         @include transform(translate3d(0px, -205px, 0px));
       }
     }
@@ -78,7 +79,21 @@ a {
     @include transform(translate3d(0,100%,0));
   }
   &.active {
-    // @include transform(translate3d(0,0,0));
+    .more {
+      a {
+        &:before {
+          content: '\f067';
+          font-size: em(15);
+          @extend .font-awesome;
+          @include position(absolute, 5px 0 null null);
+          @include media($mobile-tablet) {
+            top: 3px;
+          }
+          @include transition(all 500ms ease-in-out);
+          @include transform(rotate(0deg) translateZ(0));
+        }
+      }
+    }
   }
   &-wap {
     background-color: transparent;
@@ -86,9 +101,6 @@ a {
     @include position(absolute, 0 null null 0);
     @include size(100% 100%);
   }
-  // &-two {
-  //   background-color: #293039;
-  // }
   &-three {
     background-color: $gray;
   }
@@ -127,6 +139,43 @@ a {
   }
   box-sizing: border-box;
   z-index: 4;
+  h1 {
+    word-break: break-word;
+    margin: 0 auto 50px;
+    backface-visibility: hidden;
+    a {
+      color: $white;
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+  .title {
+    font-size: em(20);
+  }
+  .date {
+    color: #a3a3a3;
+  }
+  .more {
+    position: absolute;
+    width: 100%;
+    top:calc(75% + 20em);
+    @include transition(top 1000ms ease-in-out);
+    a {
+      padding: 0 35px 0 0;
+      @include media($mobile-tablet){
+        padding-right: 15px;
+      }
+      color: $red;
+      position: relative;
+      font-size: em(25);
+      &:hover {
+        &:before {
+          @include transform(rotate(90deg) translateZ(0));
+        }
+      }
+    }
+  }
 }
 
 //Style overlay
@@ -272,6 +321,9 @@ a {
       @extend .font-awesome;
     }
   }
+  @include media($mobile-tablet) {
+    display: none;
+  }
 }
 
 .dark {
@@ -298,4 +350,36 @@ a {
       }
     }
   }
+  .menu-button i {
+    background-color: $red;
+  }
+  .nav-swiper {
+    &-pagination {
+      &-bullet {
+        color: $red;
+        span {
+          &:after {
+            background-color: $red;
+          }
+        }
+        &.active {
+          span {
+            &:after {
+              background-color: $black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// style for icon of Fontawesome
+.font-awesome {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
 }

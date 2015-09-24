@@ -37,9 +37,12 @@ $bg-nav-color: #e94740;
 .nav {
   opacity: 1;
   text-align: center;
-  @include media($destop) {
+  @include media($desktop) {
     z-index: 999;
-    @include position(absolute, 40px 300px null null);
+    @include position(absolute, 40px 50px null null);
+  }
+  @include media($min-tablet) {
+    right: 300px;
   }
   @include media($mobile-tablet) {
     @include position(absolute, null 0 null null);
@@ -66,7 +69,7 @@ $bg-nav-color: #e94740;
       font-size: 1em;
       font-weight: 300;
       cursor: pointer;
-      @include media($destop) {
+      @include media($desktop) {
         text-transform: capitalize;
         opacity: 0.5;
         @include transition(opacity 0.3s ease-in-out, color 0.3s ease-in-out);
@@ -137,10 +140,6 @@ a.logo {
   padding: 12px 0;
   visibility: visible;
   display: none;
-  @include media($max-tablet) {
-    //margin-top: em(38);
-
-  }
   @include media($mobile-tablet) {
     margin-top: 0;
     display: block;
