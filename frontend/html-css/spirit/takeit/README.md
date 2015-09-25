@@ -50,6 +50,20 @@
 * jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.
 * [Homepage](http://jquery.com/)
 
+**Bourbon**
+
+* Bourbon is a library of pure Sass mixins that are designed to be simple and easy to use. No configuration required. The mixins aim to be as vanilla as possible, meaning they should be as close to the original CSS syntax as possible.
+* [Homepage](http://bourbon.io)
+
+**Neat**
+
+* Neat is a fluid grid framework built with [Bourbon](https://github.com/thoughtbot/bourbon) with the aim of being easy enough to use out of the box and flexible enough to customize down the road.
+* [Homepage](http://neat.bourbon.io)
+
+**Bitters**
+
+* Bitters helps designers start projects faster by defining a basic set of Sass variables, default element style and project structure. It’s been specifically designed for use within web applications. Bitters should live in your project’s root Sass directory and we *encourage* you to modify and extend it to meet your design and brand requirements.
+* [Homepage](http://bitters.bourbon.io)
 
 ### Frontend Build Tools
 
