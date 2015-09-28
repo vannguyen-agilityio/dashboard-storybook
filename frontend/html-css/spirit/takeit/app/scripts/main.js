@@ -2,281 +2,239 @@ var s,
 Takeit = {
 
   settings: {
-    body: $('body'),
-    menu: $("#menu"),
-    nav: $("#nav"),
-    scrwapper: $('#screen'),
-    footer: $('#footer'),
-    overlay: $('#overlay'),
-    pics: $('#pics'),
-    scr: $('.screen'),
-    screenone: $('#screen-one'),
-    screentwo: $('#screen-two'),
-    screenthree: $('#screen-three'),
-    screenfour: $('#screen-four'),
-    screenfive: $('#screen-five'),
-    screenmobile: $('#mobile-screen'),
-    pagination: $('#pag-bullet')
+    $body: $('body'),
+    $menu: $('#menu'),
+    $nav: $('#nav'),
+    $srcWrapper: $('#screen'),
+    $footer: $('#footer'),
+    $overlay: $('#overlay'),
+    $pics: $('#pics'),
+    $pagination: $('#pag-bullet')
   },
 
   init: function() {
     // kick things off
     s = this.settings;
-    s.screenone.addClass('active');
+    s.$srcWrapper.find('.screen-one').addClass('active');
   },
 
-
   bindMenuActions: function() {
-    s.menu.click( function (e) {
-
-      if(!$(this).hasClass('active')) {
+    s.$menu.click( function (e) {
+      var _this = $(this);
+      if(!_this.hasClass('active')) {
         // open menu
-        $(this).addClass('active');
+        _this.addClass('active');
 
-        if (!s.nav.hasClass('displayed')) {
-          s.nav.addClass('displayed');
-          s.overlay.addClass('displayed');
+        if (!s.$nav.hasClass('displayed')) {
+          s.$nav.addClass('displayed');
+          s.$overlay.addClass('displayed');
         }
 
       } else {
         // close menu
-        $(this).removeClass('active');
-        s.nav.removeClass('displayed');
-        s.overlay.removeClass('displayed');
+        _this.removeClass('active');
+        s.$nav.removeClass('displayed');
+        s.$overlay.removeClass('displayed');
       }
       return false;
     });
   },
 
+  bindPagActive: function(scrActive, scrRemoveActive, up, stateAdd, stateRemove, pagBullet) {
+    scrRemoveActive.removeClass('active');
+
+    if (up) {
+      scrActive.removeClass('bottom');
+      scrRemoveActive.addClass('top');
+      if (pagBullet) {
+        pagBullet.removeClass('active').next().addClass('active');
+      }
+    } else {
+      scrActive.removeClass('top');
+      scrRemoveActive.addClass('bottom');
+      if (pagBullet) {
+        pagBullet.removeClass('active').prev().addClass('active');
+      }
+    }
+    scrActive.addClass('active');
+
+    switch(stateAdd) {
+      case 1:
+          s.$pics.addClass('state-one');
+          break;
+      case 2:
+          s.$pics.addClass('state-two');
+          break;
+      case 3:
+          s.$pics.addClass('state-three');
+          break;
+    }
+    switch(stateRemove) {
+      case 1:
+          s.$pics.removeClass('state-one');
+          break;
+      case 2:
+          s.$pics.removeClass('state-two');
+          break;
+      case 3:
+          s.$pics.removeClass('state-three');
+          break;
+    }
+
+  },
+
   bindPagBulletActions: function() {
-    var activeScr1 = $('#pag-bullet span:nth-child(1)'),
-        activeScr2 = $('#pag-bullet span:nth-child(2)'),
-        activeScr3 = $('#pag-bullet span:nth-child(3)'),
-        activeScr4 = $('#pag-bullet span:nth-child(4)'),
-        activeScr5 = $('#pag-bullet span:nth-child(5)');
+    var activeScr1 = s.$pagination.find('span:nth-child(1)'),
+        activeScr2 = s.$pagination.find('span:nth-child(2)'),
+        activeScr3 = s.$pagination.find('span:nth-child(3)'),
+        activeScr4 = s.$pagination.find('span:nth-child(4)'),
+        activeScr5 = s.$pagination.find('span:nth-child(5)');
 
-    s.pagination.click( function (e) {
-      var alt = s.pagination.find('span').removeClass('active');
-
-      if (alt.is( activeScr1) && $(e.target).is(activeScr2)) {
-        s.screentwo.removeClass('bottom');
-        s.screentwo.addClass('active');
-        s.pics.addClass('state-one');
-        s.screenone.removeClass('active');
-        s.screenone.addClass('top');
+    s.$pagination.click( function (e) {
+      var _this = $(e.target),
+          alt = s.$pagination.find('span.active');
+      // case src one active
+      if (alt.is(activeScr1) && _this.is(activeScr2)) {
+        Takeit.bindPagActive(scrTwo, scrOne, true, 1, 0, false);
       }
-      if (alt.is( activeScr1) && $(e.target).is(activeScr3)) {
-        s.screenthree.removeClass('bottom');
-        s.screenthree.addClass('active');
-        s.pics.addClass('state-two');
-        s.screenone.removeClass('active');
-        s.screenone.addClass('top');
+      if (alt.is(activeScr1) && _this.is(activeScr3)) {
+        Takeit.bindPagActive(scrThree, scrOne, true, 2, 0, false);
+        scrTwo.removeClass('bottom').addClass('top');
       }
-      if (alt.is( activeScr1) && $(e.target).is(activeScr4)) {
-        s.screenfour.removeClass('bottom');
-        s.screenfour.addClass('active');
-        s.pics.addClass('state-three');
-        s.screenone.removeClass('active');
-        s.screenone.addClass('top');
+      if (alt.is(activeScr1) && _this.is(activeScr4)) {
+        Takeit.bindPagActive(scrFour, scrOne, true, 3, 0, false);
+        scrTwo.removeClass('bottom').addClass('top');
+        scrThree.removeClass('bottom').addClass('top');
       }
-      if (alt.is( activeScr1) && $(e.target).is(activeScr5)) {
-        s.screenfive.removeClass('bottom');
-        s.screenfive.addClass('active');
-        s.screenone.removeClass('active');
-        s.screenone.addClass('top');
+      if (alt.is(activeScr1) && _this.is(activeScr5)) {
+        Takeit.bindPagActive(scrFive, scrOne, true, 0, 0, false);
+        scrTwo.removeClass('bottom').addClass('top');
+        scrThree.removeClass('bottom').addClass('top');
+        scrFour.removeClass('bottom').addClass('top');
       }
 
-      if (alt.is( activeScr2) && $(e.target).is(activeScr1)) {
-        s.screenone.removeClass('top');
-        s.screenone.addClass('active');
-        s.screentwo.removeClass('active');
-        s.pics.removeClass('state-one');
-        s.screentwo.addClass('bottom');
+      // case src two active
+      if (alt.is(activeScr2) && _this.is(activeScr1)) {
+        Takeit.bindPagActive(scrOne, scrTwo, false, 0, 1, false);
       }
-      if (alt.is( activeScr2) && $(e.target).is(activeScr3)) {
-        s.screenthree.removeClass('bottom');
-        s.screenthree.addClass('active');
-        s.screentwo.removeClass('active');
-        s.pics.removeClass('state-one');
-        s.pics.addClass('state-two');
-        s.screentwo.addClass('top');
+      if (alt.is(activeScr2) && _this.is(activeScr3)) {
+        Takeit.bindPagActive(scrThree, scrTwo, true, 2, 1, false);
       }
-      if (alt.is( activeScr2) && $(e.target).is(activeScr4)) {
-        s.screenfour.removeClass('bottom');
-        s.screenfour.addClass('active');
-        s.screentwo.removeClass('active');
-        s.pics.removeClass('state-one');
-        s.pics.addClass('state-three');
-        s.screentwo.addClass('top');
+      if (alt.is(activeScr2) && _this.is(activeScr4)) {
+        Takeit.bindPagActive(scrFour, scrTwo, true, 3, 1, false);
+        scrThree.removeClass('bottom').addClass('top');
       }
-      if (alt.is( activeScr2) && $(e.target).is(activeScr5)) {
-        s.screenfive.removeClass('bottom');
-        s.screenfive.addClass('active');
-        s.screentwo.removeClass('active');
-        s.pics.removeClass('state-one');
-        s.screentwo.addClass('top');
+      if (alt.is(activeScr2) && _this.is(activeScr5)) {
+        Takeit.bindPagActive(scrFive, scrTwo, true, 0, 1, false);
+        scrThree.removeClass('bottom').addClass('top');
+        scrFour.removeClass('bottom').addClass('top');
       }
 
-      if (alt.is( activeScr3) && $(e.target).is(activeScr1)) {
-        s.screenone.removeClass('top');
-        s.screenone.addClass('active');
-        s.screenthree.removeClass('active');
-        s.pics.removeClass('state-two');
-        s.screenthree.addClass('bottom');
+      // case src three active
+      if (alt.is(activeScr3) && _this.is(activeScr1)) {
+        Takeit.bindPagActive(scrOne, scrThree, false, 0, 2, false);
+        scrTwo.removeClass('top').addClass('bottom');
       }
-      if (alt.is( activeScr3) && $(e.target).is(activeScr2)) {
-        s.screentwo.removeClass('top');
-        s.screentwo.addClass('active');
-        s.pics.removeClass('state-two');
-        s.pics.addClass('state-one');
-        s.screenthree.removeClass('active');
-        s.screenthree.addClass('bottom');
+      if (alt.is(activeScr3) && _this.is(activeScr2)) {
+        Takeit.bindPagActive(scrTwo, scrThree, false, 1, 2, false);
       }
-      if (alt.is( activeScr3) && $(e.target).is(activeScr4)) {
-        s.screenfour.removeClass('bottom');
-        s.screenfour.addClass('active');
-        s.screenthree.removeClass('active');
-        s.pics.removeClass('state-two');
-        s.pics.addClass('state-three');
-        s.screenthree.addClass('top');
+      if (alt.is(activeScr3) && _this.is(activeScr4)) {
+        Takeit.bindPagActive(scrFour, scrThree, true, 3, 2, false);
       }
-      if (alt.is( activeScr3) && $(e.target).is(activeScr5)) {
-        s.screenfive.removeClass('bottom');
-        s.screenfive.addClass('active');
-        s.screenthree.removeClass('active');
-        s.pics.removeClass('state-two');
-        s.screenthree.addClass('top');
+      if (alt.is(activeScr3) && _this.is(activeScr5)) {
+        Takeit.bindPagActive(scrFive, scrThree, true, 0, 2, false);
+        scrFour.removeClass('bottom').addClass('top');
       }
 
-      if (alt.is( activeScr4) && $(e.target).is(activeScr1)) {
-        s.screenone.removeClass('top');
-        s.screenone.addClass('active');
-        s.screenfour.removeClass('active');
-        s.pics.removeClass('state-three');
-        s.screenfour.addClass('bottom');
+      // case src four active
+      if (alt.is(activeScr4) && _this.is(activeScr1)) {
+        Takeit.bindPagActive(scrOne, scrFour, false, 0, 3, false);
+        scrTwo.removeClass('top').addClass('bottom');
+        scrThree.removeClass('top').addClass('bottom');
       }
-      if (alt.is( activeScr4) && $(e.target).is(activeScr2)) {
-        s.screentwo.removeClass('top');
-        s.screentwo.addClass('active');
-        s.pics.removeClass('state-three');
-        s.pics.addClass('state-one');
-        s.screenfour.removeClass('active');
-        s.screenfour.addClass('bottom');
+      if (alt.is(activeScr4) && _this.is(activeScr2)) {
+        Takeit.bindPagActive(scrTwo, scrFour, false, 1, 0, false);
+        scrThree.removeClass('top').addClass('bottom');
       }
-      if (alt.is( activeScr4) && $(e.target).is(activeScr3)) {
-        s.screenthree.removeClass('top');
-        s.screenthree.addClass('active');
-        s.pics.removeClass('state-three');
-        s.pics.addClass('state-two');
-        s.screenfour.removeClass('active');
-        s.screenfour.addClass('bottom');
+      if (alt.is(activeScr4) && _this.is(activeScr3)) {
+        Takeit.bindPagActive(scrThree, scrFour, false, 2, 3,false);
       }
-      if (alt.is( activeScr4) && $(e.target).is(activeScr5)) {
-        s.screenfive.removeClass('bottom');
-        s.screenfive.addClass('active');
-        s.pics.removeClass('state-three');
-        s.screenfour.removeClass('active');
-        s.screenfour.addClass('top');
+      if (alt.is(activeScr4) && _this.is(activeScr5)) {
+        Takeit.bindPagActive(scrFive, scrFour, true, 0, 3, false);
       }
 
-      if (alt.is( activeScr5) && $(e.target).is(activeScr1)) {
-        s.screenone.removeClass('top');
-        s.screenone.addClass('active');
-        s.screenfive.removeClass('active');
-        s.screenfive.addClass('bottom');
+      // case src five active
+      if (alt.is(activeScr5) && _this.is(activeScr1)) {
+        Takeit.bindPagActive(scrOne, scrFive, false, 0, 0, false);
+        scrTwo.removeClass('top').addClass('bottom');
+        scrThree.removeClass('top').addClass('bottom');
+        scrFour.removeClass('top').addClass('bottom');
       }
-      if (alt.is( activeScr5) && $(e.target).is(activeScr2)) {
-        s.screentwo.removeClass('top');
-        s.screentwo.addClass('active');
-        s.pics.addClass('state-one');
-        s.screenfive.removeClass('active');
-        s.screenfive.addClass('bottom');
+      if (alt.is(activeScr5) && _this.is(activeScr2)) {
+        Takeit.bindPagActive(scrTwo, scrFive, false, 1, 0, false);
+        scrThree.removeClass('top').addClass('bottom');
+        scrFour.removeClass('top').addClass('bottom');
       }
-      if (alt.is( activeScr5) && $(e.target).is(activeScr3)) {
-        s.screenthree.removeClass('top');
-        s.screenthree.addClass('active');
-        s.pics.addClass('state-two');
-        s.screenfive.removeClass('active');
-        s.screenfive.addClass('bottom');
+      if (alt.is(activeScr5) && _this.is(activeScr3)) {
+        Takeit.bindPagActive(scrThree, scrFive, false, 2, 0, false);
+        scrFour.removeClass('top').addClass('bottom');
       }
-      if (alt.is( activeScr5) && $(e.target).is(activeScr4)) {
-        s.screenfour.removeClass('top');
-        s.screenfour.addClass('active');
-        s.pics.addClass('state-three');
-        s.screenfive.removeClass('active');
-        s.screenfive.addClass('bottom');
+      if (alt.is(activeScr5) && _this.is(activeScr4)) {
+        Takeit.bindPagActive(scrFour, scrFive, false, 3, 0, false);
       }
-      s.footer.removeClass('footer-show');
-      s.scrwapper.removeClass('up');
-      $(e.target).addClass('active');
+
+
+      s.$footer.removeClass('footer-show');
+      s.$srcWrapper.removeClass('up');
+      alt.removeClass('active');
+      _this.addClass('active');
       return false;
     });
   },
 
   bindTouchStart: function() {
-    s.overlay.on('click touchstart', function () {
-      $('#menu').removeClass('active');
-      $('#nav').removeClass('displayed');
-      $('#overlay').removeClass('displayed');
+    s.$overlay.on('click touchstart', function () {
+      s.$menu.removeClass('active');
+      s.$nav.removeClass('displayed');
+      s.$overlay.removeClass('displayed');
     });
   },
+
+
 
   bindScrollDown: function(delta, src1, src2, src3, src4, src5, pagBullet, footershow) {
     //scroll down
     delta = 0.2;
-    if (src1 && (s.screenone.position().top === 0)) {
+    if (src1 && (scrOne.position().top === 0)) {
       $.data(this, 'timer', setTimeout(function() {
-        s.screentwo.removeClass('bottom');
-        s.screentwo.addClass('active');
-        s.pics.addClass('state-one');
-        s.screenone.removeClass('active');
-        s.screenone.addClass('top');
-        pagBullet.removeClass('active').next().addClass('active');
+        Takeit.bindPagActive(scrTwo, scrOne, true, 1, 0, pagBullet);
       }, 100));
     }
 
-    if (src2 && (s.screentwo.position().top === 0)) {
+    if (src2 && (scrTwo.position().top === 0)) {
       $.data(this, 'timer', setTimeout(function() {
-        s.screenthree.removeClass('bottom');
-        s.screenthree.addClass('active');
-        pagBullet.removeClass('active').addClass('dark').next().addClass('active');
+        Takeit.bindPagActive(scrThree, scrTwo, true, 2, 1, pagBullet);
         pagBullet.parent().addClass('dark');
-        s.pics.addClass('state-two');
-        s.screentwo.removeClass('active');
-        s.pics.removeClass('state-one');
-        s.screentwo.addClass('top');
       }, 100));
     }
 
-    if (src3 && (s.screenthree.position().top === 0)) {
+    if (src3 && (scrThree.position().top === 0)) {
       $.data(this, 'timer', setTimeout(function() {
-        s.screenthree.removeClass('active');
+        Takeit.bindPagActive(scrFour, scrThree, true, 3, 2, pagBullet);
         pagBullet.parent().removeClass('dark');
-        s.pics.removeClass('state-two');
-        s.screenthree.addClass('top');
-        s.screenfour.removeClass('bottom');
-        s.screenfour.addClass('active');
-        pagBullet.removeClass('active').next().addClass('active');
-        s.pics.addClass('state-three');
       }, 100));
     }
 
-    if (src4 && (s.screenfour.position().top === 0)) {
+    if (src4 && (scrFour.position().top === 0)) {
       $.data(this, 'timer', setTimeout(function() {
-        s.screenfour.removeClass('active');
-        //pagBullet.parent().removeClass('dark');
-        s.pics.removeClass('state-three');
-        s.screenfour.addClass('top');
-        s.screenfive.removeClass('bottom');
-        s.screenfive.addClass('active');
-        pagBullet.removeClass('active').next().addClass('active');
+        Takeit.bindPagActive(scrFive, scrFour, true, 0, 3, pagBullet);
       }, 100));
     }
 
-    if (src5 && (s.screenfive.position().top === 0)) {
+    if (src5 && (scrFive.position().top === 0)) {
       $.data(this, 'timer', setTimeout(function() {
-        s.footer.addClass('footer-show');
-        s.scrwapper.addClass('up');
+        s.$footer.addClass('footer-show');
+        s.$srcWrapper.addClass('up');
       }, 100));
     }
 
@@ -285,70 +243,48 @@ Takeit = {
   bindScrollUp: function(delta, src1, src2, src3, src4, src5, pagBullet, footershow) {
     //scroll up
     delta = 0;
-    if (src2 && (s.screentwo.position().top === 0)) {
+    if (src2 && (scrTwo.position().top === 0)) {
       $.data(this, 'timer', setTimeout(function() {
-      s.screenone.removeClass('top');
-      s.screenone.addClass('active');
-      pagBullet.removeClass('active').prev().addClass('active');
-      s.screentwo.removeClass('active');
-      s.pics.removeClass('state-one');
-      s.screentwo.addClass('bottom');
+      Takeit.bindPagActive(scrOne, scrTwo, false, 0, 1, pagBullet);
       }, 100));
     }
 
-    if (src3 && (s.screenthree.position().top === 0)) {
+    if (src3 && (scrThree.position().top === 0)) {
       $.data(this, 'timer', setTimeout(function() {
-      s.screentwo.removeClass('top');
-      s.screentwo.addClass('active');
-      pagBullet.removeClass('active').prev().addClass('active');
-      s.pics.addClass('state-one');
-      s.screenthree.removeClass('active');
+      Takeit.bindPagActive(scrTwo, scrThree, false, 1, 2, pagBullet);
       pagBullet.parent().removeClass('dark');
-      s.screenthree.addClass('bottom');
-      s.pics.removeClass('state-two');
       }, 100));
     }
-    if (src4 && (s.screenfour.position().top === 0)) {
+    if (src4 && (scrFour.position().top === 0)) {
       $.data(this, 'timer', setTimeout(function() {
-      s.screenthree.removeClass('top');
-      s.screenthree.addClass('active');
-      s.pics.removeClass('state-three');
+      Takeit.bindPagActive(scrThree, scrFour, false, 2, 3, pagBullet);
       pagBullet.parent().addClass('dark');
-      pagBullet.removeClass('active').prev().addClass('active');
-      s.screenfour.removeClass('active');
-      s.screenfour.addClass('bottom');
-      s.pics.addClass('state-two');
       }, 100));
     }
 
-    if (src5 && (s.screenfive.position().top === 0) && !footershow) {
+    if (src5 && (scrFive.position().top === 0) && !footershow) {
       $.data(this, 'timer', setTimeout(function() {
-      s.screenfour.removeClass('top');
-      s.screenfour.addClass('active');
-      s.pics.addClass('state-three');
-      pagBullet.removeClass('active').prev().addClass('active');
-      s.screenfive.removeClass('active');
-      s.screenfive.addClass('bottom');
+      Takeit.bindPagActive(scrFour, scrFive, false, 3, 0, pagBullet);
       }, 100));
     }
 
     if(footershow) {
       $.data(this, 'timer', setTimeout(function() {
-        s.footer.removeClass('footer-show');
-        s.scrwapper.removeClass('up');
+        s.$footer.removeClass('footer-show');
+        s.$srcWrapper.removeClass('up');
       }, 500));
     }
   },
 
   mousewheelScreen: function() {
     $(window).bind('mousewheel DOMMouseScroll MozMousePixelScroll', function(e) {
-      var src1 = s.screenone.hasClass('active'),
-          src2 = s.screentwo.hasClass('active'),
-          src3 = s.screenthree.hasClass('active'),
-          src4 = s.screenfour.hasClass('active'),
-          src5 = s.screenfive.hasClass('active'),
-          footershow = s.footer.hasClass('footer-show'),
-          pagBullet = s.pagination.find('span.active');
+      var src1 = scrOne.hasClass('active'),
+        src2 = scrTwo.hasClass('active'),
+        src3 = scrThree.hasClass('active'),
+        src4 = scrFour.hasClass('active'),
+        src5 = scrFive.hasClass('active'),
+        footerShow = s.$footer.hasClass('footer-show'),
+        pagBullet = s.$pagination.find('span.active');
 
       clearTimeout($.data(this, 'timer'));
 
@@ -358,19 +294,19 @@ Takeit = {
       if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
         if (e.originalEvent.detail > 0) {
           //scroll down
-          Takeit.bindScrollDown(delta, src1, src2, src3, src4, src5, pagBullet, footershow);
+          Takeit.bindScrollDown(delta, src1, src2, src3, src4, src5, pagBullet, footerShow);
         } else {
           //scroll up
-          Takeit.bindScrollUp(delta, src1, src2, src3, src4, src5, pagBullet, footershow);
+          Takeit.bindScrollUp(delta, src1, src2, src3, src4, src5, pagBullet, footerShow);
         }
       } else {
        //For Chrome, IE
         if (e.originalEvent.wheelDelta < 0) {
           //scroll down
-          Takeit.bindScrollDown(delta, src1, src2, src3, src4, src5, pagBullet, footershow);
+          Takeit.bindScrollDown(delta, src1, src2, src3, src4, src5, pagBullet, footerShow);
         } else {
           //scroll up
-          Takeit.bindScrollUp(delta, src1, src2, src3, src4, src5, pagBullet, footershow);
+          Takeit.bindScrollUp(delta, src1, src2, src3, src4, src5, pagBullet, footerShow);
         }
       }
       e.stopPropagation();
@@ -404,25 +340,31 @@ var isMobile = {
   }
 };
 
-
 Takeit.init();
+
+var scrOne = s.$srcWrapper.find('.screen-one'),
+  scrTwo = s.$srcWrapper.find('.screen-two'),
+  scrThree = s.$srcWrapper.find('.screen-three'),
+  scrFour = s.$srcWrapper.find('.screen-four'),
+  scrFive = s.$srcWrapper.find('.screen-five');
+
 Takeit.bindMenuActions();
 Takeit.bindTouchStart();
 Takeit.bindPagBulletActions();
-// Takeit.mousewheelScreen();
+
 if(!isMobile.iPhone() ) {
   Takeit.mousewheelScreen();
-  s.screenmobile.remove();
+  s.$srcWrapper.find('.mobile-screen').remove();
 } else {
-  s.body.addClass('mobile');
-  s.screenone.remove();
-  s.screentwo.remove();
-  s.screenthree.remove();
-  s.screenfour.remove();
-  s.screenfive.remove();
-  s.pics.remove();
-  s.pagination.parent().remove();
-  s.footer.remove();
+  s.$body.addClass('mobile');
+  scrOne.remove();
+  scrTwo.remove();
+  scrThree.remove();
+  scrFour.remove();
+  scrFive.remove();
+  s.$pics.remove();
+  s.$pagination.parent().remove();
+  s.$footer.remove();
   var $truct = $('#truck');
   // move truct
   setInterval(function(){

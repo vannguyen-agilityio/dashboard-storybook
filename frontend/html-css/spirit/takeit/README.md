@@ -2,10 +2,20 @@
 
 ## Installation
 
+### Use vagrant
+
 1. Install `Virtualbox` and `Vagrant`
 2. `vagrant up` & `vagrant ssh`
 3. `cd /src/takeit`
 4. `npm install`
+5. Grunt dev build: `grunt serve`
+
+### Not use vagrant
+1. `cd /vagrant_start`
+2. `sh boottrap.sh`
+3. `cd /takeit`
+4. `npm install`
+5. `bower install`
 5. Grunt dev build: `grunt serve`
 
 ## Code Structure
