@@ -1,0 +1,14 @@
+{
+  "name": "foodsense",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "modernizr": "~2.8.1",
+    "picturefill": "~2.3.1",
+    "jquery_lazyload": "jquery.lazyload#~1.9.7"
+  },
+  "devDependencies": {
+    "chai": "~3.3.0",
+    "mocha": "~2.3.3"
+  }
+}
