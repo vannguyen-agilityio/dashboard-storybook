@@ -1,0 +1,48 @@
+html,
+body {
+  min-height: 100%;
+  margin: 0 auto;
+  line-height: 1;
+  color: $base-color;
+  background-color: $white;
+  font-family: $font-family;
+  @include size(100% 100%);
+  font-size: 18px;
+  @include media($mobile) {
+    font-size: 10px;
+  }
+}
+
+body {
+  @include media($mobile) {
+    width: 320px;
+    padding: 0;
+  }
+}
+
+.wrapper {
+  position: relative;
+  margin: 0 auto;
+  @include size(100% 100%);
+  @include clearfix;
+  @include outer-container(62%);
+  @include media($mobile) {
+    @include outer-container(100%);
+  }
+}
+
+.text-indent {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ol,
+ul {
+  list-style: none;
+}
