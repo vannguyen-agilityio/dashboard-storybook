@@ -1,17 +1,60 @@
 //valiable
-$border-color: #e5e5e5;
+$border-color: #E5E5E5;
 
 header {
   float: left;
-  width: 160px;
+  width: 132px;
   margin-bottom: 25px;
   @include media($mobile) {
     margin: 69px 0 20px;
     width: 100%;
   }
+  @include media($tablet) {
+    padding: 20px 28px 0;
+  }
   nav {
     width: 160px;
     @include position(absolute, 158px null null 0);
+    li {
+      background-image: none;
+      display: inline;
+      margin: 0;
+      position: relative;
+      @include media($tablet) {
+        display: inline-block;
+      }
+      @include media($desktop) {
+        height: 37px;
+        padding-left: 32px;
+        display: block;
+      }
+    }
+    a {
+      float: left;
+      margin: 0;
+      font-size: 1.3em;
+      padding: 10px 8px;
+      @include media($desktop) {
+        font-size: 1em;
+      }
+    }
+    a:hover {
+      background-position: 5px 65%;
+      color: $nav-hover-color;
+    }
+    i {
+      background-image: url(../images/icons/nav.png);
+      background-repeat: no-repeat;
+      @include size(32px 35px);
+      @include position(absolute, 0 null null 0);
+      @include media($mobile) {
+        display: none;
+      }
+      @include media($tablet) {
+        @include absolute-center();
+        top: -18px;
+      }
+    }
     @include media($mobile) {
       top: 0;
       left: 0;
@@ -21,19 +64,16 @@ header {
       border-bottom: 1px solid $border-color;
       box-shadow: 0 1px 0 $border-color;
     }
-    li {
-      background-image: none;
-      display: inline;
+    @include media($tablet) {
+      position: absolute;
+      top: 70px;
+      left: auto;
+      right: 22px;
+      width: 528px;
       margin: 0;
-    }
-    a:hover {
-      background-position: 5px 65%;
-      color: $nav-hover-color;
-    }
-    a,
-    a:link,
-    a:visited {
-      text-decoration: none;
+      ul {
+        float: right;
+      }
     }
   }
 }
@@ -45,5 +85,34 @@ header {
   @include transition(all .3s ease);
   @include media($mobile) {
     margin: 0 auto;
+  }
+  @include media($tablet) {
+    margin: 0;
+  }
+}
+
+.tastemakers {
+  i {
+    background-position: 0 0;
+  }
+}
+.blog {
+  i {
+    background-position: -36px 0;
+  }
+}
+.vendors {
+  i {
+    background-position: -69px 0;
+  }
+}
+.contribute {
+  i {
+    background-position: -106px 0;
+  }
+}
+.about {
+  i {
+    background-position: -142px 0;
   }
 }

@@ -7,9 +7,12 @@ body {
   background-color: $white;
   font-family: $font-family;
   @include size(100% 100%);
-  font-size: 18px;
-  @include media($mobile) {
-    font-size: 10px;
+  font-size: 12px;
+  @include media($tablet) {
+    font-size: 15px;
+  }
+  @include media($desktop) {
+    font-size: 16px;
   }
 }
 
@@ -25,8 +28,8 @@ body {
   margin: 0 auto;
   @include size(100% 100%);
   @include clearfix;
-  @include outer-container(62%);
-  @include media($mobile) {
+  @include outer-container(1080px);
+  @include media($mobile-tablet) {
     @include outer-container(100%);
   }
 }
@@ -42,7 +45,16 @@ img {
   height: auto;
 }
 
+a,
+a:link,
+a:visited {
+  color: $nav-color;
+  text-decoration: none;
+}
+
 ol,
 ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }

@@ -1,0 +1,42 @@
+//creat mixin
+@mixin transform($method) {
+      -ms-transform:  $method; /* IE 9 */
+     -moz-transform:  $method; /* Firefox */
+  -webkit-transform:  $method; /* Chrome, Safari */
+          transform:  $method;
+}
+
+// box-shadow
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: inset $top $left $blur $color;
+       -moz-box-shadow: inset $top $left $blur $color;
+            box-shadow: inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+       -moz-box-shadow: $top $left $blur $color;
+            box-shadow: $top $left $blur $color;
+  }
+}
+
+
+// centered align
+@mixin absolute-center($top: 50%) {
+  position: absolute;
+  top: $top;
+  left: 50%;
+  @include transform(translate(-50%, -$top));
+}
+
+// vertical align: middle
+@mixin vertical-center($position: absolute) {
+  position: $position;
+  top: 50%;
+  @include transform(translateY(-50%));
+}
+
+// display: table-cell
+@mixin display-cell($vertical: middle) {
+  display: table-cell;
+  vertical-align: $vertical;
+}

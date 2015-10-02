@@ -1,8 +1,9 @@
 .content {
   float: right;
-  width: 88.7%;
-  @include media($mobile) {
-    width: 100%;
+  width: 100%;
+  @include media($desktop) {
+    padding-top: 20px;
+    width: 890px;
   }
   a {
     transition: all .2s ease;
@@ -14,10 +15,10 @@
     top: 285px;
     padding: 10px 24px 15px;
     color: #222;
-    background: #FFF;
+    background: $white;
     font-size: 1.5em;
     @include media($mobile) {
-      top: 240px;
+      top: 210px;
       padding: 10px 10px;
       background: rgba(255,255,255,.8);
       color: #222;
@@ -34,7 +35,8 @@
     margin-bottom: 20px;
     line-height: 1.4em;
     @include media($mobile) {
-      top: 280px;
+      top: 240px;
+      padding: 8px 9px 10px;
     }
   }
   h1,
@@ -48,12 +50,17 @@
       right: auto;
       width: 100%;
       line-height: 1.2em;
+      font-size: .75em;
     }
   }
   img {
+    position: absolute;
     @include media($mobile) {
-    left: -80px;
-    max-width: 500px;
+      max-width: 500px;
+    }
+    @include media($tablet) {
+      left: 0;
+      max-width: 890px;
     }
   }
   .alt {
@@ -82,7 +89,8 @@
     border-radius: 3px;
     @include media($mobile) {
       right: 0;
-      top: 340px;
+      top: 277px;
+      background-color: $white;
     }
     a {
       border-bottom: none;
@@ -96,9 +104,9 @@
     left: 0px;
     z-index: 4;
     opacity: 0;
-    width: 896px;
+    width: 100%;
     @include media($mobile) {
-      width: 100%;
+      width: 896px;
     }
     @include transition(opacity 1s linear);
     &.active {
@@ -110,23 +118,26 @@
 .featured {
   position: relative;
   width: 100%;
-  min-height: 560px;
-  @include media($mobile) {
-    min-height: 370px;
+  min-height: 308px;
+  @include media($tablet) {
+    min-height: 515px;
+  }
+  @include media($desktop) {
+    min-height: 543px;
   }
   @include  clearfix;
   .nav {
     position: absolute;
-    top: 445px;
-    @include media($mobile) {
-      display: none;
-    }
-    width: 812px;
+    top: 442px;
+    width: 100%;
     background: #EFF8F7;
     overflow: hidden;
     @include border-bottom-radius(3px);
     li {
       float: left;
+      @include media($tablet-destop) {
+        width: 25%;
+      }
     }
     a {
       display: block;
@@ -151,6 +162,27 @@
       display: inline;
       font-size: 1em;
     }
+    @include media($mobile) {
+      display: none;
+    }
+    @include media($tablet) {
+      left: 0;
+      background-color: $white;
+      p {
+        display: none;
+      }
+      a {
+        @include size(100% 100%);
+        font-size: 0.7em;
+        border-right: 1px solid #ddd;
+      }
+    }
+    @include media($desktop) {
+      a {
+        font-size: 0.7em;
+        @include size(1005x 70px);
+      }
+    }
   }
 }
 
@@ -164,9 +196,9 @@
   line-height: 1em;
   border-top: 1px dashed #E5E5E5;
   border-bottom: 1px dashed #E5E5E5;
-  background: url(../images/icons/mail-box.png) no-repeat 0px 22px;
+  background: url(../images/icons/mail-box.png) no-repeat 22px 22px;
   @include media($mobile) {
-    background-position: 0px 10px;
+    background-position: 10px 15px;
   }
   p {
     float: left;
@@ -176,6 +208,7 @@
     font-style: italic;
     @include media($mobile) {
       width: 100%;
+      padding: 0 24px 0 55px;
     }
   }
 }
@@ -188,6 +221,9 @@
   @include media($mobile) {
     margin: 0 auto;
   }
+  @include media($tablet) {
+    padding: 20px 28px 0;
+  }
   article {
     float: left;
     width: 160px;
@@ -197,9 +233,23 @@
       float: none;
       margin: 0 auto;
     }
+    @include media($tablet) {
+      width: 160px;
+      &:nth-child(4) {
+        margin-right: 0;
+      }
+    }
+     @include media($desktop) {
+      width: 204px;
+      &:nth-child(4) {
+        margin-right: 0;
+      }
+    }
     h1 {
       margin: 10px 0 10px;
       line-height: 1.3em;
+      font-size: 100%;
+      font-weight: normal;
     }
     p {
       font-size: .875em;
@@ -246,9 +296,7 @@ footer {
         white-space: nowrap;
         overflow: hidden;
         opacity: .4;
-        -webkit-transition: opacity .3s ease;
-        -moz-transition: opacity .3s ease;
-        transition: opacity .3s ease;
+        @include transition(opacity .3s ease);
       }
     }
   }
