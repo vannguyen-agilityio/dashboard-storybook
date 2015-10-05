@@ -13,7 +13,7 @@
 
 ### Not use vagrant
 1. `cd /vagrant_start`
-2. `sh boottrap.sh`
+2. `sh gulpconfig.sh`
 3. `cd /foodsense`
 4. `npm install`
 5. `bower install`
