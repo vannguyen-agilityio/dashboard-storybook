@@ -7,7 +7,7 @@ export default {
 };
 
 const filterRows = [
-  { 
+  {
     id: 1,
     values: {
       plan: "Enterprise",

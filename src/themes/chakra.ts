@@ -1,12 +1,12 @@
 import { extendTheme } from '@chakra-ui/react';
 
-//Common
+// Common
 import { fontSizes } from './commons/fontSizes';
 import { fonts } from './commons/fonts';
 import { colors } from './commons/colors';
 import { lineHeights } from './commons/lineHeights';
 
-//cComponents
+// Components
 import { Text } from './components/text';
 
 const overrides = {

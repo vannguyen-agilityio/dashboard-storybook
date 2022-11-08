@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react'
 
 // Components
-import { Text }  from 'src/components/Text'
+import { Text } from 'src/components/Text'
 
 // Constants
 import { PATTERN } from 'src/constants/pattern'
@@ -34,15 +34,15 @@ const LoginForm = () => {
   }
 
   return (
-    <Box boxShadow='base' p='6' rounded='md' bg='white' w='50%' mt={20} mx='auto'>
+    <Box boxShadow="base" p="6" rounded="md" bg="white" w="50%" mt={20} mx="auto">
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormControl isInvalid={!!errors.email}>
-          <Text value="Login Account" size="large" variant="normal" textAlign='center' />
+          <Text value="Login Account" size="large" variant="normal" textAlign="center" />
           <Box>
-            <FormLabel htmlFor='email'>Email</FormLabel>
+            <FormLabel htmlFor="email">Email</FormLabel>
             <Input
-              id='email'
-              placeholder='Email'
+              id="email"
+              placeholder="Email"
               {...register('email', {
                 required: { value: true, message: 'Email is required.' },
                 pattern: {
@@ -56,10 +56,10 @@ const LoginForm = () => {
         </FormControl>
         <FormControl isInvalid={!!errors.password}>
           <Box>
-            <FormLabel htmlFor='password'>Password</FormLabel>
+            <FormLabel htmlFor="password">Password</FormLabel>
             <Input
-              id='password'
-              type='password'
+              id="password"
+              type="password"
               {...register('password', {
                 required: { value: true, message: 'Please enter your password.' },
                 min: {
@@ -71,13 +71,13 @@ const LoginForm = () => {
                   message: 'The password must contain at least one non-letter.'
                 }
               })}
-              placeholder='Password'
+              placeholder="Password"
             />
             <FormErrorMessage>{errors.password && errors.password.message}</FormErrorMessage>
           </Box>
 
-          <Box display='flex' justifyContent='center'>
-            <Button mt={6} mb={4} colorScheme='teal' type='submit' isLoading={isSubmitting}>
+          <Box display="flex" justifyContent="center">
+            <Button mt={6} mb={4} colorScheme="teal" type="submit" isLoading={isSubmitting}>
               Submit
             </Button>
           </Box>

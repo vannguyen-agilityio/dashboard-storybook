@@ -48,18 +48,18 @@ export const colors = {
   },
 
   buttons: {
-    export: "rgba(138, 141, 147, 0.5)"
+    export: 'rgba(138, 141, 147, 0.5)'
   },
 
   colorStatus: {
-    active: "rgb(86, 202, 0)",
-    pending: "rgb(255, 180, 0)",
-    inactive: "rgb(138, 141, 147)"
+    active: 'rgb(86, 202, 0)',
+    pending: 'rgb(255, 180, 0)',
+    inactive: 'rgb(138, 141, 147)'
   },
 
   bgStatus: {
-    active: "rgba(86, 202, 0, 0.12)",
-    pending: "rgba(255, 180, 0, 0.12)",
-    inactive: "rgba(138, 141, 147, 0.12)"
+    active: 'rgba(86, 202, 0, 0.12)',
+    pending: 'rgba(255, 180, 0, 0.12)',
+    inactive: 'rgba(138, 141, 147, 0.12)'
   }
 };

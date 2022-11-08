@@ -1,7 +1,6 @@
-import { Filter } from "src/components/Filter";
+import { Filter } from 'src/components/Filter';
 
-export const columnsUsers =
-[
+export const columnsUsers = [
   {
     Header: 'Info',
     columns: [
@@ -17,19 +16,19 @@ export const columnsUsers =
         header: 'Role',
         accessor: 'role',
         Filter: Filter,
-        filter: "includes"
+        filter: 'includes'
       },
       {
         header: 'Plan',
         accessor: 'plan',
         Filter: Filter,
-        filter: "includes"
+        filter: 'includes'
       },
       {
         header: 'Status',
-        accessor: "status",
+        accessor: 'status',
         Filter: Filter,
-        filter: "includes"
+        filter: 'includes'
       },
       {
         header: 'Actions',

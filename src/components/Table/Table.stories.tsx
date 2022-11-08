@@ -9,8 +9,7 @@ export default {
   component: Table
 };
 
-const columnsUsers =
-[
+const columnsUsers = [
   {
     Header: 'Info',
     columns: [
@@ -34,7 +33,7 @@ const columnsUsers =
       },
       {
         header: 'Status',
-        accessor: "status",
+        accessor: 'status',
         Filter: Filter
       },
       {

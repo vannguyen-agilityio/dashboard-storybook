@@ -1,4 +1,5 @@
 export namespace USER {
+
   export enum ROLES {
     EDITOR = 'Editor',
     AUTHOR = 'Author',
@@ -10,11 +11,11 @@ export namespace USER {
     TEAM = 'Team',
     ENTERPRISE = 'Enterprise',
     COMPANY = 'Company'
-  };
+  }
 
   export enum STATUS {
     PENDING = 'Pending',
     ACTIVE = 'Active',
     INACTIVE = 'Inactive'
-  };
+  }
 }

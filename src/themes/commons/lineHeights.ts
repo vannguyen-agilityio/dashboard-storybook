@@ -7,4 +7,3 @@ export const lineHeights = {
   default: '14px',
   extraSmall: '6px'
 };
-  

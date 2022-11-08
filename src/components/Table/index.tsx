@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
-import { useSortBy, useTable, useFilters, useGlobalFilter, usePagination } from "react-table";
-import { Search, DefaultSearchForColumn } from "../Search";
+import {
+  useSortBy,
+  useTable,
+  useFilters,
+  useGlobalFilter,
+  usePagination
+} from 'react-table';
 
 // Charka
 import {
@@ -24,7 +29,8 @@ import {
   Text,
   Tooltip,
   Select
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
+
 import {
   ArrowUpIcon,
   ArrowDownIcon,
@@ -36,15 +42,25 @@ import {
   ExternalLinkIcon,
   ChevronRightIcon,
   ChevronLeftIcon
-} from "@chakra-ui/icons";
+} from '@chakra-ui/icons';
+
+import { Search, DefaultSearchForColumn } from '../Search';
+
+interface filterRows {
+  id: string,
+  values: {
+    plan: string,
+    role: string,
+    status: string
+  }
+}[]
 
 interface ColumnType {
-  header: string;
-  isVisible: boolean;
-  hideHeader: boolean;
+  Header: string;
   columns: {
     header: string;
     accessor: string;
+    Filter?: any;
   }[]
 }[]
 
@@ -59,7 +75,6 @@ interface TableType {
 }
 
 const BasicTable: React.FC<TableType> = ({ data, columns, variant }) => {
-  
   const {
     getTableProps,
     getTableBodyProps,
@@ -97,20 +112,18 @@ const BasicTable: React.FC<TableType> = ({ data, columns, variant }) => {
 
   return (
     <TableContainer>
-      <Flex w="100%" px={6} alignItems="center" justifyContent="space-between" flexDirection={{sm:'column', md: 'row'}} my={4}>
-      {headerGroups[1].headers.map((column) => {
-        return (
-          (column.id !== "userName" && column.id !== "email" && column.id !== "actions") &&
+      <Flex w="100%" px={6} alignItems="center" justifyContent="space-between" flexDirection={{ sm: 'column', md: 'row' }} my={4}>
+      {headerGroups[1].headers.map((column) =>
+        (column.id !== 'userName' && column.id !== 'email' && column.id !== 'actions') &&
           <Box 
-            width={{sm:'100%', md: '33%'}}
-            mr={{sm: '0', md: `${column.id !== "status" ? "24px" : "0"}`}}
+            width={{sm: '100%', md: '33%'}}
+            mr={{sm: '0', md: `${column.id !== 'status' ? "24px" : "0"}`}}
             mt={{sm: '20px', md: '0'}}
             key={column.id}
           >
             {column.canFilter ? column.render("Filter") : null}
           </Box>
         )})
-        }
       </Flex>
       <Box>
         {/* rendering global filter */}
