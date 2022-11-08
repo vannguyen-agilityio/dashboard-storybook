@@ -1,5 +1,5 @@
-import React from 'react'
-import { useForm } from 'react-hook-form'
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import {
   FormErrorMessage,
   FormLabel,
@@ -7,17 +7,17 @@ import {
   Input,
   Button,
   FormControl
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
 
 // Components
-import { Text } from 'src/components/Text'
+import { Text } from 'src/components/Text';
 
 // Constants
-import { PATTERN } from 'src/constants/pattern'
+import { PATTERN } from 'src/constants/pattern';
 
 interface IFormInputs {
-  email: string
-  password: string
+  email: string;
+  password: string;
 }
 
 const LoginForm = () => {
@@ -27,17 +27,30 @@ const LoginForm = () => {
     formState: { errors, isSubmitting }
   } = useForm<IFormInputs>({
     mode: 'onChange'
-  })
+  });
 
   const onSubmit = (data: IFormInputs) => {
-    console.log(data)
-  }
+    console.log(data);
+  };
 
   return (
-    <Box boxShadow="base" p="6" rounded="md" bg="white" w="50%" mt={20} mx="auto">
+    <Box
+      boxShadow="base"
+      p="6"
+      rounded="md"
+      bg="white"
+      w="50%"
+      mt={20}
+      mx="auto"
+    >
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormControl isInvalid={!!errors.email}>
-          <Text value="Login Account" size="large" variant="normal" textAlign="center" />
+          <Text
+            value="Login Account"
+            size="large"
+            variant="normal"
+            textAlign="center"
+          />
           <Box>
             <FormLabel htmlFor="email">Email</FormLabel>
             <Input
@@ -51,7 +64,9 @@ const LoginForm = () => {
                 }
               })}
             />
-            <FormErrorMessage>{errors.email && errors.email.message}</FormErrorMessage>
+            <FormErrorMessage>
+              {errors.email && errors.email.message}
+            </FormErrorMessage>
           </Box>
         </FormControl>
         <FormControl isInvalid={!!errors.password}>
@@ -61,7 +76,10 @@ const LoginForm = () => {
               id="password"
               type="password"
               {...register('password', {
-                required: { value: true, message: 'Please enter your password.' },
+                required: {
+                  value: true,
+                  message: 'Please enter your password.'
+                },
                 min: {
                   value: 6,
                   message: 'The password must be at least six characters long.'
@@ -73,18 +91,26 @@ const LoginForm = () => {
               })}
               placeholder="Password"
             />
-            <FormErrorMessage>{errors.password && errors.password.message}</FormErrorMessage>
+            <FormErrorMessage>
+              {errors.password && errors.password.message}
+            </FormErrorMessage>
           </Box>
 
           <Box display="flex" justifyContent="center">
-            <Button mt={6} mb={4} colorScheme="teal" type="submit" isLoading={isSubmitting}>
+            <Button
+              mt={6}
+              mb={4}
+              colorScheme="teal"
+              type="submit"
+              isLoading={isSubmitting}
+            >
               Submit
             </Button>
           </Box>
         </FormControl>
       </form>
     </Box>
-  )
-}
+  );
+};
 
-export default LoginForm
+export default LoginForm;

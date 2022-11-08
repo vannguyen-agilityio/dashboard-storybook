@@ -10,40 +10,38 @@ const filterRows = [
   {
     id: 1,
     values: {
-      plan: "Enterprise",
-      role: "Editor",
-      status: "Active"
+      plan: 'Enterprise',
+      role: 'Editor',
+      status: 'Active'
     }
   },
-  { 
+  {
     id: 2,
     values: {
-      plan: "Enterprise",
-      role: "Editor",
-      status: "Active"
+      plan: 'Enterprise',
+      role: 'Editor',
+      status: 'Active'
     }
   },
-  { 
+  {
     id: 3,
     values: {
-      plan: "Enterprise",
-      role: "Editor",
-      status: "Active"
+      plan: 'Enterprise',
+      role: 'Editor',
+      status: 'Active'
     }
   }
-]
+];
 
 const columnsFilter = {
-  filterValue: "Editor",
-  setFilter: function (val) {
-    return val;
-  },
+  filterValue: 'Editor',
+  setFilter: (val) => val,
   preFilteredRows: filterRows,
-  header: "Role",
-  id: "role"
-}
+  header: 'Role',
+  id: 'role'
+};
 
-const Template: Storybook.ComponentStory<typeof Filter> = args => (
+const Template: Storybook.ComponentStory<typeof Filter> = (args) => (
   <Filter column={columnsFilter} {...args} />
 );
 

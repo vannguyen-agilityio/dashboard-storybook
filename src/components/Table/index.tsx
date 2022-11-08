@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-curly-newline, react/jsx-one-expression-per-line, operator-linebreak */
 import React, { useState } from 'react';
 import {
   useSortBy,
@@ -46,23 +47,28 @@ import {
 
 import { Search, DefaultSearchForColumn } from '../Search';
 
+// Utils
+import { getBadgeVariant } from '../../utils/table';
+
+import { StatusLabel } from '../StatusLabel';
+
 interface ColumnType {
   Header: string;
   columns: {
     header: string;
     accessor: string;
-    Filter?: any;
-  }[]
-}[]
+  }[];
+}
+[];
 
 interface TableData {
-  [key: string]: string | React.ReactNode
+  [key: string]: string | React.ReactNode;
 }
 
 interface TableType {
-  columns: Array<ColumnType>
-  data: Array<TableData>
-  variant?: string
+  columns: Array<ColumnType>;
+  data: Array<TableData>;
+  variant?: string;
 }
 
 const BasicTable: React.FC<TableType> = ({ data, columns, variant }) => {
@@ -103,23 +109,39 @@ const BasicTable: React.FC<TableType> = ({ data, columns, variant }) => {
 
   return (
     <TableContainer>
-      <Flex w="100%" px={6} alignItems="center" justifyContent="space-between" flexDirection={{ sm: 'column', md: 'row' }} my={4}>
-      {headerGroups[1].headers.map((column) =>
-        (column.id !== 'userName' && column.id !== 'email' && column.id !== 'actions')
-        && (
-            <Box 
-              width={{ sm: '100%', md: '33%' }}
-              mr={{ sm: '0', md: `${column.id !== 'status' ? '24px' : '0'}` }}
-              mt={{ sm: '20px', md: '0' }}
-              key={column.id}
-            >
-              {column.canFilter ? column.render('Filter') : null}
-            </Box>
-        ))}
+      <Flex
+        w="100%"
+        px={6}
+        alignItems="center"
+        justifyContent="space-between"
+        flexDirection={{ sm: 'column', md: 'row' }}
+        my={4}
+      >
+        {headerGroups[1].headers.map(
+          (column) =>
+            column.id !== 'userName' &&
+            column.id !== 'email' &&
+            column.id !== 'actions' && (
+              <Box
+                width={{ sm: '100%', md: '33%' }}
+                mr={{ sm: '0', md: `${column.id !== 'status' ? '24px' : '0'}` }}
+                mt={{ sm: '20px', md: '0' }}
+                key={column.id}
+              >
+                {column.canFilter ? column.render('Filter') : null}
+              </Box>
+            )
+        )}
       </Flex>
       <Box>
         {/* rendering global filter */}
-        <Flex w="100%" px={6} alignItems="center" justifyContent="space-between" my={4}>
+        <Flex
+          w="100%"
+          px={6}
+          alignItems="center"
+          justifyContent="space-between"
+          my={4}
+        >
           <Button
             h="30px"
             bg="transparent"
@@ -143,7 +165,6 @@ const BasicTable: React.FC<TableType> = ({ data, columns, variant }) => {
         </Flex>
       </Box>
       <Table {...getTableProps()} variant={variant || 'simple'} size="sm">
-      
         <Thead bg="default.bgHeadTable">
           <Tr h="62px">
             <Th px={['4', '4', '6']} color="gray.300" w="8">
@@ -151,97 +172,129 @@ const BasicTable: React.FC<TableType> = ({ data, columns, variant }) => {
                 colorScheme="orange"
                 isChecked={allChecked}
                 isIndeterminate={isIndeterminate}
-                onChange={(e) => setCheckedItems([e.target.checked, e.target.checked])} />
+                onChange={(e) =>
+                  setCheckedItems([e.target.checked, e.target.checked])
+                }
+              />
             </Th>
-            {headerGroups[1].headers.map((column) => 
-              (
-                <Th
-                  userSelect="none"
-                  {...column.getHeaderProps(column.getSortByToggleProps())}
-                >
-                  <Flex align="center" className="table-users" minW="120px">
-                    <Divider orientation="vertical" borderWidth={1} h={6} mr={4} />
-                    {column.render('header')}
-                    {!column.isSorted
-                      && (
-                          <Button bg="default.bgIconSort" borderRadius="50%" p="0" ml={1} h="30px" w="30px" minW="30px" className="table-users-icon-sort" display="none">
-                            <ArrowDownIcon w={4} h={4} />
-                          </Button>
-                    )}
-                    {/* Add a sort direction indicator */}
-                    {column.isSorted
-                      && (
-                          column.isSortedDesc ? (
-                            <Button bg="default.bgIconSort" borderRadius="50%" p="0" ml={1} h="30px" w="30px" minW="30px" display="flex">
-                              <ArrowDownIcon w={4} h={4} />
-                            </Button>
-                          ) : (
-                              <Button bg="default.bgIconSort" borderRadius="50%" p="0" ml={1} h="30px" w="30px" minW="30px" display="flex">
-                                <ArrowUpIcon w={4} h={4} />
-                              </Button>
-                            )
-                      )}
-                  </Flex>
-                </Th>
+            {headerGroups[1].headers.map((column) => (
+              <Th
+                userSelect="none"
+                {...column.getHeaderProps(column.getSortByToggleProps())}
+              >
+                <Flex align="center" className="table-users" minW="120px">
+                  <Divider
+                    orientation="vertical"
+                    borderWidth={1}
+                    h={6}
+                    mr={4}
+                  />
+                  {column.render('header')}
+                  {!column.isSorted && (
+                    <Button
+                      bg="default.bgIconSort"
+                      borderRadius="50%"
+                      p="0"
+                      ml={1}
+                      h="30px"
+                      w="30px"
+                      minW="30px"
+                      className="table-users-icon-sort"
+                      display="none"
+                    >
+                      <ArrowDownIcon w={4} h={4} />
+                    </Button>
+                  )}
+                  {/* Add a sort direction indicator */}
+                  {column.isSorted &&
+                    (column.isSortedDesc ? (
+                      <Button
+                        bg="default.bgIconSort"
+                        borderRadius="50%"
+                        p="0"
+                        ml={1}
+                        h="30px"
+                        w="30px"
+                        minW="30px"
+                        display="flex"
+                      >
+                        <ArrowDownIcon w={4} h={4} />
+                      </Button>
+                    ) : (
+                      <Button
+                        bg="default.bgIconSort"
+                        borderRadius="50%"
+                        p="0"
+                        ml={1}
+                        h="30px"
+                        w="30px"
+                        minW="30px"
+                        display="flex"
+                      >
+                        <ArrowUpIcon w={4} h={4} />
+                      </Button>
+                    ))}
+                </Flex>
+              </Th>
             ))}
           </Tr>
         </Thead>
         <Tbody {...getTableBodyProps()}>
-          {page.map((row, i) => {
+          {page.map((row) => {
             prepareRow(row);
             return (
               <Tr {...row.getRowProps()}>
-                 <Td px={['4', '4', '6']} color="gray.300" w="8">
-                    <Checkbox
-                      colorScheme="gray"
-                      isChecked={allChecked}
-                      isIndeterminate={isIndeterminate}
-                      onChange={(e) => setCheckedItems([e.target.checked, e.target.checked])} />
-                  </Td>
+                <Td px={['4', '4', '6']} color="gray.300" w="8">
+                  <Checkbox
+                    colorScheme="gray"
+                    isChecked={allChecked}
+                    isIndeterminate={isIndeterminate}
+                    onChange={(e) =>
+                      setCheckedItems([e.target.checked, e.target.checked])
+                    }
+                  />
+                </Td>
                 {row.cells.map((cell) => {
                   const status = cell.row.values.status.toLowerCase();
                   const role = cell.row.values.role.toLowerCase();
                   return (
-                    <Td 
+                    <Td
                       {...cell.getCellProps()}
                       maxW="250px"
                       pl={9}
                       color={`${
-                        cell.column.id === 'email' ? 'default.red.500' : 'inherit'
+                        cell.column.id === 'email'
+                          ? 'default.red.500'
+                          : 'inherit'
                       }`}
-                      className={`table-users-${cell.column.id} ${cell.column.id === 'email' ? 'text-overflow' : ''}`}
+                      className={`table-users-${cell.column.id} ${
+                        cell.column.id === 'email' ? 'text-overflow' : ''
+                      }`}
                     >
-                      {cell.column.id === 'role'
-                        && role === 'editor'
-                        && <EditIcon w={4} h={4} mr={3} color="blue.500" />}
-                      {cell.column.id === 'role' && role === 'author' &&
-                         <SettingsIcon w={4} h={4} mr={3} color="yellow.500" />}
-                      {cell.column.id === 'role' && role === "maintaine" &&
-                        <RepeatIcon w={4} h={4} mr={3} color="default.green.100" />}
-                      {cell.column.id !== 'status' ? cell.render('Cell')
-                      :
-                        <Box
-                          rounded='xl'
-                          maxW="65px"
-                          textAlign="center"
-                          py={1.5}
-                          ml={3}
-                          color={`${
-                            status === "active" ? "colorStatus.active" :
-                            status === "pending" ? "colorStatus.pending" :
-                            "colorStatus.inactive"
-                          }`}
-                          bg={`${
-                            status === "active" ? "bgStatus.active" :
-                            status === "pending" ? "bgStatus.pending" :
-                            "bgStatus.inactive"
-                          }`}
-                        >
-                          {cell.render("Cell")}
-                        </Box>
-                      }
-                      {cell.column.id === "actions" && 
-                        <Menu closeOnSelect={true}>
+                      {cell.column.id === 'role' && role === 'editor' && (
+                        <EditIcon w={4} h={4} mr={3} color="blue.500" />
+                      )}
+                      {cell.column.id === 'role' && role === 'author' && (
+                        <SettingsIcon w={4} h={4} mr={3} color="yellow.500" />
+                      )}
+                      {cell.column.id === 'role' && role === 'maintaine' && (
+                        <RepeatIcon
+                          w={4}
+                          h={4}
+                          mr={3}
+                          color="default.green.100"
+                        />
+                      )}
+                      {cell.column.id !== 'status' ? (
+                        cell.render('Cell')
+                      ) : (
+                        <StatusLabel
+                          variant={getBadgeVariant(status)}
+                          value={cell.render('Cell')}
+                        />
+                      )}
+                      {cell.column.id === 'actions' && (
+                        <Menu closeOnSelect>
                           <MenuButton
                             className={cell.column.id}
                             w={6}
@@ -252,22 +305,26 @@ const BasicTable: React.FC<TableType> = ({ data, columns, variant }) => {
                           >
                             ...
                           </MenuButton>
-                          <MenuList minWidth="128px" color="gray.600" fontSize="16px">
+                          <MenuList
+                            minWidth="128px"
+                            color="gray.600"
+                            fontSize="16px"
+                          >
                             <MenuItem value="view" py={3}>
-                              <ViewIcon w={4} h={4} mr={3}/>
+                              <ViewIcon w={4} h={4} mr={3} />
                               View
                             </MenuItem>
                             <MenuItem value="edit" py={3}>
-                              <EditIcon w={4} h={4} mr={3}/>
+                              <EditIcon w={4} h={4} mr={3} />
                               Edit
                             </MenuItem>
                             <MenuItem value="delete" py={3}>
-                              <DeleteIcon w={4} h={4} mr={3}/>
+                              <DeleteIcon w={4} h={4} mr={3} />
                               Delete
                             </MenuItem>
                           </MenuList>
                         </Menu>
-                      }
+                      )}
                     </Td>
                   );
                 })}
@@ -277,9 +334,17 @@ const BasicTable: React.FC<TableType> = ({ data, columns, variant }) => {
         </Tbody>
       </Table>
       <Flex justifyContent="flex-end">
-        <Flex justifyContent="space-between" minW="375px" m={4} alignItems="center" color="default.grey.600">
+        <Flex
+          justifyContent="space-between"
+          minW="375px"
+          m={4}
+          alignItems="center"
+          color="default.grey.600"
+        >
           <Flex alignItems="center">
-            <Text flexShrink={0} mr={2} color="default.grey.600">Rows per page: </Text>
+            <Text flexShrink={0} mr={2} color="default.grey.600">
+              Rows per page:{' '}
+            </Text>
             <Select
               w={20}
               value={pageSize}
@@ -287,13 +352,17 @@ const BasicTable: React.FC<TableType> = ({ data, columns, variant }) => {
                 setPageSize(Number(e.target.value));
               }}
             >
-              {[10, 25, 50].map((pageSize) => (
-                <option key={pageSize} value={pageSize}>
-                  {pageSize}
+              {[10, 25, 50].map((pageSizeSelect) => (
+                <option key={pageSizeSelect} value={pageSizeSelect}>
+                  {pageSizeSelect}
                 </option>
               ))}
             </Select>
-            <Text flexShrink={0} ml={2} color="default.grey.600">1 - {pageSize} of {data.length} </Text>
+            <Text flexShrink={0} ml={2} color="default.grey.600">
+              1 -{pageSize}
+              of
+              {data.length}{' '}
+            </Text>
           </Flex>
           <Flex minW="85px" justifyContent="space-between">
             <Tooltip label="Previous Page">
@@ -316,7 +385,7 @@ const BasicTable: React.FC<TableType> = ({ data, columns, variant }) => {
         </Flex>
       </Flex>
     </TableContainer>
-  )
-}
+  );
+};
 
-export default BasicTable
+export default BasicTable;

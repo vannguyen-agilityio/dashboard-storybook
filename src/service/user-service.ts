@@ -1,8 +1,8 @@
-import ConfigHelper from 'src/helpers/config'
+import ConfigHelper from 'src/helpers/config';
 
 const getUsers = () => {
-  const api = ConfigHelper.API
-  return fetch(api + ConfigHelper.USERS).then((res) => res.json())
-}
+  const api = ConfigHelper.API;
+  return fetch(api + ConfigHelper.USERS).then((res) => res.json());
+};
 
-export { getUsers }
+export { getUsers };

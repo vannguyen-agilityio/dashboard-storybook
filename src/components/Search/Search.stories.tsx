@@ -6,7 +6,7 @@ export default {
   component: Search
 };
 
-const Template: Storybook.ComponentStory<typeof Search> = args => (
+const Template: Storybook.ComponentStory<typeof Search> = (args) => (
   <Search {...args} />
 );
 
@@ -16,4 +16,3 @@ SearchText.args = {
   placeholder: 'Search by name',
   size: 'md'
 };
-

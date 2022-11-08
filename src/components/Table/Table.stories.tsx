@@ -1,3 +1,4 @@
+/* eslint-disable object-shorthand, operator-linebreak */
 import Storybook from '@storybook/react';
 
 // Components
@@ -42,7 +43,7 @@ const columnsUsers = [
       }
     ]
   }
-]
+];
 
 const data = {
   users: [

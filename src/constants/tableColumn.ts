@@ -1,3 +1,4 @@
+/* eslint-disable object-shorthand */
 import { Filter } from 'src/components/Filter';
 
 export const columnsUsers = [
@@ -36,4 +37,4 @@ export const columnsUsers = [
       }
     ]
   }
-]
+];

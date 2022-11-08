@@ -1,5 +1,4 @@
 export namespace USER {
-
   export enum ROLES {
     EDITOR = 'Editor',
     AUTHOR = 'Author',

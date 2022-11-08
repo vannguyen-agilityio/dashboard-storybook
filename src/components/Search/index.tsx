@@ -1,22 +1,44 @@
-import { useState } from "react";
-import { useAsyncDebounce } from "react-table";
-import {
-  Input,
-  Box,
-} from '@chakra-ui/react';
+/* eslint-disable object-shorthand, operator-linebreak */
+import { useState } from 'react';
+import { useAsyncDebounce } from 'react-table';
+import { Input, Box } from '@chakra-ui/react';
+
+interface FilterProps {
+  column: {
+    searchValue: string;
+    setSearch: (value: string) => void;
+    preFilteredRows: [
+      {
+        id: number;
+        values: {
+          plan: string;
+          role: string;
+          status: string;
+        };
+      }
+    ];
+    header: string;
+    id: string;
+  };
+}
+
+interface SearchProps {
+  globalSearch: string;
+  setGlobalSearch?: (valueFilter: string) => void;
+}
 
 // Component for Global Search
-export const Search = ({ globalSearch, setGlobalSearch }) => {
+export const Search = ({ globalSearch, setGlobalSearch }: SearchProps) => {
   const [value, setValue] = useState(globalSearch);
 
-  const onChange = useAsyncDebounce((value) => {
-    setGlobalSearch(value || undefined);
+  const onChange = useAsyncDebounce((valueSearch) => {
+    setGlobalSearch(valueSearch || undefined);
   }, 100);
 
   return (
     <Box>
       <Input
-        value={value || ""}
+        value={value || ''}
         onChange={(e) => {
           setValue(e.target.value);
           onChange(e.target.value);
@@ -25,11 +47,11 @@ export const Search = ({ globalSearch, setGlobalSearch }) => {
         _placeholder={{ color: 'default.placeholder' }}
         h={12}
         size="md"
-        focusBorderColor='secondary.100'
+        focusBorderColor="secondary.100"
       />
     </Box>
   );
-}
+};
 
 // Component for Default Column Search
 export const DefaultSearchForColumn = ({
@@ -38,12 +60,13 @@ export const DefaultSearchForColumn = ({
     preFilteredRows: { length },
     setSearch,
     id
-  },
-}) => {
-  return (
-    (id !== "email" && id !== "userName" && id !== "actions")  &&
+  }
+}: FilterProps) =>
+  id !== 'email' &&
+  id !== 'userName' &&
+  id !== 'actions' && (
     <Input
-      value={searchValue || ""}
+      value={searchValue || ''}
       onChange={(e) => {
         // Set undefined to remove the search entirely
         setSearch(e.target.value || undefined);
@@ -52,4 +75,3 @@ export const DefaultSearchForColumn = ({
       mt={5}
     />
   );
-}

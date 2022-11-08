@@ -1,3 +1,3 @@
-const Styles = {}
+const Styles = {};
 
-export default Styles
+export default Styles;

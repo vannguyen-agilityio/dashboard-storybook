@@ -9,7 +9,7 @@ export default {
   }
 };
 
-const Template: Storybook.ComponentStory<typeof Pagination> = args => (
+const Template: Storybook.ComponentStory<typeof Pagination> = (args) => (
   <Pagination {...args} />
 );
 
